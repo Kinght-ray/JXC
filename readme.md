@@ -5,6 +5,8 @@
 2、spring data jpa
 3、bootstrap
 4、miniUI
+##数据库
+
 
 ~~~shell
 //添加以及提交文件到本地仓库
