@@ -14,12 +14,18 @@ import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 /**
  * 报溢单
  * @author ray
  *
  */
+@Getter
+@Setter
+@ToString
 @Entity
 @Table(name="t_overflowList")
 public class OverflowList {
@@ -56,8 +62,8 @@ public class OverflowList {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	
-	
+
+
 	public String getOverflowNumber() {
 		return overflowNumber;
 	}
@@ -66,7 +72,7 @@ public class OverflowList {
 		this.overflowNumber = overflowNumber;
 	}
 
-	
+
 
 	@JsonSerialize(using=CustomDateSerializer.class)
 	public Date getOverflowDate() {
@@ -77,7 +83,7 @@ public class OverflowList {
 		this.overflowDate = overflowDate;
 	}
 
-	
+
 
 	public User getUser() {
 		return user;
@@ -110,13 +116,13 @@ public class OverflowList {
 	public void seteOverflowDate(Date eOverflowDate) {
 		this.eOverflowDate = eOverflowDate;
 	}
-
-	@Override
-	public String toString() {
-		return "OverflowList [id=" + id + ", overflowNumber=" + overflowNumber + ", overflowDate=" + overflowDate
-				+ ", bOverflowDate=" + bOverflowDate + ", eOverflowDate=" + eOverflowDate + ", user=" + user
-				+ ", remarks=" + remarks + "]";
-	}
+//
+//	@Override
+//	public String toString() {
+//		return "OverflowList [id=" + id + ", overflowNumber=" + overflowNumber + ", overflowDate=" + overflowDate
+//				+ ", bOverflowDate=" + bOverflowDate + ", eOverflowDate=" + eOverflowDate + ", user=" + user
+//				+ ", remarks=" + remarks + "]";
+//	}
 
 	
 	

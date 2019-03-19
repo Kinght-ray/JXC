@@ -15,12 +15,18 @@ import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 /**
  * 进货单
  * @author ray
  *
  */
+@Getter
+@Setter
+@ToString
 @Entity
 @Table(name="t_purchaseList")
 public class PurchaseList {
@@ -68,8 +74,8 @@ public class PurchaseList {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	
-	
+
+
 	public String getPurchaseNumber() {
 		return purchaseNumber;
 	}
@@ -78,7 +84,7 @@ public class PurchaseList {
 		this.purchaseNumber = purchaseNumber;
 	}
 
-	
+
 
 	public Supplier getSupplier() {
 		return supplier;
@@ -121,7 +127,7 @@ public class PurchaseList {
 		this.state = state;
 	}
 
-	
+
 
 	public User getUser() {
 		return user;
@@ -154,8 +160,8 @@ public class PurchaseList {
 	public void setePurchaseDate(Date ePurchaseDate) {
 		this.ePurchaseDate = ePurchaseDate;
 	}
-	
-	
+
+
 	public List<PurchaseListGoods> getPurchaseListGoodsList() {
 		return purchaseListGoodsList;
 	}
@@ -164,13 +170,13 @@ public class PurchaseList {
 		this.purchaseListGoodsList = purchaseListGoodsList;
 	}
 
-	@Override
-	public String toString() {
-		return "PurchaseList [id=" + id + ", purchaseNumber=" + purchaseNumber + ", supplier=" + supplier
-				+ ", purchaseDate=" + purchaseDate + ", bPurchaseDate=" + bPurchaseDate + ", ePurchaseDate="
-				+ ePurchaseDate + ", amountPayable=" + amountPayable + ", amountPaid=" + amountPaid + ", state=" + state
-				+ ", user=" + user + ", remarks=" + remarks + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "PurchaseList [id=" + id + ", purchaseNumber=" + purchaseNumber + ", supplier=" + supplier
+//				+ ", purchaseDate=" + purchaseDate + ", bPurchaseDate=" + bPurchaseDate + ", ePurchaseDate="
+//				+ ePurchaseDate + ", amountPayable=" + amountPayable + ", amountPaid=" + amountPaid + ", state=" + state
+//				+ ", user=" + user + ", remarks=" + remarks + "]";
+//	}
 
 	
 	

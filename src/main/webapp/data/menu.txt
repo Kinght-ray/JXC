@@ -44,8 +44,8 @@
             { "id": "jsgl", iconCls: "fa fa-share-alt", text: "角色管理", url: "power/role.html" },
           { "id": "yhgl", iconCls: "fa fa-share-alt", text: "用户管理", url: "power/user.html" },
           { "id": "xtrz", iconCls: "fa fa-file-word-o", text: "系统日志", url: "power/log.html" },
-          { "id": "xgmm", iconCls: "fa fa-coffee", text: "修改密码", url: "/admin/user/modifyPassword"},
-          //{ "id": "aqtc", iconCls: "fa fa-eye", text: "安全退出", url:  "/admin/user/logout" },
+          { "id": "xgmm", iconCls: "fa fa-coffee",text: "修改密码", url: "/admin/user/modifyPassword"},
+          { "id": "aqtc", iconCls: "fa fa-eye", text: "安全退出", url:  "/admin/user/logout" },
     ]
 },
 ]

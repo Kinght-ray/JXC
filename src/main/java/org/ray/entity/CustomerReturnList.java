@@ -15,12 +15,16 @@ import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import lombok.*;
+import lombok.extern.log4j.Log4j;
 
 /**
  * 客户退货单
  * @author ray
  *
  */
+@Data
+@ToString
 @Entity
 @Table(name="t_customerReturnList")
 public class CustomerReturnList {
@@ -60,85 +64,85 @@ public class CustomerReturnList {
 	
 	@Transient
 	private List<CustomerReturnListGoods> customerReturnListGoodsList=null; // 客户退货单商品集合
-	
 
 
-	public Integer getId() {
-		return id;
-	}
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	
-	
-	public String getCustomerReturnNumber() {
-		return customerReturnNumber;
-	}
-
-	public void setCustomerReturnNumber(String customerReturnNumber) {
-		this.customerReturnNumber = customerReturnNumber;
-	}
-
-	
-	public Customer getCustomer() {
-		return customer;
-	}
-
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
-	}
-
-	@JsonSerialize(using=CustomDateSerializer.class)
-	public Date getCustomerReturnDate() {
-		return customerReturnDate;
-	}
-
-	public void setCustomerReturnDate(Date customerReturnDate) {
-		this.customerReturnDate = customerReturnDate;
-	}
-
-	public float getAmountPayable() {
-		return amountPayable;
-	}
-
-	public void setAmountPayable(float amountPayable) {
-		this.amountPayable = amountPayable;
-	}
-
-	public float getAmountPaid() {
-		return amountPaid;
-	}
-
-	public void setAmountPaid(float amountPaid) {
-		this.amountPaid = amountPaid;
-	}
-
-	public Integer getState() {
-		return state;
-	}
-
-	public void setState(Integer state) {
-		this.state = state;
-	}
-
-	
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
-	public String getRemarks() {
-		return remarks;
-	}
-
-	public void setRemarks(String remarks) {
-		this.remarks = remarks;
-	}
-
+//	public Integer getId() {
+//		return id;
+//	}
+//
+//	public void setId(Integer id) {
+//		this.id = id;
+//	}
+//
+//
+//	public String getCustomerReturnNumber() {
+//		return customerReturnNumber;
+//	}
+//
+//	public void setCustomerReturnNumber(String customerReturnNumber) {
+//		this.customerReturnNumber = customerReturnNumber;
+//	}
+//
+//
+//	public Customer getCustomer() {
+//		return customer;
+//	}
+//
+//	public void setCustomer(Customer customer) {
+//		this.customer = customer;
+//	}
+//
+//	@JsonSerialize(using=CustomDateSerializer.class)
+//	public Date getCustomerReturnDate() {
+//		return customerReturnDate;
+//	}
+//
+//	public void setCustomerReturnDate(Date customerReturnDate) {
+//		this.customerReturnDate = customerReturnDate;
+//	}
+//
+//	public float getAmountPayable() {
+//		return amountPayable;
+//	}
+//
+//	public void setAmountPayable(float amountPayable) {
+//		this.amountPayable = amountPayable;
+//	}
+//
+//	public float getAmountPaid() {
+//		return amountPaid;
+//	}
+//
+//	public void setAmountPaid(float amountPaid) {
+//		this.amountPaid = amountPaid;
+//	}
+//
+//	public Integer getState() {
+//		return state;
+//	}
+//
+//	public void setState(Integer state) {
+//		this.state = state;
+//	}
+//
+//
+//	public User getUser() {
+//		return user;
+//	}
+//
+//	public void setUser(User user) {
+//		this.user = user;
+//	}
+//
+//	public String getRemarks() {
+//		return remarks;
+//	}
+//
+//	public void setRemarks(String remarks) {
+//		this.remarks = remarks;
+//	}
+//
 	public Date getbCustomerReturnDate() {
 		return bCustomerReturnDate;
 	}
@@ -154,24 +158,24 @@ public class CustomerReturnList {
 	public void seteCustomerReturnDate(Date eCustomerReturnDate) {
 		this.eCustomerReturnDate = eCustomerReturnDate;
 	}
-	
-	
-	public List<CustomerReturnListGoods> getCustomerReturnListGoodsList() {
-		return customerReturnListGoodsList;
-	}
-
-	public void setCustomerReturnListGoodsList(List<CustomerReturnListGoods> customerReturnListGoodsList) {
-		this.customerReturnListGoodsList = customerReturnListGoodsList;
-	}
-
-	@Override
-	public String toString() {
-		return "CustomerReturnList [id=" + id + ", customerReturnNumber=" + customerReturnNumber + ", customer="
-				+ customer + ", customerReturnDate=" + customerReturnDate + ", bCustomerReturnDate="
-				+ bCustomerReturnDate + ", eCustomerReturnDate=" + eCustomerReturnDate + ", amountPayable="
-				+ amountPayable + ", amountPaid=" + amountPaid + ", state=" + state + ", user=" + user + ", remarks="
-				+ remarks + "]";
-	}
+//
+//
+//	public List<CustomerReturnListGoods> getCustomerReturnListGoodsList() {
+//		return customerReturnListGoodsList;
+//	}
+//
+//	public void setCustomerReturnListGoodsList(List<CustomerReturnListGoods> customerReturnListGoodsList) {
+//		this.customerReturnListGoodsList = customerReturnListGoodsList;
+//	}
+//
+//	@Override
+//	public String toString() {
+//		return "CustomerReturnList [id=" + id + ", customerReturnNumber=" + customerReturnNumber + ", customer="
+//				+ customer + ", customerReturnDate=" + customerReturnDate + ", bCustomerReturnDate="
+//				+ bCustomerReturnDate + ", eCustomerReturnDate=" + eCustomerReturnDate + ", amountPayable="
+//				+ amountPayable + ", amountPaid=" + amountPaid + ", state=" + state + ", user=" + user + ", remarks="
+//				+ remarks + "]";
+//	}
 
 	
 	

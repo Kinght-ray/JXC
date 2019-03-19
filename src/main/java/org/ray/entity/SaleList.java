@@ -15,12 +15,18 @@ import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 /**
  * 销售单
  * @author ray
  *
  */
+@Getter
+@Setter
+@ToString
 @Entity
 @Table(name="t_saleList")
 public class SaleList {
@@ -70,8 +76,8 @@ public class SaleList {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	
-	
+
+
 	public String getSaleNumber() {
 		return saleNumber;
 	}
@@ -80,7 +86,7 @@ public class SaleList {
 		this.saleNumber = saleNumber;
 	}
 
-	
+
 	public Customer getCustomer() {
 		return customer;
 	}
@@ -122,7 +128,7 @@ public class SaleList {
 		this.state = state;
 	}
 
-	
+
 
 	public User getUser() {
 		return user;
@@ -155,8 +161,8 @@ public class SaleList {
 	public void seteSaleDate(Date eSaleDate) {
 		this.eSaleDate = eSaleDate;
 	}
-	
-	
+
+
 
 	public List<SaleListGoods> getSaleListGoodsList() {
 		return saleListGoodsList;
@@ -166,12 +172,12 @@ public class SaleList {
 		this.saleListGoodsList = saleListGoodsList;
 	}
 
-	@Override
-	public String toString() {
-		return "SaleList [id=" + id + ", saleNumber=" + saleNumber + ", customer=" + customer + ", saleDate=" + saleDate
-				+ ", bSaleDate=" + bSaleDate + ", eSaleDate=" + eSaleDate + ", amountPayable=" + amountPayable
-				+ ", amountPaid=" + amountPaid + ", state=" + state + ", user=" + user + ", remarks=" + remarks + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "SaleList [id=" + id + ", saleNumber=" + saleNumber + ", customer=" + customer + ", saleDate=" + saleDate
+//				+ ", bSaleDate=" + bSaleDate + ", eSaleDate=" + eSaleDate + ", amountPayable=" + amountPayable
+//				+ ", amountPaid=" + amountPaid + ", state=" + state + ", user=" + user + ", remarks=" + remarks + "]";
+//	}
 
 	
 	

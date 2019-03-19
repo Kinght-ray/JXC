@@ -14,12 +14,18 @@ import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 /**
  * 系统日志实体
  * @author ray
  *
  */
+@Getter
+@Setter
+@ToString
 @Entity
 @Table(name="t_log")
 public class Log {
@@ -67,65 +73,65 @@ public class Log {
 		this.content = content;
 	}
 
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-	}
-
-	
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
-	public String getContent() {
-		return content;
-	}
-
-	public void setContent(String content) {
-		this.content = content;
-	}
-	
-	@JsonSerialize(using=CustomDateTimeSerializer.class)
-	public Date getTime() {
-		return time;
-	}
-
-	public void setTime(Date time) {
-		this.time = time;
-	}
-
-	public Date getBtime() {
-		return btime;
-	}
-
-	public void setBtime(Date btime) {
-		this.btime = btime;
-	}
-
-	public Date getEtime() {
-		return etime;
-	}
-
-	public void setEtime(Date etime) {
-		this.etime = etime;
-	}
-	
+//	public Integer getId() {
+//		return id;
+//	}
+//
+//	public void setId(Integer id) {
+//		this.id = id;
+//	}
+//
+//	public String getType() {
+//		return type;
+//	}
+//
+//	public void setType(String type) {
+//		this.type = type;
+//	}
+//
+//
+//
+//	public User getUser() {
+//		return user;
+//	}
+//
+//	public void setUser(User user) {
+//		this.user = user;
+//	}
+//
+//	public String getContent() {
+//		return content;
+//	}
+//
+//	public void setContent(String content) {
+//		this.content = content;
+//	}
+//
+//	@JsonSerialize(using=CustomDateTimeSerializer.class)
+//	public Date getTime() {
+//		return time;
+//	}
+//
+//	public void setTime(Date time) {
+//		this.time = time;
+//	}
+//
+//	public Date getBtime() {
+//		return btime;
+//	}
+//
+//	public void setBtime(Date btime) {
+//		this.btime = btime;
+//	}
+//
+//	public Date getEtime() {
+//		return etime;
+//	}
+//
+//	public void setEtime(Date etime) {
+//		this.etime = etime;
+//	}
+//
 	
 	
 	

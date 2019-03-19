@@ -1,5 +1,9 @@
 package org.ray.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,6 +18,9 @@ import javax.persistence.Transient;
  * @author ray
  *
  */
+@Getter
+@Setter
+@ToString
 @Entity
 @Table(name="t_customerReturnListGoods")
 public class CustomerReturnListGoods {
@@ -72,7 +79,7 @@ public class CustomerReturnListGoods {
 	public void setCode(String code) {
 		this.code = code;
 	}
-	
+
 
 	public String getName() {
 		return name;
@@ -97,8 +104,8 @@ public class CustomerReturnListGoods {
 	public void setType(GoodsType type) {
 		this.type = type;
 	}
-	
-	
+
+
 	public Integer getTypeId() {
 		return typeId;
 	}
@@ -138,8 +145,8 @@ public class CustomerReturnListGoods {
 	public void setTotal(float total) {
 		this.total = total;
 	}
-	
-	
+
+
 	public CustomerReturnList getCustomerReturnList() {
 		return customerReturnList;
 	}
@@ -147,8 +154,8 @@ public class CustomerReturnListGoods {
 	public void setCustomerReturnList(CustomerReturnList customerReturnList) {
 		this.customerReturnList = customerReturnList;
 	}
-	
-	
+
+
 
 	public Integer getGoodsId() {
 		return goodsId;
@@ -157,8 +164,8 @@ public class CustomerReturnListGoods {
 	public void setGoodsId(Integer goodsId) {
 		this.goodsId = goodsId;
 	}
-	
-	
+
+
 
 	public String getCodeOrName() {
 		return codeOrName;
@@ -168,11 +175,11 @@ public class CustomerReturnListGoods {
 		this.codeOrName = codeOrName;
 	}
 
-	@Override
-	public String toString() {
-		return "CustomerReturnListGoods [id=" + id + ", code=" + code + ", name=" + name + ", model=" + model + ", type="
-				+ type + ", unit=" + unit + ", price=" + price + ", num=" + num + ", total=" + total + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "CustomerReturnListGoods [id=" + id + ", code=" + code + ", name=" + name + ", model=" + model + ", type="
+//				+ type + ", unit=" + unit + ", price=" + price + ", num=" + num + ", total=" + total + "]";
+//	}
 
 	
 	

@@ -1,5 +1,9 @@
 package org.ray.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,6 +18,9 @@ import javax.persistence.Transient;
  * @author ray
  *
  */
+@Getter
+@Setter
+@ToString
 @Entity
 @Table(name="t_purchaseListGoods")
 public class PurchaseListGoods {
@@ -73,7 +80,7 @@ public class PurchaseListGoods {
 	public void setCode(String code) {
 		this.code = code;
 	}
-	
+
 
 	public String getName() {
 		return name;
@@ -98,8 +105,8 @@ public class PurchaseListGoods {
 	public void setType(GoodsType type) {
 		this.type = type;
 	}
-	
-	
+
+
 	public Integer getTypeId() {
 		return typeId;
 	}
@@ -139,8 +146,8 @@ public class PurchaseListGoods {
 	public void setTotal(float total) {
 		this.total = total;
 	}
-	
-	
+
+
 	public PurchaseList getPurchaseList() {
 		return purchaseList;
 	}
@@ -148,8 +155,8 @@ public class PurchaseListGoods {
 	public void setPurchaseList(PurchaseList purchaseList) {
 		this.purchaseList = purchaseList;
 	}
-	
-	
+
+
 
 	public Integer getGoodsId() {
 		return goodsId;
@@ -158,8 +165,8 @@ public class PurchaseListGoods {
 	public void setGoodsId(Integer goodsId) {
 		this.goodsId = goodsId;
 	}
-	
-	
+
+
 
 	public String getCodeOrName() {
 		return codeOrName;
@@ -169,11 +176,11 @@ public class PurchaseListGoods {
 		this.codeOrName = codeOrName;
 	}
 
-	@Override
-	public String toString() {
-		return "PurchaseListGoods [id=" + id + ", code=" + code + ", name=" + name + ", model=" + model + ", type="
-				+ type + ", unit=" + unit + ", price=" + price + ", num=" + num + ", total=" + total + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "PurchaseListGoods [id=" + id + ", code=" + code + ", name=" + name + ", model=" + model + ", type="
+//				+ type + ", unit=" + unit + ", price=" + price + ", num=" + num + ", total=" + total + "]";
+//	}
 
 	
 	

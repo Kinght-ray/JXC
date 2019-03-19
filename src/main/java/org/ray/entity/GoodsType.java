@@ -44,8 +44,8 @@ public class GoodsType {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	
+
+
 	public Integer getState() {
 		return state;
 	}

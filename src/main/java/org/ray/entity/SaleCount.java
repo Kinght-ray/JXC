@@ -1,10 +1,17 @@
 package org.ray.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 /**
  * 销售统计
  * @author ray
  *
  */
+@Getter
+@Setter
+@ToString
 public class SaleCount {
 
 	
@@ -31,7 +38,7 @@ public class SaleCount {
 	public void setAmountSale(float amountSale) {
 		this.amountSale = amountSale;
 	}
-	
+
 
 	public float getAmountProfit() {
 		return amountProfit;

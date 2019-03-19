@@ -15,12 +15,18 @@ import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 /**
  * 退货单
  * @author ray
  *
  */
+@Getter
+@Setter
+@ToString
 @Entity
 @Table(name="t_returnList")
 public class ReturnList {
@@ -61,6 +67,7 @@ public class ReturnList {
 	@Transient
 	private List<ReturnListGoods> returnListGoodsList=null; // 退货单商品集合
 
+
 	public Integer getId() {
 		return id;
 	}
@@ -68,8 +75,8 @@ public class ReturnList {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	
-	
+
+
 	public String getReturnNumber() {
 		return returnNumber;
 	}
@@ -78,7 +85,7 @@ public class ReturnList {
 		this.returnNumber = returnNumber;
 	}
 
-	
+
 
 	public Supplier getSupplier() {
 		return supplier;
@@ -121,7 +128,7 @@ public class ReturnList {
 		this.state = state;
 	}
 
-	
+
 
 	public User getUser() {
 		return user;
@@ -154,8 +161,8 @@ public class ReturnList {
 	public void seteReturnDate(Date eReturnDate) {
 		this.eReturnDate = eReturnDate;
 	}
-	
-	
+
+
 
 	public List<ReturnListGoods> getReturnListGoodsList() {
 		return returnListGoodsList;
@@ -165,13 +172,13 @@ public class ReturnList {
 		this.returnListGoodsList = returnListGoodsList;
 	}
 
-	@Override
-	public String toString() {
-		return "ReturnList [id=" + id + ", returnNumber=" + returnNumber + ", supplier=" + supplier + ", returnDate="
-				+ returnDate + ", amountPayable=" + amountPayable + ", amountPaid=" + amountPaid + ", state=" + state
-				+ ", user=" + user + ", remarks=" + remarks + ", bReturnDate=" + bReturnDate + ", eReturnDate="
-				+ eReturnDate + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "ReturnList [id=" + id + ", returnNumber=" + returnNumber + ", supplier=" + supplier + ", returnDate="
+//				+ returnDate + ", amountPayable=" + amountPayable + ", amountPaid=" + amountPaid + ", state=" + state
+//				+ ", user=" + user + ", remarks=" + remarks + ", bReturnDate=" + bReturnDate + ", eReturnDate="
+//				+ eReturnDate + "]";
+//	}
 
 	
 	

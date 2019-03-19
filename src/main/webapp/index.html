@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="static/easyUI-Mini/WebContent/res/third-party/scrollbar/jquery.mCustomScrollbar.css">
     <link rel="stylesheet" href="static/easyUI-Mini/WebContent/frame/frame1/res/frame.css">
     <link rel="stylesheet" href="static/easyUI-Mini/WebContent/frame/frame1/res/index.css">
-    <!--<link rel="stylesheet" href="static/easyUI-Mini/WebContent/frame/frame1/res/tabs.css">-->
+    <link rel="stylesheet" href="static/easyUI-Mini/WebContent/frame/frame1/res/tabs.css">
     <link rel="stylesheet" href="static/easyUI-Mini/WebContent/frame/frame1/res/menu/menu.css">
     <script src="static/easyUI-Mini/WebContent/frame/frame1/res/menu/menu.js"></script>
     <script src="static/easyUI-Mini/WebContent/frame/frame1/res/menutip.js"></script>
@@ -17,7 +17,6 @@
     <script src="static/easyUI-Mini/WebContent/res/third-party/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="static/easyUI-Mini/WebContent/scripts/miniui/locale/zh_CN.js"></script>
     <script src="static/easyUI-Mini/WebContent/demo/datagrid/js/ColumnsMenu.js"></script>
-
 
     <!--<script type="text/javascript" src="/static/jquery-easyui-1.7.0/jquery.easyui.min.js"></script>-->
 
@@ -40,15 +39,15 @@
     </ul>
     <ul class="nav navbar-nav navbar-right">
 
-        <li><a href="loginLayout.html"><i class="mini-window"></i> 修改密码</a></li>
+        <li><a href="#"><i class="mini-window"></i> 修改密码</a></li>
         <li class="dropdown">
             <a class="dropdown-toggle userinfo">
                 <img class="user-img" src="static/easyUI-Mini/WebContent/frame/frame1/res/images/user.jpg " />个人资料<i class="fa fa-angle-down"></i>
             </a>
             <ul class="dropdown-menu pull-right">
-                <li ><a href="#"><i class="fa fa-eye "></i> 用户信息</a></li>
+                <li ><a href="/user/loadUserInfo"><i class="fa fa-eye "></i> 用户信息</a></li>
                 <li><a href="/admin/user/logout"><i class="fa fa-user"></i> 退出登录</a></li>
-                <li><a href="loginLayout.html"><i class="fa fa-user"></i> 修改密码</a></li>
+                <li><a href="loginLayout.html"><i class="fa fa-out"></i> 修改密码</a></li>
             </ul>
         </li>
     </ul>
@@ -58,7 +57,7 @@
 <div class="container">
     <div class="sidebar">
         <div class="sidebar-toggle"><i class = "fa fa-fw fa-dedent" ></i>导航栏</div>
-        <div id="mainMenu"></div>
+        <div id="mainMenu" onitemselect="onItemSelect"></div>
     </div>
 
 
@@ -67,7 +66,7 @@
         <div id="mainTabs" class="mini-tabs bg-toolbar" activeIndex="0" style="width:100%;height:100%;"
              bodyStyle="border:0;background:white;"
         >
-            <div title="首页" url="../../common/stockSearch.html" >
+            <div title="首页" url="../../common/stockSearch.html"  onItemClick = "onItemClick">
             </div>
         </div>
 
@@ -152,7 +151,6 @@
     <div id="mm-tabcloseleft" data-options="name:6,iconCls:'icon-closelefttab'">关闭左侧标签页</div>
 </div>
 
-
 <script type="text/javascript">
 
     function activeTab(item) {
@@ -170,6 +168,21 @@
     $(function () {
 
 
+    function logout() {
+        $.messager.confirm("系统提示", "您确定要退出系统吗？", function (r) {
+            if (r) {
+                window.location.href = '/admin/user/logout';
+            }
+        });
+    }
+
+    function openPasswordModifyDialog() {
+        $("#dlg").load("open").load("setTitle", "修改密码");
+        url:"/admin/user/modifyPassword";
+    }
+
+
+
         function openTab(node) {
             if ($("#tabs").tabs("exists", node.text)) {
                 $("#tabs").tabs("select", node.text);
@@ -184,20 +197,6 @@
             }
         }
 
-        // $("#tree").tree({
-        //     onLoadSuccess: function () {
-        //         $("#tree").tree('expandAll');
-        //     },
-        //     onClick: function (node) {
-        //         if (node.id == 6050) {
-        //             logout();
-        //         } else if (node.id == 6040) {
-        //             openPasswordModifyDialog();
-        //         } else if (node.attributes.url) {
-        //             openTab(node);
-        //         }
-        //     }
-        // });
 
 
         <!--首页-->
@@ -211,7 +210,7 @@
                 tab.title = node.text;
                 tab.showCloseButton = true;
                 tab.url = node.url;
-                tabs.addTab(tab);
+                // tabs.addTab(tab);
             }
             tabs.activeTab(tab);
         }
@@ -223,32 +222,9 @@
             }
         }
 
-        // function showErrorTexts(errorTexts) {
-        //     var s = errorTexts.join('<br/>');
-        //
-        //     var win = window.open('', "", 'height=200,width=400,top=200,left=400,toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no, titlebar=no');
-        //     win.document.open('text/html', 'replace');
-        //     win.document.write(s);
-        //     win.document.close();
-        // }
-
-        function submitForm() {
-            var form = new mini.Form("#form1");
-
-            form.validate();
-            if (form.isValid() == false) {
-
-                var errorTexts = form.getErrorTexts();
-                showErrorTexts(errorTexts);
-
-                return;
-            }
-
-
-            //提交数据
-            var data = form.getData();
-            var json = mini.encode(data);
-            alert("提交成功");
+        function onitemselect(e) {
+            var itme  = e.item;
+            iframe.src = itme.url;
         }
 
         //menu
@@ -257,9 +233,16 @@
                 if (!item.children) {
                     activeTab(item);
                 }
+            },
+            onClick: function (node) {
+                if (node.id == 6050) {
+                    logout();
+                } else if (node.id == 6040) {
+                    openPasswordModifyDialog();
+                } else if (node.attributes.url) {
+                    openTab(node);
+                }
             }
-
-
         });
 
         $("#userInfo").load("/user/loadUserInfo"); // 加载用户信息
@@ -285,6 +268,18 @@
             mini.layout();
         });
 
+        $("#dlg").click(function (node) {
+            // onClick: function (node) {
+                if (node.id == 6050) {
+                    logout();
+                } else if (node.id == 6040) {
+                    openPasswordModifyDialog();
+                } else if (node.attributes.url) {
+                    openTab(node);
+                }
+
+        })
+
         //dropdown
         $(".dropdown-toggle").click(function (event) {
             $(this).parent().addClass("open");
@@ -295,121 +290,45 @@
             $(".dropdown").removeClass("open");
         });
 
-
-
-
-        // 监听右键事件，创建右键菜单
-        $('#tabs').tabs({
-            onContextMenu: function (e, title, index) {
-                e.preventDefault();
-                if (index > 0) {
-                    $('#menu').menu('show', {
-                        left: e.pageX,
-                        top: e.pageY
-                    }).data("tabTitle", title);
+        function modifyPassword() {
+            $("#fm").form("submit", {
+                url: url,
+                onSubmit: function () {
+                    var newPassword = $("#newPassword").val();
+                    var newPassword2 = $("#newPassword2").val();
+                    if (!$(this).form("validate")) {
+                        return false;
+                    }
+                    if (newPassword != newPassword2) {
+                        $.messager.alert("系统提示", "确认密码输入错误！");
+                        return false;
+                    }
+                    return true;
+                },
+                success: function (result) {
+                    var result = eval('(' + result + ')');
+                    if (result.success) {
+                        $.messager.alert("系统提示", "密码修改成功，下一次登录生效！");
+                        resetValue();
+                        $("#dlg").dialog("close");
+                    } else {
+                        $.messager.alert("系统提示", "密码修改失败！");
+                        return;
+                    }
                 }
-            }
-        });
-
-        // 右键菜单click
-        $("#menu").menu({
-            onClick: function (item) {
-                closeTab(this, item.name);
-            }
-        });
-
-
-        function closeTab(menu, type) {
-            var allTabs = $("#tabs").tabs('tabs');
-            var allTabtitle = [];
-            $.each(allTabs, function (i, n) {
-                var opt = $(n).panel('options');
-                if (opt.closable)
-                    allTabtitle.push(opt.title);
             });
-            var curTabTitle = $(menu).data("tabTitle");
-            var curTabIndex = $("#tabs").tabs("getTabIndex", $("#tabs").tabs("getTab", curTabTitle));
-            switch (type) {
-                case "1": // 刷新当前标签页
-                    var panel = $("#tabs").tabs("getTab", curTabTitle).panel("refresh");
-                    break;
-                case "2": // 关闭当前标签页
-                    $("#tabs").tabs("close", curTabIndex);
-                    return false;
-                    break;
-                case "3": // 关闭全部标签页
-                    for (var i = 0; i < allTabtitle.length; i++) {
-                        $('#tabs').tabs('close', allTabtitle[i]);
-                    }
-                    break;
-                case "4": // 关闭其他标签页
-                    for (var i = 0; i < allTabtitle.length; i++) {
-                        if (curTabTitle != allTabtitle[i])
-                            $('#tabs').tabs('close', allTabtitle[i]);
-                    }
-                    $('#tabs').tabs('select', curTabTitle);
-                    break;
-                case "5": // 关闭右侧标签页
-                    for (var i = curTabIndex; i < allTabtitle.length; i++) {
-                        $('#tabs').tabs('close', allTabtitle[i]);
-                    }
-                    $('#tabs').tabs('select', curTabTitle);
-                    break;
-                case "6": // 关闭左侧标签页
-                    for (var i = 0; i < curTabIndex - 1; i++) {
-                        $('#tabs').tabs('close', allTabtitle[i]);
-                    }
-                    $('#tabs').tabs('select', curTabTitle);
-                    break;
-
-            }
-
         }
 
+        function closePasswordModifyDialog() {
+            resetValue();
+            $("#dlg").dialog("close");
+        }
 
-
-
+        function resetValue() {
+            $("#newPassword").val("");
+            $("#newPassword2").val("");
+        }
     });
-
-
-    function modifyPassword() {
-        $("#fm").form("submit", {
-            url: url,
-            onSubmit: function () {
-                var newPassword = $("#newPassword").val();
-                var newPassword2 = $("#newPassword2").val();
-                if (!$(this).form("validate")) {
-                    return false;
-                }
-                if (newPassword != newPassword2) {
-                    $.messager.alert("系统提示", "确认密码输入错误！");
-                    return false;
-                }
-                return true;
-            },
-            success: function (result) {
-                var result = eval('(' + result + ')');
-                if (result.success) {
-                    $.messager.alert("系统提示", "密码修改成功，下一次登录生效！");
-                    resetValue();
-                    $("#dlg").dialog("close");
-                } else {
-                    $.messager.alert("系统提示", "密码修改失败！");
-                    return;
-                }
-            }
-        });
-    }
-
-    function closePasswordModifyDialog() {
-        resetValue();
-        $("#dlg").dialog("close");
-    }
-
-    function resetValue() {
-        $("#newPassword").val("");
-        $("#newPassword2").val("");
-    }
 
 </script>
 

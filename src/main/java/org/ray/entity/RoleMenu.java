@@ -1,5 +1,9 @@
 package org.ray.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -12,6 +16,9 @@ import javax.persistence.Table;
  * @author ray
  *
  */
+@Getter
+@Setter
+@ToString
 @Entity
 @Table(name="t_roleMenu")
 public class RoleMenu {
@@ -30,34 +37,34 @@ public class RoleMenu {
 	
 	
 
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public Role getRole() {
-		return role;
-	}
-
-	public void setRole(Role role) {
-		this.role = role;
-	}
-
-	public Menu getMenu() {
-		return menu;
-	}
-
-	public void setMenu(Menu menu) {
-		this.menu = menu;
-	}
-
-	@Override
-	public String toString() {
-		return "RoleMenu [id=" + id + ", role=" + role + ", menu=" + menu + "]";
-	}
+//	public Integer getId() {
+//		return id;
+//	}
+//
+//	public void setId(Integer id) {
+//		this.id = id;
+//	}
+//
+//	public Role getRole() {
+//		return role;
+//	}
+//
+//	public void setRole(Role role) {
+//		this.role = role;
+//	}
+//
+//	public Menu getMenu() {
+//		return menu;
+//	}
+//
+//	public void setMenu(Menu menu) {
+//		this.menu = menu;
+//	}
+//
+//	@Override
+//	public String toString() {
+//		return "RoleMenu [id=" + id + ", role=" + role + ", menu=" + menu + "]";
+//	}
 	
 	
 }

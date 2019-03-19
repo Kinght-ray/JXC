@@ -7,6 +7,9 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.validator.constraints.NotEmpty;
 
 /**
@@ -14,6 +17,9 @@ import org.hibernate.validator.constraints.NotEmpty;
  * @author ray
  *
  */
+@Getter
+@Setter
+@ToString
 @Entity
 @Table(name="t_user")
 public class User {
@@ -40,60 +46,60 @@ public class User {
 	private String roles; 
 	
 
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getTrueName() {
-		return trueName;
-	}
-
-	public void setTrueName(String trueName) {
-		this.trueName = trueName;
-	}
-
-
-	public String getRemarks() {
-		return remarks;
-	}
-
-	public void setRemarks(String remarks) {
-		this.remarks = remarks;
-	}
-
-	public String getRoles() {
-		return roles;
-	}
-
-	public void setRoles(String roles) {
-		this.roles = roles;
-	}
-
-	@Override
-	public String toString() {
-		return "[id=" + id + ", userName=" + userName + ", password=" + password + ", trueName=" + trueName
-				+ ", remarks=" + remarks + ", roles=" + roles + "]";
-	}
+//	public Integer getId() {
+//		return id;
+//	}
+//
+//	public void setId(Integer id) {
+//		this.id = id;
+//	}
+//
+//	public String getUserName() {
+//		return userName;
+//	}
+//
+//	public void setUserName(String userName) {
+//		this.userName = userName;
+//	}
+//
+//	public String getPassword() {
+//		return password;
+//	}
+//
+//	public void setPassword(String password) {
+//		this.password = password;
+//	}
+//
+//	public String getTrueName() {
+//		return trueName;
+//	}
+//
+//	public void setTrueName(String trueName) {
+//		this.trueName = trueName;
+//	}
+//
+//
+//	public String getRemarks() {
+//		return remarks;
+//	}
+//
+//	public void setRemarks(String remarks) {
+//		this.remarks = remarks;
+//	}
+//
+//	public String getRoles() {
+//		return roles;
+//	}
+//
+//	public void setRoles(String roles) {
+//		this.roles = roles;
+//	}
+//
+//	@Override
+//	public String toString() {
+//		return "[id=" + id + ", userName=" + userName + ", password=" + password + ", trueName=" + trueName
+//				+ ", remarks=" + remarks + ", roles=" + roles + "]";
+//	}
 
 	
 	

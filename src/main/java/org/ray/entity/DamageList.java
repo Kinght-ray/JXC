@@ -14,12 +14,18 @@ import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 /**
  * 报损单
  * @author ray
  *
  */
+@Getter
+@Setter
+@ToString
 @Entity
 @Table(name="t_damageList")
 public class DamageList {
@@ -49,6 +55,7 @@ public class DamageList {
 	@Column(length=1000)
 	private String remarks; // 备注
 
+
 	public Integer getId() {
 		return id;
 	}
@@ -56,8 +63,8 @@ public class DamageList {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	
-	
+
+
 	public String getDamageNumber() {
 		return damageNumber;
 	}
@@ -66,7 +73,7 @@ public class DamageList {
 		this.damageNumber = damageNumber;
 	}
 
-	
+
 
 	@JsonSerialize(using=CustomDateSerializer.class)
 	public Date getDamageDate() {
@@ -77,7 +84,7 @@ public class DamageList {
 		this.damageDate = damageDate;
 	}
 
-	
+
 	public User getUser() {
 		return user;
 	}
@@ -110,12 +117,12 @@ public class DamageList {
 		this.eDamageDate = eDamageDate;
 	}
 
-	@Override
-	public String toString() {
-		return "DamageList [id=" + id + ", damageNumber=" + damageNumber + ", damageDate=" + damageDate
-				+ ", bDamageDate=" + bDamageDate + ", eDamageDate=" + eDamageDate + ", user=" + user + ", remarks="
-				+ remarks + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "DamageList [id=" + id + ", damageNumber=" + damageNumber + ", damageDate=" + damageDate
+//				+ ", bDamageDate=" + bDamageDate + ", eDamageDate=" + eDamageDate + ", user=" + user + ", remarks="
+//				+ remarks + "]";
+//	}
 
 	
 	
