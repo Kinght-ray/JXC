@@ -1,51 +1,51 @@
 ﻿[
 	{ "id": "jhgl", iconCls: "fa fa-send-o", text: "进货管理", children: [
-        { "id": "jhrk", iconCls: "fa fa-desktop", text: "进货入库", url: "purchase/purchase.html" },
-        { "id": "thck", iconCls: "fa fa-search", text: "退货出库", url: "purchase/return.html"},
-         { "id": "jhdcx", iconCls: "fa fa-send-o", text: "进货单查询", url: "purchase/purchaseSearch.html" },
-         { "id": "thdcc", iconCls: "fa fa-send-o", text: "退货单查询", url: "purchase/returnSearch.html" },
+        { "id": "jhrk", iconCls: "fa fa-plus", text: "进货入库", url: "purchase/purchase.html" },
+        { "id": "thck", iconCls: "fa fa-minus", text: "退货出库", url: "purchase/return.html"},
+         { "id": "jhdcx", iconCls: "fa fa-search", text: "进货单查询", url: "purchase/purchaseSearch.html" },
+         { "id": "thdcc", iconCls: "fa fa-search", text: "退货单查询", url: "purchase/returnSearch.html" },
 
 	    ]
 	},
-    { "id": "kcgl", iconCls: "fa fa-desktop", text: "库存管理", children: [
-        { "id": "spbs", iconCls: "fa fa-leaf", text: "商品报损", url: "stock/damage.html" },
-        { "id": "spby", iconCls: "fa fa-book", text: "商品报溢", url: "stock/overflow.html" },
-        { "id": "kcjb", iconCls: "fa fa-barcode", text: "库存警报", url: "stock/alarm.html" },
-        { "id": "bsbycx", iconCls: "fa fa-navicon", text: "报损报溢查询", url: "stock/damageOverflowSearch.html" },
-        { "id": "dqkccx", iconCls: "fa fa-user", text: "当前库存查询", url: "common/stockSearch.html" }
+    { "id": "kcgl", iconCls: "fa fa-share-alt", text: "库存管理", children: [
+        { "id": "spbs", iconCls: "fa fa-exclamation", text: "商品报损", url: "stock/damage.html" },
+        { "id": "spby", iconCls: "fa fa-usd", text: "商品报溢", url: "stock/overflow.html" },
+        { "id": "kcjb", iconCls: "fa fa-exclamation-triangle", text: "库存警报", url: "stock/alarm.html" },
+        { "id": "bsbycx", iconCls: "fa fa-search", text: "报损报溢查询", url: "stock/damageOverflowSearch.html" },
+        { "id": "dqkccx", iconCls: "fa fa-search", text: "当前库存查询", url: "common/stockSearch.html" }
     ]
     },
 { "id": "xsgl", iconCls: "fa fa-coffee",  text: "销售管理", children: [
-         { "id": "xsck", iconCls: "fa fa-sitemap", text: "销售出库", url: "sale/saleout.html" },
-         { "id": "khth", iconCls: "fa fa-th-list", text: "客户退货", url: "sale/salereturn.html" },
-         { "id": "xsdjcx", iconCls: "fa fa-graduation-cap", text: "销售单据查询", url: "sale/saleSearch.html" },
-         { "id": "khthcx", iconCls: "fa fa-paw", text: "客户退货查询", url: "sale/returnSearch.html" }
+         { "id": "xsck", iconCls: "fa fa-outdent", text: "销售出库", url: "sale/saleout.html" },
+         { "id": "khth", iconCls: "fa fa-sign-out", text: "客户退货", url: "sale/salereturn.html" },
+         { "id": "xsdjcx", iconCls: "fa fa-search", text: "销售单据查询", url: "sale/saleSearch.html" },
+         { "id": "khthcx", iconCls: "fa fa-search", text: "客户退货查询", url: "sale/returnSearch.html" }
 
     ]
 },
-{ "id": "tjbb", iconCls: "fa fa-table", text: "统计报表", children: [
-        { "id": "gystj", iconCls: "fa fa-puzzle-piece", text: "供应商统计", url: "count/supplier.html" },
-        { "id": "khtj", iconCls: "fa fa-list-alt", text: "客户统计", url: "count/customer.html" },
-        { "id": "spcgtj", iconCls: "fa fa-list-alt", text: "商品采购统计", url: "count/purchase.html" },
-        { "id": "spxstj", iconCls: "fa fa-list-alt", text: "商品销售统计", url: "count/sale.html" },
+{ "id": "tjbb", iconCls: "fa fa-area-chart", text: "统计报表", children: [
+        { "id": "gystj", iconCls: "fa fa-handshake-o", text: "供应商统计", url: "count/supplier.html" },
+        { "id": "khtj", iconCls: "fa fa-user", text: "客户统计", url: "count/customer.html" },
+        { "id": "spcgtj", iconCls: "fa fa-shopping-basket", text: "商品采购统计", url: "count/purchase.html" },
+        { "id": "spxstj", iconCls: "fa fa-shopping-bag", text: "商品销售统计", url: "count/sale.html" },
         { "id": "artjfx", iconCls: "fa fa-list-alt", text: "按日统计分析", url: "count/saleDay.html" },
-        { "id": "aytjfx", iconCls: "fa fa-list-alt", text: "按月统计分析", url: "count/saleMonth.html" }
+        { "id": "aytjfx", iconCls: "fa fa-calendar", text: "按月统计分析", url: "count/saleMonth.html" }
     ]
 },
 
-{ "id": "jczl", iconCls: "fa fa-area-chart", text: "基础资料", children: [
+{ "id": "jczl", iconCls: "fa fa-table", text: "基础资料", children: [
         { "id": "gysgl", iconCls: "fa fa-cogs", text: "供应商管理", url: "basicData/supplier.html" },
-        { "id": "khgl", iconCls: "fa fa-file-powerpoint-o", text: "客户管理", url: "basicData/customer.html" },
-        { "id": "spgl", iconCls: "fa fa-area-chart", text: "商品管理", url: "basicData/goods.html" },
-        { "id": "cqkc", iconCls: "fa fa-area-chart", text: "期初库存", url: "basicData/stock.html" }
+        { "id": "khgl", iconCls: "fa fa-user", text: "客户管理", url: "basicData/customer.html" },
+        { "id": "spgl", iconCls: "fa fa-shopping-bag", text: "商品管理", url: "basicData/goods.html" },
+        { "id": "cqkc", iconCls: "fa fa-pie-chart", text: "期初库存", url: "basicData/stock.html" }
     ]
 },
-{ "id": "xtgl", iconCls: "fa fa-share-alt", text: "系统管理", children: [
-            { "id": "jsgl", iconCls: "fa fa-share-alt", text: "角色管理", url: "power/role.html" },
-          { "id": "yhgl", iconCls: "fa fa-share-alt", text: "用户管理", url: "power/user.html" },
-          { "id": "xtrz", iconCls: "fa fa-file-word-o", text: "系统日志", url: "power/log.html" },
-          { "id": "xgmm", iconCls: "fa fa-coffee",text: "修改密码", url: "/admin/user/modifyPassword"},
-          { "id": "aqtc", iconCls: "fa fa-eye", text: "安全退出", url:  "/admin/user/logout" },
+{ "id": "xtgl", iconCls: "fa fa-desktop", text: "系统管理", children: [
+            { "id": "jsgl", iconCls: "fa fa-users", text: "角色管理", url: "power/role.html" },
+          { "id": "yhgl", iconCls: "fa fa-user-circle-o", text: "用户管理", url: "power/user.html" },
+          { "id": "xtrz", iconCls: "fa fa-book", text: "系统日志", url: "power/log.html" },
+          { "id": "xgmm", iconCls: "fa fa-lock",text: "修改密码", url: "updatepass.html"},
+          //{ "id": "aqtc", iconCls: "fa fa-eye", text: "安全退出", url:  "/admin/user/logout" },
     ]
 },
 ]

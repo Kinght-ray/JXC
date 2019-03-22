@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>修改密码</title>
+    <link rel="stylesheet" type="text/css" href="static/jquery-easyui-1.7.0/themes/gray/easyui.css">
+    <link rel="stylesheet" type="text/css" href="static/jquery-easyui-1.7.0/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="static/jquery-easyui-1.7.0/demo/demo.css">
+    <script type="text/javascript" src="static/jquery-easyui-1.7.0/jquery.min.js"></script>
+    <script type="text/javascript" src="static/jquery-easyui-1.7.0/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="/static/jquery-easyui-1.7.0/locale/easyui-lang-zh_CN.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            function openTab(node) {
+                if ($("#tabs").tabs("exists", node.text)) {
+                    $("#tabs").tabs("select", node.text);
+                } else {
+                    var content = "<iframe frameborder=0 scrolling='auto' style='width:100%;height:99%' src='" + node.attributes.url + "'></iframe>";
+                    $("#tabs").tabs("add", {
+                        title: node.text,
+                        iconCls: node.iconCls,
+                        closable: true,
+                        content: content
+                    });
+                }
+            }
+
+            $("#tree").tree({
+                onClick: function (node) {
+                    if (node.id == 6050) {
+                        logout();
+                    } else if (node.id == 6040) {
+                        openPasswordModifyDialog();
+                    } else if (node.attributes.url) {
+                        openTab(node);
+                    }
+                }
+            });
+            function openPasswordModifyDialog() {
+                $("#dlg").dialog("open").dialog("setTitle", "修改密码");
+                url = "/admin/user/modifyPassword";
+            }
+
+            function modifyPassword() {
+                $("#fm").form("submit", {
+                    url: url,
+                    onSubmit: function () {
+                        var newPassword = $("#newPassword").val();
+                        var newPassword2 = $("#newPassword2").val();
+                        if (!$(this).form("validate")) {
+                            return false;
+                        }
+                        if (newPassword != newPassword2) {
+                            $.messager.alert("系统提示", "确认密码输入错误！");
+                            return false;
+                        }
+                        return true;
+                    },
+                    success: function (result) {
+                        var result = eval('(' + result + ')');
+                        if (result.success) {
+                            $.messager.alert("系统提示", "密码修改成功，下一次登录生效！");
+                            resetValue();
+                            $("#dlg").dialog("close");
+                        } else {
+                            $.messager.alert("系统提示", "密码修改失败！");
+                            return;
+                        }
+                    }
+                });
+            }
+
+            function closePasswordModifyDialog() {
+                resetValue();
+                $("#dlg").dialog("close");
+            }
+
+            function resetValue() {
+                $("#newPassword").val("");
+                $("#newPassword2").val("");
+            }
+        })
+
+        function modifyPassword() {
+            $("#fm").form("submit", {
+                url: url,
+                onSubmit: function () {
+                    var newPassword = $("#newPassword").val();
+                    var newPassword2 = $("#newPassword2").val();
+                    if (!$(this).form("validate")) {
+                        return false;
+                    }
+                    if (newPassword != newPassword2) {
+                        $.messager.alert("系统提示", "确认密码输入错误！");
+                        return false;
+                    }
+                    return true;
+                },
+                success: function (result) {
+                    var result = eval('(' + result + ')');
+                    if (result.success) {
+                        $.messager.alert("系统提示", "密码修改成功，下一次登录生效！");
+                        resetValue();
+                        $("#dlg").dialog("close");
+                    } else {
+                        $.messager.alert("系统提示", "密码修改失败！");
+                        return;
+                    }
+                }
+            });
+        }
+
+        function empty() {
+            $('#fm').form('clear');
+        }
+    </script>
+</head>
+<body>
+<div style="margin:20px 0;"></div>
+<div class="easyui-window"  title="修改密码" style="width:400px;;height:200px; padding:10px 30px" onclose="true" buttons="dlg-buttons" data-options="onClose:function(){resetValue()}">
+    <form id="fm" method="post">
+         <table cellspacing="8px">
+            <tr>
+                <td>新&nbsp;密&nbsp;码：</td>
+                <td><input id="newPassword" name="newPassword"  prompt = "Password" class="easyui-passwordbox"
+                           required="true" style="width: 200px"/></td>
+            </tr>
+            <tr>
+                <td>确认密码：</td>
+                <td><input  id="newPassword2"  name="newPassword2"  prompt="Password" class="easyui-passwordbox"
+                           required="true" style="width: 200px"></td>
+        </table>
+    </form>
+    <div  id="dlg-buttons" align="center">
+        <a href="javascript:modifyPassword()" class="easyui-linkbutton" iconCls="icon-ok">保存</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="empty()">重置</a>
+        <!--<input type="button" value="重置 " onclick="empty()">-->
+    </div>
+</div>
+<div id="viewer"></div>
+</body>
+</html>

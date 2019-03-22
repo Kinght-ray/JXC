@@ -58,7 +58,7 @@ public class UserAdminController {
 	@ResponseBody
 	@PostMapping("/modifyPassword")
 //	@GetMapping("/modifyPassword")
-	@RequiresPermissions(value = { "修改密码" })
+//	@RequiresPermissions(value = { "修改密码" })
 	public Map<String,Object> modifyPassword(Integer id,String newPassword,HttpSession session)throws Exception{
 		User currentUser=(User) session.getAttribute("currentUser");
 		User user=userService.findById(currentUser.getId());
