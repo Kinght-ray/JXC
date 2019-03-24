@@ -2,7 +2,6 @@ package org.ray.entity;
 
 import java.util.Date;
 import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,10 +12,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
+import lombok.Data;
 
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import lombok.*;
-import lombok.extern.log4j.Log4j;
 
 /**
  * 客户退货单
@@ -24,7 +21,6 @@ import lombok.extern.log4j.Log4j;
  *
  */
 @Data
-@ToString
 @Entity
 @Table(name="t_customerReturnList")
 public class CustomerReturnList {
@@ -44,10 +40,10 @@ public class CustomerReturnList {
 	private Date customerReturnDate; // 客户退货日期
 	
 	@Transient
-	private Date bCustomerReturnDate; // 起始时间 搜索用到
+	private Date BeginCustomerReturnDate; // 起始时间 搜索用到
 	
 	@Transient
-	private Date eCustomerReturnDate; // 结束时间 搜索用到
+	private Date EndCustomerReturnDate; // 结束时间 搜索用到
 	
 	private float amountPayable; // 应付金额
 	
@@ -143,21 +139,21 @@ public class CustomerReturnList {
 //		this.remarks = remarks;
 //	}
 //
-	public Date getbCustomerReturnDate() {
-		return bCustomerReturnDate;
-	}
-
-	public void setbCustomerReturnDate(Date bCustomerReturnDate) {
-		this.bCustomerReturnDate = bCustomerReturnDate;
-	}
-
-	public Date geteCustomerReturnDate() {
-		return eCustomerReturnDate;
-	}
-
-	public void seteCustomerReturnDate(Date eCustomerReturnDate) {
-		this.eCustomerReturnDate = eCustomerReturnDate;
-	}
+//	public Date getbCustomerReturnDate() {
+//		return bCustomerReturnDate;
+//	}
+//
+//	public void setbCustomerReturnDate(Date bCustomerReturnDate) {
+//		this.bCustomerReturnDate = bCustomerReturnDate;
+//	}
+//
+//	public Date geteCustomerReturnDate() {
+//		return eCustomerReturnDate;
+//	}
+//
+//	public void seteCustomerReturnDate(Date eCustomerReturnDate) {
+//		this.eCustomerReturnDate = eCustomerReturnDate;
+//	}
 //
 //
 //	public List<CustomerReturnListGoods> getCustomerReturnListGoodsList() {

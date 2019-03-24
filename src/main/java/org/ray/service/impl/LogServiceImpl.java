@@ -58,11 +58,11 @@ public class LogServiceImpl implements LogService {
 					if(StringUtil.isNotEmpty(log.getType())){
 						predicate.getExpressions().add(cb.equal(root.get("type"), log.getType()));
 					}
-					if(log.getBtime()!=null){
-						predicate.getExpressions().add(cb.greaterThanOrEqualTo(root.get("time"), log.getBtime()));
+					if(log.getBegintime()!=null){
+						predicate.getExpressions().add(cb.greaterThanOrEqualTo(root.get("time"), log.getBegintime()));
 					}
-					if(log.getEtime()!=null){
-						predicate.getExpressions().add(cb.lessThanOrEqualTo(root.get("time"), log.getEtime()));
+					if(log.getEndtime()!=null){
+						predicate.getExpressions().add(cb.lessThanOrEqualTo(root.get("time"), log.getEndtime()));
 					}
 				}
 				return predicate;
@@ -85,11 +85,11 @@ public class LogServiceImpl implements LogService {
 					if(StringUtil.isNotEmpty(log.getType())){
 						predicate.getExpressions().add(cb.equal(root.get("type"), log.getType()));
 					}
-					if(log.getBtime()!=null){
-						predicate.getExpressions().add(cb.greaterThanOrEqualTo(root.get("time"), log.getBtime()));
+					if(log.getBegintime()!=null){
+						predicate.getExpressions().add(cb.greaterThanOrEqualTo(root.get("time"), log.getBegintime()));
 					}
-					if(log.getEtime()!=null){
-						predicate.getExpressions().add(cb.lessThanOrEqualTo(root.get("time"), log.getEtime()));
+					if(log.getEndtime()!=null){
+						predicate.getExpressions().add(cb.lessThanOrEqualTo(root.get("time"), log.getEndtime()));
 					}
 				}
 				return predicate;

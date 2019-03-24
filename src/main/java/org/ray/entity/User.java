@@ -7,9 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 import org.hibernate.validator.constraints.NotEmpty;
 
 /**
@@ -17,9 +15,7 @@ import org.hibernate.validator.constraints.NotEmpty;
  * @author ray
  *
  */
-@Getter
-@Setter
-@ToString
+@Data
 @Entity
 @Table(name="t_user")
 public class User {

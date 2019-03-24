@@ -1,9 +1,6 @@
 package org.ray.entity;
 
-import lombok.*;
-import lombok.extern.java.Log;
-import lombok.extern.log4j.Log4j;
-
+import lombok.Data;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,13 +13,8 @@ import javax.persistence.Table;
  *
  */
 
-@Getter
-@Setter
-@Data
-@Log4j
-@NoArgsConstructor
 
-@ToString
+@Data
 @Entity
 @Table(name="t_customer")
 public class Customer {

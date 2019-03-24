@@ -1,9 +1,6 @@
 package org.ray.entity;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
-
+import lombok.Data;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -16,9 +13,7 @@ import javax.persistence.Table;
  * @author ray
  *
  */
-@Getter
-@Setter
-@ToString
+@Data
 @Entity
 @Table(name="t_roleMenu")
 public class RoleMenu {

@@ -89,11 +89,11 @@ public class PurchaseListServiceImpl implements PurchaseListService{
 					if(purchaseList.getState()!=null){
 						predicate.getExpressions().add(cb.equal(root.get("state"), purchaseList.getState()));
 					}
-					if(purchaseList.getbPurchaseDate()!=null){
-						predicate.getExpressions().add(cb.greaterThanOrEqualTo(root.get("purchaseDate"), purchaseList.getbPurchaseDate()));
+					if(purchaseList.getBeginPurchaseDate()!=null){
+						predicate.getExpressions().add(cb.greaterThanOrEqualTo(root.get("purchaseDate"), purchaseList.getBeginPurchaseDate()));
 					}
-					if(purchaseList.getePurchaseDate()!=null){
-						predicate.getExpressions().add(cb.lessThanOrEqualTo(root.get("purchaseDate"), purchaseList.getePurchaseDate()));
+					if(purchaseList.getEndPurchaseDate()!=null){
+						predicate.getExpressions().add(cb.lessThanOrEqualTo(root.get("purchaseDate"), purchaseList.getEndPurchaseDate()));
 					}
 				}
 				return predicate;

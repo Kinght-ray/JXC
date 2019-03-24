@@ -1,7 +1,6 @@
 package org.ray.entity;
 
 import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,20 +11,15 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
+import lombok.Data;
 
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
 
 /**
  * 报溢单
  * @author ray
  *
  */
-@Getter
-@Setter
-@ToString
+@Data
 @Entity
 @Table(name="t_overflowList")
 public class OverflowList {
@@ -35,17 +29,17 @@ public class OverflowList {
 	private Integer id; // 编号
 	
 	@Column(length=100)
-	private String overflowNumber; // 报溢单号
+	private String OverflowNumber; // 报溢单号
 	
 
 	@Temporal(TemporalType.TIMESTAMP) 
-	private Date overflowDate; // 报溢日期
+	private Date OverflowDate; // 报溢日期
 	
 	@Transient
-	private Date bOverflowDate; // 起始时间 搜索用到
+	private Date BeginOverflowDate; // 起始时间 搜索用到
 	
 	@Transient
-	private Date eOverflowDate; // 结束时间 搜索用到
+	private Date EndOverflowDate; // 结束时间 搜索用到
 	
 	
 	@ManyToOne
@@ -55,67 +49,67 @@ public class OverflowList {
 	@Column(length=1000)
 	private String remarks; // 备注
 
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-
-	public String getOverflowNumber() {
-		return overflowNumber;
-	}
-
-	public void setOverflowNumber(String overflowNumber) {
-		this.overflowNumber = overflowNumber;
-	}
-
-
-
-	@JsonSerialize(using=CustomDateSerializer.class)
-	public Date getOverflowDate() {
-		return overflowDate;
-	}
-
-	public void setOverflowDate(Date overflowDate) {
-		this.overflowDate = overflowDate;
-	}
-
-
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
-	public String getRemarks() {
-		return remarks;
-	}
-
-	public void setRemarks(String remarks) {
-		this.remarks = remarks;
-	}
-
-	public Date getbOverflowDate() {
-		return bOverflowDate;
-	}
-
-	public void setbOverflowDate(Date bOverflowDate) {
-		this.bOverflowDate = bOverflowDate;
-	}
-
-	public Date geteOverflowDate() {
-		return eOverflowDate;
-	}
-
-	public void seteOverflowDate(Date eOverflowDate) {
-		this.eOverflowDate = eOverflowDate;
-	}
+//	public Integer getId() {
+//		return id;
+//	}
+//
+//	public void setId(Integer id) {
+//		this.id = id;
+//	}
+//
+//
+//	public String getOverflowNumber() {
+//		return overflowNumber;
+//	}
+//
+//	public void setOverflowNumber(String overflowNumber) {
+//		this.overflowNumber = overflowNumber;
+//	}
+//
+//
+//
+//	@JsonSerialize(using=CustomDateSerializer.class)
+//	public Date getOverflowDate() {
+//		return OverflowDate;
+//	}
+//
+//	public void setOverflowDate(Date overflowDate) {
+//		this.overflowDate = overflowDate;
+//	}
+//
+//
+//
+//	public User getUser() {
+//		return user;
+//	}
+//
+//	public void setUser(User user) {
+//		this.user = user;
+//	}
+//
+//	public String getRemarks() {
+//		return remarks;
+//	}
+//
+//	public void setRemarks(String remarks) {
+//		this.remarks = remarks;
+//	}
+//
+//	public Date getbOverflowDate() {
+//		return bOverflowDate;
+//	}
+//
+//	public void setbOverflowDate(Date bOverflowDate) {
+//		this.bOverflowDate = bOverflowDate;
+//	}
+//
+//	public Date geteOverflowDate() {
+//		return eOverflowDate;
+//	}
+//
+//	public void seteOverflowDate(Date eOverflowDate) {
+//		this.eOverflowDate = eOverflowDate;
+//	}
 //
 //	@Override
 //	public String toString() {

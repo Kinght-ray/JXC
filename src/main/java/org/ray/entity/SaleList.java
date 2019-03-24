@@ -2,7 +2,6 @@ package org.ray.entity;
 
 import java.util.Date;
 import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,18 +14,14 @@ import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 
 /**
  * 销售单
  * @author ray
  *
  */
-@Getter
-@Setter
-@ToString
+@Data
 @Entity
 @Table(name="t_saleList")
 public class SaleList {
@@ -46,10 +41,10 @@ public class SaleList {
 	private Date saleDate; // 销售日期
 	
 	@Transient
-	private Date bSaleDate; // 起始时间 搜索用到
+	private Date BeginSaleDate; // 起始时间 搜索用到
 	
 	@Transient
-	private Date eSaleDate; // 结束时间 搜索用到
+	private Date EndSaleDate; // 结束时间 搜索用到
 	
 	private float amountPayable; // 应付金额
 	
@@ -69,108 +64,108 @@ public class SaleList {
 	
 	
 
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-
-	public String getSaleNumber() {
-		return saleNumber;
-	}
-
-	public void setSaleNumber(String saleNumber) {
-		this.saleNumber = saleNumber;
-	}
-
-
-	public Customer getCustomer() {
-		return customer;
-	}
-
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
-	}
-
+//	public Integer getId() {
+//		return id;
+//	}
+//
+//	public void setId(Integer id) {
+//		this.id = id;
+//	}
+//
+//
+//	public String getSaleNumber() {
+//		return saleNumber;
+//	}
+//
+//	public void setSaleNumber(String saleNumber) {
+//		this.saleNumber = saleNumber;
+//	}
+//
+//
+//	public Customer getCustomer() {
+//		return customer;
+//	}
+//
+//	public void setCustomer(Customer customer) {
+//		this.customer = customer;
+//	}
+//
 	@JsonSerialize(using=CustomDateSerializer.class)
 	public Date getSaleDate() {
 		return saleDate;
 	}
-
-	public void setSaleDate(Date saleDate) {
-		this.saleDate = saleDate;
-	}
-
-	public float getAmountPayable() {
-		return amountPayable;
-	}
-
-	public void setAmountPayable(float amountPayable) {
-		this.amountPayable = amountPayable;
-	}
-
-	public float getAmountPaid() {
-		return amountPaid;
-	}
-
-	public void setAmountPaid(float amountPaid) {
-		this.amountPaid = amountPaid;
-	}
-
-	public Integer getState() {
-		return state;
-	}
-
-	public void setState(Integer state) {
-		this.state = state;
-	}
-
-
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
-	public String getRemarks() {
-		return remarks;
-	}
-
-	public void setRemarks(String remarks) {
-		this.remarks = remarks;
-	}
-
-	public Date getbSaleDate() {
-		return bSaleDate;
-	}
-
-	public void setbSaleDate(Date bSaleDate) {
-		this.bSaleDate = bSaleDate;
-	}
-
-	public Date geteSaleDate() {
-		return eSaleDate;
-	}
-
-	public void seteSaleDate(Date eSaleDate) {
-		this.eSaleDate = eSaleDate;
-	}
-
-
-
-	public List<SaleListGoods> getSaleListGoodsList() {
-		return saleListGoodsList;
-	}
-
-	public void setSaleListGoodsList(List<SaleListGoods> saleListGoodsList) {
-		this.saleListGoodsList = saleListGoodsList;
-	}
+//
+//	public void setSaleDate(Date saleDate) {
+//		this.saleDate = saleDate;
+//	}
+//
+//	public float getAmountPayable() {
+//		return amountPayable;
+//	}
+//
+//	public void setAmountPayable(float amountPayable) {
+//		this.amountPayable = amountPayable;
+//	}
+//
+//	public float getAmountPaid() {
+//		return amountPaid;
+//	}
+//
+//	public void setAmountPaid(float amountPaid) {
+//		this.amountPaid = amountPaid;
+//	}
+//
+//	public Integer getState() {
+//		return state;
+//	}
+//
+//	public void setState(Integer state) {
+//		this.state = state;
+//	}
+//
+//
+//
+//	public User getUser() {
+//		return user;
+//	}
+//
+//	public void setUser(User user) {
+//		this.user = user;
+//	}
+//
+//	public String getRemarks() {
+//		return remarks;
+//	}
+//
+//	public void setRemarks(String remarks) {
+//		this.remarks = remarks;
+//	}
+//
+//	public Date getbSaleDate() {
+//		return bSaleDate;
+//	}
+//
+//	public void setbSaleDate(Date bSaleDate) {
+//		this.bSaleDate = bSaleDate;
+//	}
+//
+//	public Date geteSaleDate() {
+//		return eSaleDate;
+//	}
+//
+//	public void seteSaleDate(Date eSaleDate) {
+//		this.eSaleDate = eSaleDate;
+//	}
+//
+//
+//
+//	public List<SaleListGoods> getSaleListGoodsList() {
+//		return saleListGoodsList;
+//	}
+//
+//	public void setSaleListGoodsList(List<SaleListGoods> saleListGoodsList) {
+//		this.saleListGoodsList = saleListGoodsList;
+//	}
 
 //	@Override
 //	public String toString() {

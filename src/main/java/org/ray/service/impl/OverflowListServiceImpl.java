@@ -74,11 +74,11 @@ public class OverflowListServiceImpl implements OverflowListService{
 			public Predicate toPredicate(Root<OverflowList> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
 				Predicate predicate=cb.conjunction();
 				if(overflowList!=null){
-					if(overflowList.getbOverflowDate()!=null){
-						predicate.getExpressions().add(cb.greaterThanOrEqualTo(root.get("overflowDate"), overflowList.getbOverflowDate()));
+					if(overflowList.getBeginOverflowDate()!=null){
+						predicate.getExpressions().add(cb.greaterThanOrEqualTo(root.get("overflowDate"), overflowList.getBeginOverflowDate()));
 					}
-					if(overflowList.geteOverflowDate()!=null){
-						predicate.getExpressions().add(cb.lessThanOrEqualTo(root.get("overflowDate"), overflowList.geteOverflowDate()));
+					if(overflowList.getEndOverflowDate()!=null){
+						predicate.getExpressions().add(cb.lessThanOrEqualTo(root.get("overflowDate"), overflowList.getEndOverflowDate()));
 					}
 				}
 				return predicate;

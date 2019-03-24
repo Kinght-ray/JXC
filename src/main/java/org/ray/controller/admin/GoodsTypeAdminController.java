@@ -60,7 +60,7 @@ public class GoodsTypeAdminController {
 		Map<String, Object> resultMap = new HashMap<>();
 		GoodsType goodsType=new GoodsType();
 		goodsType.setName(name);
-		goodsType.setpId(parentId);
+		goodsType.setPId(parentId);
 		goodsType.setIcon("icon-folder");
 		goodsType.setState(0);
 		logService.save(new Log(Log.ADD_ACTION,"添加商品类别信息"+goodsType)); 
@@ -86,8 +86,8 @@ public class GoodsTypeAdminController {
 	public Map<String,Object> delete(Integer id)throws Exception{
 		Map<String, Object> resultMap = new HashMap<>();
 		GoodsType goodsType=goodsTypeService.findById(id); 
-		if(goodsTypeService.findByParentId(goodsType.getpId()).size()==1){ // 假如父节点下只有当前这个子节点，修改下 父节点的state状态
-			GoodsType parentGoodsType=goodsTypeService.findById(goodsType.getpId());
+		if(goodsTypeService.findByParentId(goodsType.getPId()).size()==1){ // 假如父节点下只有当前这个子节点，修改下 父节点的state状态
+			GoodsType parentGoodsType=goodsTypeService.findById(goodsType.getPId());
 			parentGoodsType.setState(0); // 修改state 0  叶子节点
 			goodsTypeService.save(parentGoodsType); // 保存父节点商品类别
 		}

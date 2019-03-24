@@ -1,9 +1,6 @@
 package org.ray.entity;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
-
+import lombok.Data;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,9 +15,7 @@ import javax.persistence.Transient;
  * @author ray
  *
  */
-@Getter
-@Setter
-@ToString
+@Data
 @Entity
 @Table(name="t_purchaseListGoods")
 public class PurchaseListGoods {
@@ -65,116 +60,116 @@ public class PurchaseListGoods {
 	@Transient
 	private String codeOrName; // 查询用到  根据商品编码或者商品名称查询
 
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getCode() {
-		return code;
-	}
-
-	public void setCode(String code) {
-		this.code = code;
-	}
-
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getModel() {
-		return model;
-	}
-
-	public void setModel(String model) {
-		this.model = model;
-	}
-
-	public GoodsType getType() {
-		return type;
-	}
-
-	public void setType(GoodsType type) {
-		this.type = type;
-	}
-
-
-	public Integer getTypeId() {
-		return typeId;
-	}
-
-	public void setTypeId(Integer typeId) {
-		this.typeId = typeId;
-	}
-
-	public String getUnit() {
-		return unit;
-	}
-
-	public void setUnit(String unit) {
-		this.unit = unit;
-	}
-
-	public float getPrice() {
-		return price;
-	}
-
-	public void setPrice(float price) {
-		this.price = price;
-	}
-
-	public int getNum() {
-		return num;
-	}
-
-	public void setNum(int num) {
-		this.num = num;
-	}
-
-	public float getTotal() {
-		return total;
-	}
-
-	public void setTotal(float total) {
-		this.total = total;
-	}
-
-
-	public PurchaseList getPurchaseList() {
-		return purchaseList;
-	}
-
-	public void setPurchaseList(PurchaseList purchaseList) {
-		this.purchaseList = purchaseList;
-	}
-
-
-
-	public Integer getGoodsId() {
-		return goodsId;
-	}
-
-	public void setGoodsId(Integer goodsId) {
-		this.goodsId = goodsId;
-	}
-
-
-
-	public String getCodeOrName() {
-		return codeOrName;
-	}
-
-	public void setCodeOrName(String codeOrName) {
-		this.codeOrName = codeOrName;
-	}
+//	public Integer getId() {
+//		return id;
+//	}
+//
+//	public void setId(Integer id) {
+//		this.id = id;
+//	}
+//
+//	public String getCode() {
+//		return code;
+//	}
+//
+//	public void setCode(String code) {
+//		this.code = code;
+//	}
+//
+//
+//	public String getName() {
+//		return name;
+//	}
+//
+//	public void setName(String name) {
+//		this.name = name;
+//	}
+//
+//	public String getModel() {
+//		return model;
+//	}
+//
+//	public void setModel(String model) {
+//		this.model = model;
+//	}
+//
+//	public GoodsType getType() {
+//		return type;
+//	}
+//
+//	public void setType(GoodsType type) {
+//		this.type = type;
+//	}
+//
+//
+//	public Integer getTypeId() {
+//		return typeId;
+//	}
+//
+//	public void setTypeId(Integer typeId) {
+//		this.typeId = typeId;
+//	}
+//
+//	public String getUnit() {
+//		return unit;
+//	}
+//
+//	public void setUnit(String unit) {
+//		this.unit = unit;
+//	}
+//
+//	public float getPrice() {
+//		return price;
+//	}
+//
+//	public void setPrice(float price) {
+//		this.price = price;
+//	}
+//
+//	public int getNum() {
+//		return num;
+//	}
+//
+//	public void setNum(int num) {
+//		this.num = num;
+//	}
+//
+//	public float getTotal() {
+//		return total;
+//	}
+//
+//	public void setTotal(float total) {
+//		this.total = total;
+//	}
+//
+//
+//	public PurchaseList getPurchaseList() {
+//		return purchaseList;
+//	}
+//
+//	public void setPurchaseList(PurchaseList purchaseList) {
+//		this.purchaseList = purchaseList;
+//	}
+//
+//
+//
+//	public Integer getGoodsId() {
+//		return goodsId;
+//	}
+//
+//	public void setGoodsId(Integer goodsId) {
+//		this.goodsId = goodsId;
+//	}
+//
+//
+//
+//	public String getCodeOrName() {
+//		return codeOrName;
+//	}
+//
+//	public void setCodeOrName(String codeOrName) {
+//		this.codeOrName = codeOrName;
+//	}
 
 //	@Override
 //	public String toString() {

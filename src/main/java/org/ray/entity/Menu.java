@@ -1,9 +1,6 @@
 package org.ray.entity;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
-
+import lombok.Data;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,9 +12,7 @@ import javax.persistence.Table;
  * @author ray
  *
  */
-@Getter
-@Setter
-@ToString
+@Data
 @Entity
 @Table(name="t_menu")
 public class Menu {
@@ -38,7 +33,7 @@ public class Menu {
 	@Column(length=100)
 	private String icon; // 图标
 	
-	private Integer pId; // 父菜单Id
+	private Integer PId; // 父菜单Id
 
 //	public Integer getId() {
 //		return id;

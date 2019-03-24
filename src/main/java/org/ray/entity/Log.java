@@ -12,20 +12,14 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
-
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 
 /**
  * 系统日志实体
  * @author ray
  *
  */
-@Getter
-@Setter
-@ToString
+@Data
 @Entity
 @Table(name="t_log")
 public class Log {
@@ -56,10 +50,10 @@ public class Log {
 	private Date time; // 操作时间
 
 	@Transient
-	private Date btime; // 起始时间  搜索用到
+	private Date Begintime; // 起始时间  搜索用到
 	
 	@Transient
-	private Date etime; // 结束时间  搜索用到
+	private Date Endtime; // 结束时间  搜索用到
 	
 
 	public Log() {

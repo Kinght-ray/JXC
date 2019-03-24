@@ -1,5 +1,6 @@
 package org.ray.entity;
 
+import lombok.Data;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,6 +12,7 @@ import javax.persistence.Table;
  * @author ray
  *
  */
+@Data
 @Entity
 @Table(name="t_goodstype")
 public class GoodsType {
@@ -27,53 +29,53 @@ public class GoodsType {
 	@Column(length=100)
 	private String icon; // 图标
 	
-	private Integer pId; // 父菜单Id
+	private Integer PId; // 父菜单Id
 
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-
-	public Integer getState() {
-		return state;
-	}
-
-	public void setState(Integer state) {
-		this.state = state;
-	}
-
-	public Integer getpId() {
-		return pId;
-	}
-
-	public void setpId(Integer pId) {
-		this.pId = pId;
-	}
-
-	public String getIcon() {
-		return icon;
-	}
-
-	public void setIcon(String icon) {
-		this.icon = icon;
-	}
-
-	@Override
-	public String toString() {
-		return "[id=" + id + ", name=" + name + ", state=" + state + ", icon=" + icon + ", pId=" + pId + "]";
-	}
+//	public Integer getId() {
+//		return id;
+//	}
+//
+//	public void setId(Integer id) {
+//		this.id = id;
+//	}
+//
+//	public String getName() {
+//		return name;
+//	}
+//
+//	public void setName(String name) {
+//		this.name = name;
+//	}
+//
+//
+//	public Integer getState() {
+//		return state;
+//	}
+//
+//	public void setState(Integer state) {
+//		this.state = state;
+//	}
+//
+//	public Integer getpId() {
+//		return pId;
+//	}
+//
+//	public void setpId(Integer pId) {
+//		this.pId = pId;
+//	}
+//
+//	public String getIcon() {
+//		return icon;
+//	}
+//
+//	public void setIcon(String icon) {
+//		this.icon = icon;
+//	}
+//
+//	@Override
+//	public String toString() {
+//		return "[id=" + id + ", name=" + name + ", state=" + state + ", icon=" + icon + ", pId=" + pId + "]";
+//	}
 	
 	
 }

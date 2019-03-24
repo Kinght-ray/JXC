@@ -24,8 +24,8 @@
     ]
 },
 { "id": "tjbb", iconCls: "fa fa-area-chart", text: "统计报表", children: [
-        { "id": "gystj", iconCls: "fa fa-handshake-o", text: "供应商统计", url: "count/supplier.html" },
         { "id": "khtj", iconCls: "fa fa-user", text: "客户统计", url: "count/customer.html" },
+        { "id": "gystj", iconCls: "fa fa-handshake-o", text: "供应商统计", url: "count/supplier.html" },
         { "id": "spcgtj", iconCls: "fa fa-shopping-basket", text: "商品采购统计", url: "count/purchase.html" },
         { "id": "spxstj", iconCls: "fa fa-shopping-bag", text: "商品销售统计", url: "count/sale.html" },
         { "id": "artjfx", iconCls: "fa fa-list-alt", text: "按日统计分析", url: "count/saleDay.html" },
@@ -34,10 +34,10 @@
 },
 
 { "id": "jczl", iconCls: "fa fa-table", text: "基础资料", children: [
-        { "id": "gysgl", iconCls: "fa fa-cogs", text: "供应商管理", url: "basicData/supplier.html" },
         { "id": "khgl", iconCls: "fa fa-user", text: "客户管理", url: "basicData/customer.html" },
         { "id": "spgl", iconCls: "fa fa-shopping-bag", text: "商品管理", url: "basicData/goods.html" },
-        { "id": "cqkc", iconCls: "fa fa-pie-chart", text: "期初库存", url: "basicData/stock.html" }
+        { "id": "cqkc", iconCls: "fa fa-pie-chart", text: "期初库存", url: "basicData/stock.html" },
+        { "id": "gysgl", iconCls: "fa fa-cogs", text: "供应商管理", url: "basicData/supplier.html" }
     ]
 },
 { "id": "xtgl", iconCls: "fa fa-desktop", text: "系统管理", children: [

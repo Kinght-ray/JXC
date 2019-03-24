@@ -13,20 +13,14 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
-
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 
 /**
  * 进货单
  * @author ray
  *
  */
-@Getter
-@Setter
-@ToString
+@Data
 @Entity
 @Table(name="t_purchaseList")
 public class PurchaseList {
@@ -46,10 +40,10 @@ public class PurchaseList {
 	private Date purchaseDate; // 进货日期
 	
 	@Transient
-	private Date bPurchaseDate; // 起始时间 搜索用到
+	private Date BeginPurchaseDate; // 起始时间 搜索用到
 	
 	@Transient
-	private Date ePurchaseDate; // 结束时间 搜索用到
+	private Date EndPurchaseDate; // 结束时间 搜索用到
 	
 	private float amountPayable; // 应付金额
 	
@@ -67,108 +61,108 @@ public class PurchaseList {
 	@Transient
 	private List<PurchaseListGoods> purchaseListGoodsList=null; // 采购单商品集合
 
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-
-	public String getPurchaseNumber() {
-		return purchaseNumber;
-	}
-
-	public void setPurchaseNumber(String purchaseNumber) {
-		this.purchaseNumber = purchaseNumber;
-	}
-
-
-
-	public Supplier getSupplier() {
-		return supplier;
-	}
-
-	public void setSupplier(Supplier supplier) {
-		this.supplier = supplier;
-	}
-
-	@JsonSerialize(using=CustomDateSerializer.class)
-	public Date getPurchaseDate() {
-		return purchaseDate;
-	}
-
-	public void setPurchaseDate(Date purchaseDate) {
-		this.purchaseDate = purchaseDate;
-	}
-
-	public float getAmountPayable() {
-		return amountPayable;
-	}
-
-	public void setAmountPayable(float amountPayable) {
-		this.amountPayable = amountPayable;
-	}
-
-	public float getAmountPaid() {
-		return amountPaid;
-	}
-
-	public void setAmountPaid(float amountPaid) {
-		this.amountPaid = amountPaid;
-	}
-
-	public Integer getState() {
-		return state;
-	}
-
-	public void setState(Integer state) {
-		this.state = state;
-	}
-
-
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
-	public String getRemarks() {
-		return remarks;
-	}
-
-	public void setRemarks(String remarks) {
-		this.remarks = remarks;
-	}
-
-	public Date getbPurchaseDate() {
-		return bPurchaseDate;
-	}
-
-	public void setbPurchaseDate(Date bPurchaseDate) {
-		this.bPurchaseDate = bPurchaseDate;
-	}
-
-	public Date getePurchaseDate() {
-		return ePurchaseDate;
-	}
-
-	public void setePurchaseDate(Date ePurchaseDate) {
-		this.ePurchaseDate = ePurchaseDate;
-	}
-
-
-	public List<PurchaseListGoods> getPurchaseListGoodsList() {
-		return purchaseListGoodsList;
-	}
-
-	public void setPurchaseListGoodsList(List<PurchaseListGoods> purchaseListGoodsList) {
-		this.purchaseListGoodsList = purchaseListGoodsList;
-	}
+//	public Integer getId() {
+//		return id;
+//	}
+//
+//	public void setId(Integer id) {
+//		this.id = id;
+//	}
+//
+//
+//	public String getPurchaseNumber() {
+//		return purchaseNumber;
+//	}
+//
+//	public void setPurchaseNumber(String purchaseNumber) {
+//		this.purchaseNumber = purchaseNumber;
+//	}
+//
+//
+//
+//	public Supplier getSupplier() {
+//		return supplier;
+//	}
+//
+//	public void setSupplier(Supplier supplier) {
+//		this.supplier = supplier;
+//	}
+//
+//	@JsonSerialize(using=CustomDateSerializer.class)
+//	public Date getPurchaseDate() {
+//		return purchaseDate;
+//	}
+//
+//	public void setPurchaseDate(Date purchaseDate) {
+//		this.purchaseDate = purchaseDate;
+//	}
+//
+//	public float getAmountPayable() {
+//		return amountPayable;
+//	}
+//
+//	public void setAmountPayable(float amountPayable) {
+//		this.amountPayable = amountPayable;
+//	}
+//
+//	public float getAmountPaid() {
+//		return amountPaid;
+//	}
+//
+//	public void setAmountPaid(float amountPaid) {
+//		this.amountPaid = amountPaid;
+//	}
+//
+//	public Integer getState() {
+//		return state;
+//	}
+//
+//	public void setState(Integer state) {
+//		this.state = state;
+//	}
+//
+//
+//
+//	public User getUser() {
+//		return user;
+//	}
+//
+//	public void setUser(User user) {
+//		this.user = user;
+//	}
+//
+//	public String getRemarks() {
+//		return remarks;
+//	}
+//
+//	public void setRemarks(String remarks) {
+//		this.remarks = remarks;
+//	}
+//
+//	public Date getbPurchaseDate() {
+//		return bPurchaseDate;
+//	}
+//
+//	public void setbPurchaseDate(Date bPurchaseDate) {
+//		this.bPurchaseDate = bPurchaseDate;
+//	}
+//
+//	public Date getePurchaseDate() {
+//		return ePurchaseDate;
+//	}
+//
+//	public void setePurchaseDate(Date ePurchaseDate) {
+//		this.ePurchaseDate = ePurchaseDate;
+//	}
+//
+//
+//	public List<PurchaseListGoods> getPurchaseListGoodsList() {
+//		return purchaseListGoodsList;
+//	}
+//
+//	public void setPurchaseListGoodsList(List<PurchaseListGoods> purchaseListGoodsList) {
+//		this.purchaseListGoodsList = purchaseListGoodsList;
+//	}
 
 //	@Override
 //	public String toString() {

@@ -73,11 +73,11 @@ public class DamageListServiceImpl implements DamageListService {
 			public Predicate toPredicate(Root<DamageList> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
 				Predicate predicate=cb.conjunction();
 				if(damageList!=null){
-					if(damageList.getbDamageDate()!=null){
-						predicate.getExpressions().add(cb.greaterThanOrEqualTo(root.get("damageDate"), damageList.getbDamageDate()));
+					if(damageList.getBeginDamageDate()!=null){
+						predicate.getExpressions().add(cb.greaterThanOrEqualTo(root.get("damageDate"), damageList.getBeginDamageDate()));
 					}
-					if(damageList.geteDamageDate()!=null){
-						predicate.getExpressions().add(cb.lessThanOrEqualTo(root.get("damageDate"), damageList.geteDamageDate()));
+					if(damageList.getEndDamageDate()!=null){
+						predicate.getExpressions().add(cb.lessThanOrEqualTo(root.get("damageDate"), damageList.getEndDamageDate()));
 					}
 				}
 				return predicate;

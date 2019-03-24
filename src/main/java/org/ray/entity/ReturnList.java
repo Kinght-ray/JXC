@@ -2,7 +2,6 @@ package org.ray.entity;
 
 import java.util.Date;
 import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,20 +12,15 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
+import lombok.Data;
 
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
 
 /**
  * 退货单
  * @author ray
  *
  */
-@Getter
-@Setter
-@ToString
+@Data
 @Entity
 @Table(name="t_returnList")
 public class ReturnList {
@@ -59,118 +53,118 @@ public class ReturnList {
 	private String remarks; // 备注
 	
 	@Transient
-	private Date bReturnDate; // 起始时间 搜索用到
+	private Date BeginReturnDate; // 起始时间 搜索用到
 	
 	@Transient
-	private Date eReturnDate; // 结束时间 搜索用到
+	private Date EndReturnDate; // 结束时间 搜索用到
 	
 	@Transient
 	private List<ReturnListGoods> returnListGoodsList=null; // 退货单商品集合
 
 
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-
-	public String getReturnNumber() {
-		return returnNumber;
-	}
-
-	public void setReturnNumber(String returnNumber) {
-		this.returnNumber = returnNumber;
-	}
-
-
-
-	public Supplier getSupplier() {
-		return supplier;
-	}
-
-	public void setSupplier(Supplier supplier) {
-		this.supplier = supplier;
-	}
-
-	@JsonSerialize(using=CustomDateSerializer.class)
-	public Date getReturnDate() {
-		return returnDate;
-	}
-
-	public void setReturnDate(Date returnDate) {
-		this.returnDate = returnDate;
-	}
-
-	public float getAmountPayable() {
-		return amountPayable;
-	}
-
-	public void setAmountPayable(float amountPayable) {
-		this.amountPayable = amountPayable;
-	}
-
-	public float getAmountPaid() {
-		return amountPaid;
-	}
-
-	public void setAmountPaid(float amountPaid) {
-		this.amountPaid = amountPaid;
-	}
-
-	public Integer getState() {
-		return state;
-	}
-
-	public void setState(Integer state) {
-		this.state = state;
-	}
-
-
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
-	public String getRemarks() {
-		return remarks;
-	}
-
-	public void setRemarks(String remarks) {
-		this.remarks = remarks;
-	}
-
-	public Date getbReturnDate() {
-		return bReturnDate;
-	}
-
-	public void setbReturnDate(Date bReturnDate) {
-		this.bReturnDate = bReturnDate;
-	}
-
-	public Date geteReturnDate() {
-		return eReturnDate;
-	}
-
-	public void seteReturnDate(Date eReturnDate) {
-		this.eReturnDate = eReturnDate;
-	}
-
-
-
-	public List<ReturnListGoods> getReturnListGoodsList() {
-		return returnListGoodsList;
-	}
-
-	public void setReturnListGoodsList(List<ReturnListGoods> returnListGoodsList) {
-		this.returnListGoodsList = returnListGoodsList;
-	}
+//	public Integer getId() {
+//		return id;
+//	}
+//
+//	public void setId(Integer id) {
+//		this.id = id;
+//	}
+//
+//
+//	public String getReturnNumber() {
+//		return returnNumber;
+//	}
+//
+//	public void setReturnNumber(String returnNumber) {
+//		this.returnNumber = returnNumber;
+//	}
+//
+//
+//
+//	public Supplier getSupplier() {
+//		return supplier;
+//	}
+//
+//	public void setSupplier(Supplier supplier) {
+//		this.supplier = supplier;
+//	}
+//
+//	@JsonSerialize(using=CustomDateSerializer.class)
+//	public Date getReturnDate() {
+//		return returnDate;
+//	}
+//
+//	public void setReturnDate(Date returnDate) {
+//		this.returnDate = returnDate;
+//	}
+//
+//	public float getAmountPayable() {
+//		return amountPayable;
+//	}
+//
+//	public void setAmountPayable(float amountPayable) {
+//		this.amountPayable = amountPayable;
+//	}
+//
+//	public float getAmountPaid() {
+//		return amountPaid;
+//	}
+//
+//	public void setAmountPaid(float amountPaid) {
+//		this.amountPaid = amountPaid;
+//	}
+//
+//	public Integer getState() {
+//		return state;
+//	}
+//
+//	public void setState(Integer state) {
+//		this.state = state;
+//	}
+//
+//
+//
+//	public User getUser() {
+//		return user;
+//	}
+//
+//	public void setUser(User user) {
+//		this.user = user;
+//	}
+//
+//	public String getRemarks() {
+//		return remarks;
+//	}
+//
+//	public void setRemarks(String remarks) {
+//		this.remarks = remarks;
+//	}
+//
+//	public Date getbReturnDate() {
+//		return bReturnDate;
+//	}
+//
+//	public void setbReturnDate(Date bReturnDate) {
+//		this.bReturnDate = bReturnDate;
+//	}
+//
+//	public Date geteReturnDate() {
+//		return eReturnDate;
+//	}
+//
+//	public void seteReturnDate(Date eReturnDate) {
+//		this.eReturnDate = eReturnDate;
+//	}
+//
+//
+//
+//	public List<ReturnListGoods> getReturnListGoodsList() {
+//		return returnListGoodsList;
+//	}
+//
+//	public void setReturnListGoodsList(List<ReturnListGoods> returnListGoodsList) {
+//		this.returnListGoodsList = returnListGoodsList;
+//	}
 
 //	@Override
 //	public String toString() {
