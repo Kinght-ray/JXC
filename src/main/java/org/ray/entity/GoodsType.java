@@ -29,7 +29,7 @@ public class GoodsType {
 	@Column(length=100)
 	private String icon; // 图标
 	
-	private Integer PId; // 父菜单Id
+	private Integer P_Id; // 父菜单Id
 
 //	public Integer getId() {
 //		return id;

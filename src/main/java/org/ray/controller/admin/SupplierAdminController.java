@@ -95,8 +95,6 @@ public class SupplierAdminController {
 	
 	/**
 	 * 删除供应商信息
-	 * @param id
-	 * @param response
 	 * @return
 	 * @throws Exception
 	 */

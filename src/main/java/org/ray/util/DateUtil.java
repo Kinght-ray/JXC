@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * 日期工具类
+ * 日
  * @author ray
  *
  */

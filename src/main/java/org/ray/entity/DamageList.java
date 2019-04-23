@@ -1,6 +1,8 @@
 package org.ray.entity;
 
 import java.util.Date;
+
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Data;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -26,28 +28,27 @@ public class DamageList {
 	@Id
 	@GeneratedValue
 	private Integer id; // 编号
-	
+
 	@Column(length=100)
 	private String damageNumber; // 报损单号
-	
 
-	@Temporal(TemporalType.TIMESTAMP) 
-	private Date DamageDate; // 报损日期
-	
+
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date damageDate; // 报损日期
+
 	@Transient
-	private Date BeginDamageDate; // 起始时间 搜索用到
-	
+	private Date BDamageDate; // 起始时间 搜索用到
+
 	@Transient
-	private Date EndDamageDate; // 结束时间 搜索用到
-	
-	
+	private Date EDamageDate; // 结束时间 搜索用到
+
+
 	@ManyToOne
 	@JoinColumn(name="userId")
 	private User user; // 操作用户
-	
+
 	@Column(length=1000)
 	private String remarks; // 备注
-
 
 //	public Integer getId() {
 //		return id;
@@ -109,7 +110,7 @@ public class DamageList {
 //	public void seteDamageDate(Date eDamageDate) {
 //		this.eDamageDate = eDamageDate;
 //	}
-
+//
 //	@Override
 //	public String toString() {
 //		return "DamageList [id=" + id + ", damageNumber=" + damageNumber + ", damageDate=" + damageDate
@@ -117,8 +118,8 @@ public class DamageList {
 //				+ remarks + "]";
 //	}
 
-	
-	
-	
-	
+
+
+
+
 }

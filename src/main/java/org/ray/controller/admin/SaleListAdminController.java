@@ -65,8 +65,6 @@ public class SaleListAdminController {
 	/**
 	 * 根据条件分页查询销售单信息
 	 * @param saleList
-	 * @param page
-	 * @param rows
 	 * @return
 	 * @throws Exception
 	 */

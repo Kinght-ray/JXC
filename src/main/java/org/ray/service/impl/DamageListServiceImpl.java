@@ -17,6 +17,7 @@ import org.ray.repository.DamageListRepository;
 import org.ray.repository.GoodsRepository;
 import org.ray.repository.GoodsTypeRepository;
 import org.ray.service.DamageListService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.jpa.domain.Specification;
@@ -73,11 +74,11 @@ public class DamageListServiceImpl implements DamageListService {
 			public Predicate toPredicate(Root<DamageList> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
 				Predicate predicate=cb.conjunction();
 				if(damageList!=null){
-					if(damageList.getBeginDamageDate()!=null){
-						predicate.getExpressions().add(cb.greaterThanOrEqualTo(root.get("damageDate"), damageList.getBeginDamageDate()));
+					if(damageList.getBDamageDate()!=null){
+						predicate.getExpressions().add(cb.greaterThanOrEqualTo(root.get("damageDate"), damageList.getBDamageDate()));
 					}
-					if(damageList.getEndDamageDate()!=null){
-						predicate.getExpressions().add(cb.lessThanOrEqualTo(root.get("damageDate"), damageList.getEndDamageDate()));
+					if(damageList.getEDamageDate()!=null){
+						predicate.getExpressions().add(cb.lessThanOrEqualTo(root.get("damageDate"), damageList.getEDamageDate()));
 					}
 				}
 				return predicate;

@@ -20,7 +20,7 @@ public interface PurchaseListGoodsService {
 	
 	/**
 	 * 根据条件查询进货单商品
-	 * @param PurchaseListGoods
+	 * @param purchaseListGoods
 	 * @return
 	 */
 	public List<PurchaseListGoods> list(PurchaseListGoods purchaseListGoods);

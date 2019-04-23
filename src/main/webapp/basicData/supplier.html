@@ -3,11 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <title>供应商管理</title>
-<link rel="stylesheet" type="text/css" href="/static/jquery-easyui-1.7.0/themes/gray/easyui.css"></link>
-<link rel="stylesheet" type="text/css" href="/static/jquery-easyui-1.7.0/themes/icon.css"></link>
-<script type="text/javascript" src="/static/jquery-easyui-1.7.0/jquery.min.js"></script>
-<script type="text/javascript" src="/static/jquery-easyui-1.7.0/jquery.easyui.min.js"></script>
-<script type="text/javascript" src="/static/jquery-easyui-1.7.0/locale/easyui-lang-zh_CN.js"></script>
+<!--<link rel="stylesheet" type="text/css" href="/static/jquery-easyui-1.7.0/themes/gray/easyui.css"></link>-->
+<!--<link rel="stylesheet" type="text/css" href="/static/jquery-easyui-1.7.0/themes/icon.css"></link>-->
+<!--<script type="text/javascript" src="/static/jquery-easyui-1.7.0/jquery.min.js"></script>-->
+<!--<script type="text/javascript" src="/static/jquery-easyui-1.7.0/jquery.easyui.min.js"></script>-->
+<!--<script type="text/javascript" src="/static/jquery-easyui-1.7.0/locale/easyui-lang-zh_CN.js"></script>-->
+	<link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/easyui.css">
+	<link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/icon.css">
+	<link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/easyui_plus.css">
+	<!--<link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/iconfont/iconfont.css">-->
+	<link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/iconfont/demo.css">
+	<link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/easyui_animation.css">
+	<link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/plugin/font-awesome-4.7.0/css/font-awesome.css">
+	<!--<link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/insdep_theme_default.css">-->
+	<script src="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/jquery.min.js"></script>
+	<script src="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/jquery.easyui.min.js"></script>
+	<script src="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/locale/easyui-lang-zh_CN.js"></script>
+	<script src="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/iconfont/iconfont.js"></script>
+	<script src="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/jquery.insdep-extend.min.js"></script>
+	<style>
+		table td{  padding:3px;}
+	</style>
 <script type="text/javascript">
 
 	var url;
@@ -172,51 +188,53 @@
    <thead>
    	<tr>    
    	    <th field="cb" checkbox="true" align="center"></th>
-   		<th field="id" width="20" align="center">编号</th>
+   		<th field="id" width="20" align="center">编 号</th>
    		<th field="name" width="100" align="center">供应商名称</th>
    		<th field="contact" width="50" align="center">联系人</th>
    		<th field="number" width="50" align="center">联系电话</th>
    		<th field="address" width="150" align="center">联系地址</th>
-   		<th field="remarks" width="150" align="center">备注</th>
+   		<th field="remarks" width="150" align="center">备 注</th>
    	</tr>
    </thead>
  </table>
  
  <div id="tb">
- 	<div>
- 		<a href="javascript:openSupplierAddDialog()" class="easyui-linkbutton" iconCls="icon-add" plain="true">添加</a>
- 		<a href="javascript:openSupplierModifyDialog()" class="easyui-linkbutton" iconCls="icon-edit" plain="true">修改</a>
- 		<a href="javascript:deleteSupplier()" class="easyui-linkbutton" iconCls="icon-remove" plain="true">删除</a>
+ 	<div style="padding: 5px">
+ 		<a href="javascript:openSupplierAddDialog()" class="easyui-linkbutton button-green" iconCls="fa fa-plus" plain="true">添加</a>
+ 		<a href="javascript:openSupplierModifyDialog()" class="easyui-linkbutton button-orange" iconCls="fa fa-edit" plain="true">修改</a>
+ 		<a href="javascript:deleteSupplier()" class="easyui-linkbutton button-red" iconCls="fa fa-remove" plain="true">删除</a>
+		&nbsp;&nbsp;&nbsp;供应商名称：&nbsp;<input type="text" id="s_name" size="20" onkeydown="if(event.keyCode==13) searchSupplier()" class="easyui-textbox"/>
+		<a href="javascript:searchSupplier()" class="easyui-linkbutton button-blue" iconCls="fa fa-search" plain="true">搜索</a>
  	</div> 
- 	<div>
- 		&nbsp;供应商名称：&nbsp;<input type="text" id="s_name" size="20" onkeydown="if(event.keyCode==13) searchSupplier()"/>
- 		<a href="javascript:searchSupplier()" class="easyui-linkbutton" iconCls="icon-search" plain="true">搜索</a>
- 	</div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+ 	<!--<div style="padding: 5px">-->
+ 		<!--&nbsp;供应商名称：&nbsp;<input type="text" id="s_name" size="20" onkeydown="if(event.keyCode==13) searchSupplier()" class="easyui-textbox"/>-->
+ 		<!--<a href="javascript:searchSupplier()" class="easyui-linkbutton button-blue" iconCls="fa fa-search" plain="true">搜索</a>-->
+ 	<!--</div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  -->
  </div>
  
- <div id="dlg" class="easyui-dialog" style="width:500px;height:350px;padding: 10px 20px"
+ <div id="dlg" class="easyui-dialog" style="width:500px;height:370px;padding: 10px 20px"
    closed="true" buttons="#dlg-buttons" data-options="onClose:function(){resetValue()}">
    
    <form id="fm" method="post">
    	<table cellspacing="8px">
    		<tr>
    			<td>供应商名称：</td>
-   			<td><input type="text" id="name" name="name" class="easyui-validatebox" required="true" style="width: 250px"/></td>
+   			<td><input type="text" id="name" name="name" class="easyui-textbox" required="true" style="width: 250px"/></td>
    		</tr>
    		<tr>
    			<td>联系人：</td>
-   			<td><input type="text" id="contact" name="contact" class="easyui-validatebox"  required="true" style="width: 250px"/></td>
+   			<td><input type="text" id="contact" name="contact" class="easyui-textbox"  required="true" style="width: 250px"/></td>
    		</tr>
    		<tr>
    			<td>联系电话：</td>
-   			<td><input type="text" id="number" name="number" class="easyui-validatebox"  required="true" style="width: 250px"/></td>
+   			<td><input type="text" id="number" name="number" class="easyui-textbox"  required="true" style="width: 250px"/></td>
    		</tr>
    		<tr>
    			<td>联系地址：</td>
-   			<td><input type="text" id="address" name="address" class="easyui-validatebox"  required="true" style="width: 250px"/></td>
+   			<td><input type="text" id="address" name="address" class="easyui-textbox"  required="true" style="width: 250px"/></td>
    		</tr>
    		<tr>
-   			<td valign="top">备注：</td>
+   			<td valign="top">备 注：</td>
    			<td>
    				<textarea rows="5" cols="40" id="remarks" name="remarks"></textarea>
    			</td>
@@ -226,8 +244,8 @@
  </div>
  
  <div id="dlg-buttons">
- 	<a href="javascript:saveSupplier()" class="easyui-linkbutton" iconCls="icon-ok">保存</a>
- 	<a href="javascript:closeSupplierDialog()" class="easyui-linkbutton" iconCls="icon-cancel">关闭</a>
+ 	<a href="javascript:saveSupplier()" class="easyui-linkbutton button-blue" iconCls="fa fa-check">保存</a>
+ 	<a href="javascript:closeSupplierDialog()" class="easyui-linkbutton button-red" iconCls="fa fa-remove">关闭</a>
  </div>
  
   

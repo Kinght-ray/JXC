@@ -3,12 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <title>退货单据查询</title>
-<link rel="stylesheet" type="text/css" href="/static/jquery-easyui-1.7.0/themes/gray/easyui.css"></link>
-<link rel="stylesheet" type="text/css" href="/static/jquery-easyui-1.7.0/themes/icon.css"></link>
-<script type="text/javascript" src="/static/jquery-easyui-1.7.0/jquery.min.js"></script>
-<script type="text/javascript" src="/static/jquery-easyui-1.7.0/jquery.easyui.min.js"></script>
-<script type="text/javascript" src="/static/jquery-easyui-1.7.0/locale/easyui-lang-zh_CN.js"></script>
-<script type="text/javascript" src="/static/js/date.js"></script>
+<!--<link rel="stylesheet" type="text/css" href="/static/jquery-easyui-1.7.0/themes/gray/easyui.css"></link>-->
+<!--<link rel="stylesheet" type="text/css" href="/static/jquery-easyui-1.7.0/themes/icon.css"></link>-->
+<!--<script type="text/javascript" src="/static/jquery-easyui-1.7.0/jquery.min.js"></script>-->
+<!--<script type="text/javascript" src="/static/jquery-easyui-1.7.0/jquery.easyui.min.js"></script>-->
+<!--<script type="text/javascript" src="/static/jquery-easyui-1.7.0/locale/easyui-lang-zh_CN.js"></script>-->
+	<link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/easyui.css">
+	<link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/icon.css">
+	<link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/easyui_plus.css">
+	<!--<link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/iconfont/iconfont.css">-->
+	<link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/iconfont/demo.css">
+	<link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/easyui_animation.css">
+	<link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/plugin/font-awesome-4.7.0/css/font-awesome.css">
+	<!--<link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/insdep_theme_default.css">-->
+	<script src="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/jquery.min.js"></script>
+	<script src="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/jquery.easyui.min.js"></script>
+	<script src="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/locale/easyui-lang-zh_CN.js"></script>
+	<script src="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/iconfont/iconfont.js"></script>
+	<script src="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/jquery.insdep-extend.min.js"></script>
+	<script type="text/javascript" src="/static/js/date.js"></script>
+	<style>
+		fieldset{padding: 10px;padding-left: 10px}
+	</style>
 
 
 <script type="text/javascript">
@@ -119,11 +135,11 @@
 	 </table>
 	 
 	 <div id="tb">
-	 	<div style="padding-bottom: 5px">
+	 	<div style="padding-bottom: 10px">
 	 		<fieldset style="border-color: #E7F0FF">
 	 			<legend>查询设置</legend>
 	 	    &nbsp;单据号：&nbsp;
-	 		<input type="text" id="s_returnNumber" size="15" onkeydown="if(event.keyCode==13) searchReturn()"/>
+	 		<input class="easyui-textbox" id="s_returnNumber" size="15" onkeydown="if(event.keyCode==13) searchReturn()"/>
 	 		&nbsp;&nbsp;&nbsp;供应商：&nbsp;
 	 		<select class="easyui-combobox"  id="s_supplier"  style="width: 200px;"  data-options="panelHeight:'auto',valueField:'id',textField:'name',url:'/admin/supplier/comboList'"></select>
 	 		&nbsp;&nbsp;&nbsp;是否付款：
@@ -136,8 +152,8 @@
 	 		<input id="s_bReturnDate" class="easyui-datebox" editable=false  style="width:110px">
 	 	&nbsp;&nbsp;-&nbsp;&nbsp;
 	 		<input id="s_eReturnDate" class="easyui-datebox" editable=false  style="width:110px">
-	 		&nbsp;&nbsp;<a href="javascript:searchReturn()" class="easyui-linkbutton" iconCls="icon-search" plain="true">搜索</a>
-	 		&nbsp;&nbsp;<a href="javascript:deleteReturn()" class="easyui-linkbutton" iconCls="icon-remove" plain="true">删除</a>
+	 		&nbsp;&nbsp;<a href="javascript:searchReturn()" class="easyui-linkbutton button-default" iconCls="fa fa-search" plain="true">搜索</a>
+	 		&nbsp;&nbsp;<a href="javascript:deleteReturn()" class="easyui-linkbutton button-red" iconCls="fa fa-remove" plain="true">删除</a>
 	 		</fieldset>
 	 	</div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
 	 </div>

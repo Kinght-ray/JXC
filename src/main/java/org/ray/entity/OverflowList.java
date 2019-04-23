@@ -11,6 +11,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
+
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Data;
 
 
@@ -27,25 +29,25 @@ public class OverflowList {
 	@Id
 	@GeneratedValue
 	private Integer id; // 编号
-	
-	@Column(length=100)
-	private String OverflowNumber; // 报溢单号
-	
 
-	@Temporal(TemporalType.TIMESTAMP) 
-	private Date OverflowDate; // 报溢日期
-	
+	@Column(length=100)
+	private String overflowNumber; // 报溢单号
+
+
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date overflowDate; // 报溢日期
+
 	@Transient
-	private Date BeginOverflowDate; // 起始时间 搜索用到
-	
+	private Date BOverflowDate; // 起始时间 搜索用到
+
 	@Transient
-	private Date EndOverflowDate; // 结束时间 搜索用到
-	
-	
+	private Date EOverflowDate; // 结束时间 搜索用到
+
+
 	@ManyToOne
 	@JoinColumn(name="userId")
 	private User user; // 操作用户
-	
+
 	@Column(length=1000)
 	private String remarks; // 备注
 
@@ -70,7 +72,7 @@ public class OverflowList {
 //
 //	@JsonSerialize(using=CustomDateSerializer.class)
 //	public Date getOverflowDate() {
-//		return OverflowDate;
+//		return overflowDate;
 //	}
 //
 //	public void setOverflowDate(Date overflowDate) {
@@ -118,7 +120,7 @@ public class OverflowList {
 //				+ ", remarks=" + remarks + "]";
 //	}
 
-	
-	
-	
+
+
+
 }

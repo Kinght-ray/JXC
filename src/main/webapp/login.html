@@ -31,7 +31,7 @@
                             var roleId=result.roleList[0].id;
                             $.post("/user/saveRole",{roleId:roleId},function(result){
                                 if(result.success){
-                                    window.location.href="/index.html";
+                                    window.location.href="/index_left.html";
                                 }
                             });
                         }else{
@@ -60,7 +60,7 @@
             var roleId=$("input[name='role']:checked").val();
             $.post("/user/saveRole",{roleId:roleId},function(result){
                 if(result.success){
-                    window.location.href="/index.html";
+                    window.location.href="/index_left.html";
                 }
             });
         }

@@ -235,7 +235,7 @@ public class GoodsAdminContrller {
 		Goods goods=goodsService.findById(id);
 		if(goods.getState()==1){
 			resultMap.put("success", false);
-			resultMap.put("errorInfo", "该商品已经期初入库，不能删除！");
+			resultMap.put("errorInfo", "该商品已经初期入库，不能删除！");
 		}else if(goods.getState()==2){
 			resultMap.put("success", false);
 			resultMap.put("errorInfo", "该商品已经发生单据，不能删除！");

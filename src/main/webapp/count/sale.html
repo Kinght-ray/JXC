@@ -3,13 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <title>商品销售统计</title>
-<link rel="stylesheet" type="text/css" href="/static/jquery-easyui-1.7.0/themes/gray/easyui.css"></link>
-<link rel="stylesheet" type="text/css" href="/static/jquery-easyui-1.7.0/themes/icon.css"></link>
-<script type="text/javascript" src="/static/jquery-easyui-1.7.0/jquery.min.js"></script>
-<script type="text/javascript" src="/static/jquery-easyui-1.7.0/jquery.easyui.min.js"></script>
-<script type="text/javascript" src="/static/jquery-easyui-1.7.0/locale/easyui-lang-zh_CN.js"></script>
-
-<script type="text/javascript" src="/static/js/date.js"></script>
+<!--<link rel="stylesheet" type="text/css" href="/static/jquery-easyui-1.7.0/themes/gray/easyui.css"></link>-->
+<!--<link rel="stylesheet" type="text/css" href="/static/jquery-easyui-1.7.0/themes/icon.css"></link>-->
+<!--<script type="text/javascript" src="/static/jquery-easyui-1.7.0/jquery.min.js"></script>-->
+<!--<script type="text/javascript" src="/static/jquery-easyui-1.7.0/jquery.easyui.min.js"></script>-->
+<!--<script type="text/javascript" src="/static/jquery-easyui-1.7.0/locale/easyui-lang-zh_CN.js"></script>-->
+	<link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/easyui.css">
+	<link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/icon.css">
+	<link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/easyui_plus.css">
+	<!--<link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/iconfont/iconfont.css">-->
+	<link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/iconfont/demo.css">
+	<link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/easyui_animation.css">
+	<link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/plugin/font-awesome-4.7.0/css/font-awesome.css">
+	<!--<link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/insdep_theme_default.css">-->
+	<script src="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/jquery.min.js"></script>
+	<script src="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/jquery.easyui.min.js"></script>
+	<script src="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/locale/easyui-lang-zh_CN.js"></script>
+	<script src="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/iconfont/iconfont.js"></script>
+	<script src="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/jquery.insdep-extend.min.js"></script>
+	<script type="text/javascript" src="/static/js/date.js"></script>
+	<style>
+		fieldset{padding: 10px;padding-left: 10px}
+	</style>
 <script type="text/javascript">
 
 
@@ -117,7 +132,7 @@
 	
 </script>
 </head>
-<body  style="margin: 1px">
+<body  style="margin: 1px ">
 
 	<table id="dg" title="商品销售统计" class="easyui-datagrid" fit=true
 	   fitColumns="true"  rownumbers="true" singleSelect="true"
@@ -142,7 +157,7 @@
 	 
 	 <div id="tb">
 	 	<div style="padding-bottom: 5px">
-	 		<fieldset style="border-color: #E7F0FF">
+	 		<fieldset>
 	 			<legend>统计设置</legend>
 	 		&nbsp;&nbsp;&nbsp;往来日期：&nbsp;
 	 		<input id="s_begin" class="easyui-datebox" editable=false  style="width:110px">
@@ -152,7 +167,7 @@
 	 		<input type="hidden" id="typeId"/>
 	 		<input type="text" id="typeName"  style="width: 90px;" readonly="readonly" onclick="chooseGoodsType()"/>
 	 		&nbsp;商品编码或者名称：&nbsp;<input type="text" id="codeOrName" size="20" onkeydown="if(event.keyCode==13) search()"/>
-	 		&nbsp;&nbsp;<a href="javascript:search()" class="easyui-linkbutton" iconCls="icon-search" plain="true">搜索</a>
+	 		&nbsp;&nbsp;<a href="javascript:search()" class="easyui-linkbutton button-blue" iconCls="fa fa-search" plain="true">搜索</a>
 	 		</fieldset>
 	 	</div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
 	 </div>
@@ -167,8 +182,8 @@
   </div>
  
  <div id="dlg-buttons2">
- 	<a href="javascript:saveGoodsTypeChoose()" class="easyui-linkbutton" iconCls="icon-ok" plain="true">选择</a>
- 	<a href="javascript:closeGoodsTypeChooseDialog()" class="easyui-linkbutton" iconCls="icon-cancel" plain="true">关闭</a>
+ 	<a href="javascript:saveGoodsTypeChoose()" class="easyui-linkbutton button-green" iconCls="fa fa-check" plain="true">选择</a>
+ 	<a href="javascript:closeGoodsTypeChooseDialog()" class="easyui-linkbutton button-red" iconCls="fa fa-remove" plain="true">关闭</a>
  </div>
 
 </body>

@@ -30,6 +30,8 @@ public class CustomerAdminController {
 	
 	@Resource
 	private CustomerService customerService;
+
+
 	
 	@Resource
 	private LogService logService;
@@ -94,8 +96,7 @@ public class CustomerAdminController {
 	
 	/**
 	 * 删除客户信息
-	 * @param id
-	 * @param response
+	 * @param ids
 	 * @return
 	 * @throws Exception
 	 */

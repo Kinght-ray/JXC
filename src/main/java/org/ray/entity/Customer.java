@@ -1,11 +1,11 @@
 package org.ray.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+
+import javax.persistence.*;
+import java.util.List;
 
 /**
  * 客户实体
@@ -37,6 +37,16 @@ public class Customer {
 	
 	@Column(length=1000)
 	private String remarks; // 备注
+
+	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY,orphanRemoval = true)
+	private List<CustomerReturnList> customerReturnListList;
+
+	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY,orphanRemoval = true)
+	private List<SaleList> saleList;
+
+
+
+
 
 //	public Integer getId() {
 //		return id;

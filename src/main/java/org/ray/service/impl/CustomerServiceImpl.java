@@ -10,6 +10,7 @@ import javax.persistence.criteria.Root;
 
 import org.ray.entity.Customer;
 import org.ray.repository.CustomerRepository;
+import org.ray.service.CustomerReturnListService;
 import org.ray.service.CustomerService;
 import org.ray.util.StringUtil;
 import org.springframework.data.domain.Page;
@@ -29,7 +30,6 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Resource
 	private CustomerRepository customerRepository;
-	
 
 	@Override
 	public void save(Customer customer) {

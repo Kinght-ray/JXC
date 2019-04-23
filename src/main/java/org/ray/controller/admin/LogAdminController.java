@@ -41,7 +41,7 @@ public class LogAdminController {
 	
 	/**
 	 * 根据条件分页查询日志信息
-	 * @param goods
+	 * @param log
 	 * @param page
 	 * @param rows
 	 * @return
@@ -52,6 +52,7 @@ public class LogAdminController {
 	public Map<String,Object> list(Log log, @RequestParam(value="page",required=false)Integer page, @RequestParam(value="rows",required=false)Integer rows)throws Exception{
 		Map<String, Object> resultMap = new HashMap<>();
 		List<Log> logList=logService.list(log, page, rows, Direction.DESC, "time");
+		System.out.println(logList);
 		Long total=logService.getCount(log);
 		resultMap.put("rows", logList);
 		resultMap.put("total", total);

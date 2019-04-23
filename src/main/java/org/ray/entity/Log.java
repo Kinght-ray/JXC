@@ -52,10 +52,10 @@ public class Log {
 	private Date time; // 操作时间
 
 	@Transient
-	private Date Begintime; // 起始时间  搜索用到
+	private Date Btime; // 起始时间  搜索用到
 	
 	@Transient
-	private Date Endtime; // 结束时间  搜索用到
+	private Date Etime; // 结束时间  搜索用到
 	
 
 	public Log() {

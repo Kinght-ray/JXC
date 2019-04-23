@@ -84,11 +84,11 @@ public class SaleListServiceImpl implements SaleListService{
 					if(saleList.getState()!=null){
 						predicate.getExpressions().add(cb.equal(root.get("state"), saleList.getState()));
 					}
-					if(saleList.getBeginSaleDate()!=null){
-						predicate.getExpressions().add(cb.greaterThanOrEqualTo(root.get("saleDate"), saleList.getBeginSaleDate()));
+					if(saleList.getbSaleDate()!=null){
+						predicate.getExpressions().add(cb.greaterThanOrEqualTo(root.get("saleDate"), saleList.getbSaleDate()));
 					}
-					if(saleList.getEndSaleDate()!=null){
-						predicate.getExpressions().add(cb.lessThanOrEqualTo(root.get("saleDate"), saleList.getEndSaleDate()));
+					if(saleList.geteSaleDate()!=null){
+						predicate.getExpressions().add(cb.lessThanOrEqualTo(root.get("saleDate"), saleList.geteSaleDate()));
 					}
 				}
 				return predicate;

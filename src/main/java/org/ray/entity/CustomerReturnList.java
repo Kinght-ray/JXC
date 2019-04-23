@@ -2,16 +2,9 @@ package org.ray.entity;
 
 import java.util.Date;
 import java.util.List;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.persistence.Transient;
+import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 
@@ -40,10 +33,10 @@ public class CustomerReturnList {
 	private Date customerReturnDate; // 客户退货日期
 	
 	@Transient
-	private Date BeginCustomerReturnDate; // 起始时间 搜索用到
+	private Date BCustomerReturnDate; // 起始时间 搜索用到
 	
 	@Transient
-	private Date EndCustomerReturnDate; // 结束时间 搜索用到
+	private Date ECustomerReturnDate; // 结束时间 搜索用到
 	
 	private float amountPayable; // 应付金额
 	

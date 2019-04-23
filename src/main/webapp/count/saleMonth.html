@@ -3,11 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>按月统计分析</title>
-    <link rel="stylesheet" href="../static/jquery-easyui-1.7.0/themes/gray/easyui.css">
-    <link rel="stylesheet" href="../static/jquery-easyui-1.7.0/themes/icon.css">
-    <script src="../static/jquery-easyui-1.7.0/jquery.min.js"></script>
-    <script src="../static/jquery-easyui-1.7.0/jquery.easyui.min.js"></script>
-    <script src="../static/jquery-easyui-1.7.0/locale/easyui-lang-zh_CN.js"></script>
+    <!--<link rel="stylesheet" href="../static/jquery-easyui-1.7.0/themes/gray/easyui.css">-->
+    <!--<link rel="stylesheet" href="../static/jquery-easyui-1.7.0/themes/icon.css">-->
+    <!--<script src="../static/jquery-easyui-1.7.0/jquery.min.js"></script>-->
+    <!--<script src="../static/jquery-easyui-1.7.0/jquery.easyui.min.js"></script>-->
+    <!--<script src="../static/jquery-easyui-1.7.0/locale/easyui-lang-zh_CN.js"></script>-->
+    <link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/easyui.css">
+    <link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/icon.css">
+    <link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/easyui_plus.css">
+    <!--<link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/iconfont/iconfont.css">-->
+    <link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/iconfont/demo.css">
+    <link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/easyui_animation.css">
+    <link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/plugin/font-awesome-4.7.0/css/font-awesome.css">
+    <!--<link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/insdep_theme_default.css">-->
+    <script src="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/jquery.min.js"></script>
+    <script src="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/jquery.easyui.min.js"></script>
+    <script src="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/locale/easyui-lang-zh_CN.js"></script>
+    <script src="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/iconfont/iconfont.js"></script>
+    <script src="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/jquery.insdep-extend.min.js"></script>
     <script type="text/javascript" src="../static/highcharts4/js/highcharts.js"></script>
     <script type="text/javascript" src="../static/js/date.js"></script>
     <script type="text/javascript">
@@ -115,14 +128,14 @@
     </script>
 </head>
 <body>
-<div style="height: 100px;padding: 10px;border: 0px;" >
-    <fieldset style="border-color: #E7F0FF">
+<div style="height: 100px;padding: 10px;border-width: 2px;" >
+    <fieldset style="border-color: #E7F0FF;border: 2px solid #75978b;padding-bottom: 5px;padding-left: 10px">
         <legend>统计设置</legend>
         <div style="padding: 5px">
             统计月份：<input id="s_begin" class="easyui-datebox" data-options="formatter:myformatter,parser:myparser" editable=false  style="width:100px">
             &nbsp;&nbsp;-&nbsp;&nbsp;
             <input id="s_end" class="easyui-datebox" data-options="formatter:myformatter,parser:myparser"  editable=false  style="width:100px">
-            &nbsp;&nbsp;<a href="javascript:search()" class="easyui-linkbutton" iconCls="icon-search" plain="true">搜索</a>
+            &nbsp;&nbsp;<a href="javascript:search()" class="easyui-linkbutton button-blue" iconCls="fa fa-search" plain="true">搜索</a>
         </div>
         </form>
     </fieldset>
@@ -132,7 +145,7 @@
     <div id="container"></div>
 </div>
 
-<div style="padding: 10px;border: 0px;height: 385px">
+<div style="padding: 1px;border: 0px;height: 385px">
     <table id="dg"  class="easyui-datagrid" fit=true
            fitColumns="true"  rownumbers="true" singleSelect="true"
     >

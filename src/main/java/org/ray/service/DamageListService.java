@@ -30,19 +30,19 @@ public interface DamageListService {
 	/**
 	 * 添加报损单 以及所有报损单商品 以及 修改商品的成本均价
 	 * @param damageList 报损单
-	 * @param DamageListGoodsList 报损单商品
+	 * @param damageListGoodsList 报损单商品
 	 */
+
 	public void save(DamageList damageList,List<DamageListGoods> damageListGoodsList);
 	
 	/**
 	 * 根据条件查询报损单信息
 	 * @param damageList
-	 * @param page
-	 * @param pageSize
 	 * @param direction
 	 * @param properties
 	 * @return
 	 */
+
 	public List<DamageList> list(DamageList damageList,Direction direction,String... properties);
 	
 	/**

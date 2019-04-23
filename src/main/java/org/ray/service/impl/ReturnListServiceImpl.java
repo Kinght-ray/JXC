@@ -88,11 +88,11 @@ public class ReturnListServiceImpl implements ReturnListService {
 					if(returnList.getState()!=null){
 						predicate.getExpressions().add(cb.equal(root.get("state"), returnList.getState()));
 					}
-					if(returnList.getBeginReturnDate()!=null){
-						predicate.getExpressions().add(cb.greaterThanOrEqualTo(root.get("returnDate"), returnList.getBeginReturnDate()));
+					if(returnList.getBReturnDate()!=null){
+						predicate.getExpressions().add(cb.greaterThanOrEqualTo(root.get("returnDate"), returnList.getBReturnDate()));
 					}
-					if(returnList.getEndReturnDate()!=null){
-						predicate.getExpressions().add(cb.lessThanOrEqualTo(root.get("returnDate"), returnList.getEndReturnDate()));
+					if(returnList.getEReturnDate()!=null){
+						predicate.getExpressions().add(cb.lessThanOrEqualTo(root.get("returnDate"), returnList.getEReturnDate()));
 					}
 				}
 				return predicate;

@@ -33,9 +33,10 @@ public interface LogService {
 	
 	/**
 	 * 获取总记录数
-	 * @param user
+	 * @param log
 	 * @return
 	 */
+
 	public Long getCount(Log log);
 
 }

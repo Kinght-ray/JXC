@@ -28,7 +28,7 @@ a,a:link,a:visited,a:hover,a:active{
 }
 select,input,label,button,a,a:link,a:visited,a:hover,a:active,a:focus,*:focus{outline:none; noFocusLine: expression(this.onFocus=this.blur());}
 a,img,form{border:0;}
-html,body,a,a:link,a:visited,a:hover,a:active,select,input,label,button,textarea,h1,h2,h3,h4,h5,h6{ font-family:Arial,"Microsoft YaHei","微软雅黑"; font-style:normal;font-size:12px; color:#3c3c3c;}
+html,body,a,a:link,a:visited,a:hover,a:active,select,input,label,button,textarea,h1,h2,h3,h4,h5,h6{ font-family:Arial,"Microsoft YaHei","微软雅黑"; font-style:normal;font-size:13px; color:#3c3c3c;}
 dl,dt,dd,ul,li,ol,p,button,input,h1,h2,h3,h4,h5,h6{ list-style:none; height:auto; border:0 none;}
 html,body,dl,dt,dd,ul,li,ol,p,input,textarea,button,form,h1,h2,h3,h4,h5,h6{ padding:0; margin:0; }
 select,input,label,button{ vertical-align:middle;}
@@ -85,10 +85,22 @@ i, cite, em, var, address, dfn {/*斜体*/
 /*头部公共框架*/
 #theme-login-layout .layout-panel-north .layout-body,
 .theme-header-layout
-{ height:46px !important; background:#1d1d1d url(images/logo.png?v=201612011609) left center no-repeat;}
+{ height:46px !important; background:#3c8dbc url(images/logo.png?v=201612011609) left center no-repeat;}
+
+/*---------------------------------------------------------------------新加样式-------------------------------------------------------------------------------*/
+
+/*logo字体*/
+.logocentext{
+	width: 190px;
+	margin: 0px;
+	padding: 10px;
+	padding-top: 20px;
+	background-color: #eaeaea;
+	color: #eaeaea;
+}
 
 /*左侧菜单样式*/
-.theme-left-layout{background:#232323;}
+.theme-left-layout{background: #121b32;}
 .theme-left-layout .theme-left-switch{ z-index: 9999; cursor: pointer; position:absolute; left: auto; right: 0; top: 50%; margin: -30px 0 0; width: 26px; height: 35px; line-height: 35px; text-align: center; color: #fff; background: #2a2a2a; }
 .theme-left-layout .theme-left-normal{}
 .theme-left-layout .theme-left-minimal{ display: none; }
@@ -138,7 +150,7 @@ i, cite, em, var, address, dfn {/*斜体*/
 	.theme-navigate{ overflow:hidden; clear:both; padding:5px 0 0 280px;}
 	.theme-navigate .left{ float:left;}
 	.theme-navigate .right{ float:right; padding:0 20px 0 0;}
-	.theme-navigate .l-btn-text{ color:#c3c3c3; margin: 3px 5px;}
+	.theme-navigate .l-btn-text{ color: #ffffff; margin: 3px 5px;}
 	.theme-navigate .l-btn,.theme-navigate .l-btn:hover{ padding:3px 8px;border:none;background:none;}
 	.theme-navigate .l-btn:hover,.theme-navigate .m-btn-plain-active{ background:#2d2d2d;}
 	/*头部菜单按钮全局样式,根据需要删减*/

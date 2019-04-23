@@ -48,6 +48,7 @@
             }
         }
 
+
         <!--首页-->
         function showTab(node) {
             var tabs = mini.get("mainTabs");
@@ -71,7 +72,7 @@
             }
         }
 
-        //menu
+        // menu
         var menu = new Menu("#mainMenu", {
             itemclick: function (item) {
                 if (!item.children) {
@@ -87,15 +88,37 @@
         new MenuTip(menu);
 
         $.ajax({
-            url: "data/menu.txt",
+            url: '../data/menu.txt',
+            // url:'../user/loadMenuInfo?parentId=-1',
+            // type:'post',
+            // datatype:'json',
             success: function (text) {
                 var data = mini.decode(text);
                 menu.loadData(data);
             }
-
         });
 
-        //toggle
+        // //导航栏
+        // $("#tree").tree({
+        //     lines:true,
+        //     url:'/user/loadMenuInfo?parentId=-1',
+        //     onLoadSuccess:function(){
+        //         $("#tree").tree('expandAll');
+        //     }
+            // ,
+            // onClick:function(node){
+            //     if(node.id==6050){
+            //         logout();
+            //     }else if(node.id==6040){
+            //         openPasswordModifyDialog();
+            //     }else　if(node.attributes.url){
+            //         openTab(node);
+            //     }
+            // }
+        });
+
+
+        // //toggle
         $("#toggle, .sidebar-toggle").click(function () {
             $('body').toggleClass('compact');
             mini.layout();
@@ -112,7 +135,6 @@
             $(".dropdown").removeClass("open");
         });
 
-    });
 
     function logout(){
         if(confirm("您确定要退出登录吗？")){
@@ -121,6 +143,7 @@
 
         }
     }
+
 
 </script>
 <body>
@@ -146,6 +169,8 @@
     <div class="sidebar">
         <div class="sidebar-toggle"><i class = "fa fa-map-signs" ></i>导航栏</div>
         <div id="mainMenu"></div>
+        <!--<div id = "tree" class="mini-tree" style="padding: 10px"></div>-->
+        <!--<ul id ="tree" class = "mini-tree" url="../user/loadMenuInfo?parentId=-1" style="padding: 10px"></ul>-->
     </div>
 
 

@@ -40,10 +40,10 @@ public class PurchaseList {
 	private Date purchaseDate; // 进货日期
 	
 	@Transient
-	private Date BeginPurchaseDate; // 起始时间 搜索用到
+	private Date BPurchaseDate; // 起始时间 搜索用到
 	
 	@Transient
-	private Date EndPurchaseDate; // 结束时间 搜索用到
+	private Date EPurchaseDate; // 结束时间 搜索用到
 	
 	private float amountPayable; // 应付金额
 	

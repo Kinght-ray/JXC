@@ -43,10 +43,11 @@ public class GoodsTypeAdminController {
 	@RequiresPermissions(value = { "商品管理","进货入库","当前库存查询"},logical=Logical.OR)
 	public String loadTreeInfo()throws Exception{
     	logService.save(new Log(Log.SEARCH_ACTION,"查询商品类别信息")); // 写入日志
-		return getAllByParentId(-1).toString();
+		String s = getAllByParentId(-1).toString();
+		return s;
 	}
 	
-	/**
+	/**i
 	 * 添加商品类别
 	 * @param name
 	 * @param parentId
@@ -60,7 +61,7 @@ public class GoodsTypeAdminController {
 		Map<String, Object> resultMap = new HashMap<>();
 		GoodsType goodsType=new GoodsType();
 		goodsType.setName(name);
-		goodsType.setPId(parentId);
+		goodsType.setP_Id(parentId);
 		goodsType.setIcon("icon-folder");
 		goodsType.setState(0);
 		logService.save(new Log(Log.ADD_ACTION,"添加商品类别信息"+goodsType)); 
@@ -69,6 +70,8 @@ public class GoodsTypeAdminController {
 		GoodsType parentGoodsType=goodsTypeService.findById(parentId); // 查找父节点
 		parentGoodsType.setState(1); // 修改state 1 根节点
 		goodsTypeService.save(parentGoodsType); // 保存父节点商品类别
+//		System.out.println("---------------测试节点---------------");
+//		System.out.println(goodsType.toString());
 		
 		
 		resultMap.put("success", true);	
@@ -86,8 +89,8 @@ public class GoodsTypeAdminController {
 	public Map<String,Object> delete(Integer id)throws Exception{
 		Map<String, Object> resultMap = new HashMap<>();
 		GoodsType goodsType=goodsTypeService.findById(id); 
-		if(goodsTypeService.findByParentId(goodsType.getPId()).size()==1){ // 假如父节点下只有当前这个子节点，修改下 父节点的state状态
-			GoodsType parentGoodsType=goodsTypeService.findById(goodsType.getPId());
+		if(goodsTypeService.findByParentId(goodsType.getP_Id()).size()==1){ // 假如父节点下只有当前这个子节点，修改下 父节点的state状态
+			GoodsType parentGoodsType=goodsTypeService.findById(goodsType.getP_Id());
 			parentGoodsType.setState(0); // 修改state 0  叶子节点
 			goodsTypeService.save(parentGoodsType); // 保存父节点商品类别
 		}

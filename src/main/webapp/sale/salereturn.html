@@ -3,12 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <title>客户退货</title>
-<link rel="stylesheet" type="text/css" href="/static/jquery-easyui-1.7.0/themes/gray/easyui.css"></link>
-<link rel="stylesheet" type="text/css" href="/static/jquery-easyui-1.7.0/themes/icon.css"></link>
-<script type="text/javascript" src="/static/jquery-easyui-1.7.0/jquery.min.js"></script>
-<script type="text/javascript" src="/static/jquery-easyui-1.7.0/jquery.easyui.min.js"></script>
-<script type="text/javascript" src="/static/jquery-easyui-1.7.0/locale/easyui-lang-zh_CN.js"></script>
+<!--<link rel="stylesheet" type="text/css" href="/static/jquery-easyui-1.7.0/themes/gray/easyui.css"></link>-->
+<!--<link rel="stylesheet" type="text/css" href="/static/jquery-easyui-1.7.0/themes/icon.css"></link>-->
+<!--<script type="text/javascript" src="/static/jquery-easyui-1.7.0/jquery.min.js"></script>-->
+<!--<script type="text/javascript" src="/static/jquery-easyui-1.7.0/jquery.easyui.min.js"></script>-->
+<!--<script type="text/javascript" src="/static/jquery-easyui-1.7.0/locale/easyui-lang-zh_CN.js"></script>-->
+	<link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/easyui.css">
+	<link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/icon.css">
+	<link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/easyui_plus.css">
+	<!--<link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/iconfont/iconfont.css">-->
+	<link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/iconfont/demo.css">
+	<link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/easyui_animation.css">
+	<link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/plugin/font-awesome-4.7.0/css/font-awesome.css">
+	<!--<link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/insdep_theme_default.css">-->
+	<script src="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/jquery.min.js"></script>
+	<script src="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/jquery.easyui.min.js"></script>
+	<script src="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/locale/easyui-lang-zh_CN.js"></script>
+	<script src="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/iconfont/iconfont.js"></script>
+	<script src="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/jquery.insdep-extend.min.js"></script>
 <script type="text/javascript" src="/static/js/date.js"></script>
+	<style>
+		table{ border-collapse:collapse;  }
+		table td{   padding:5px;}
+		fieldset{padding-bottom: 0px;padding-left: 10px }
+	</style>
 <script type="text/javascript">
 
 	var url;
@@ -329,14 +347,14 @@
 </script>
 </head>
 <body class="easyui-layout" >
-	<div region="north" style="height: 155px;padding: 10px;border: 0px;padding-top: 20px" >
-		<fieldset style="border-color: #E7F0FF">
+	<div region="north" style="height: 130px;padding: 8px;border-width: 2px; margin-bottom: 5px" >
+		<fieldset >
  			<legend>单号：<span id="dh"></span></legend>
  			<form id="fm6" method="post">
  			<table cellspacing="8px">
  				<tr>
  					<td>
-	 					客户：<select class="easyui-combobox"  id="customerId" name="customer.id" style="width: 200px;" required=true data-options="required:true,panelHeight:'auto',valueField:'id',textField:'name',url:'/admin/customer/comboList'"></select>
+	 					客 户：<select class="easyui-combobox"  id="customerId" name="customer.id" style="width: 200px;" required=true data-options="required:true,panelHeight:'auto',valueField:'id',textField:'name',url:'/admin/customer/comboList'"></select>
  					</td>
  					<td>
  						&nbsp;&nbsp;&nbsp;&nbsp;应付金额：<input type="text" id="amountPayable" name="amountPayable" size="10" readonly="readonly" class="easyui-validatebox" required="true"/>
@@ -347,29 +365,30 @@
  					<td>
  						&nbsp;&nbsp;&nbsp;&nbsp;收货日期：<input type="text" id="customerReturnDate" name="customerReturnDate" required=true size="18" class="easyui-datebox" data-options="editable:false" />
  					</td>
+					<td>
+						&nbsp;&nbsp;&nbsp;&nbsp;是否付款：<select class="easyui-combobox"  id="state" name="state" style="width: 160px;" editable="false" panelHeight="auto">
+						<option value="1">已付</option>
+						<option value="2">未付</option>
+					</select>
+					</td>
+					<td>
+						<input type="hidden" id="customerReturnNumber" name="customerReturnNumber"/>
+						<input type="hidden" id="goodsJson" name="goodsJson"/>
+						&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:saveCustomerReturnGoods()" class="easyui-linkbutton button-blue"  iconCls="fa fa-check">保存</a>
+					</td>
  					<td></td>
  				</tr>
  				<tr>
  					<td colspan="3">
- 						备注：<input type="text" size="78" id="remarks" name="remarks"/>
+ 						备 注：<input type="text" size="78" id="remarks" name="remarks" class="easyui-textbox"/>
  					</td>
- 					<td>
-	 					&nbsp;&nbsp;&nbsp;&nbsp;是否付款：<select class="easyui-combobox"  id="state" name="state" style="width: 160px;" editable="false" panelHeight="auto">
-	 														<option value="1">已付</option>
- 							                            	<option value="2">未付</option>	
-	 												   </select>
- 					</td>
- 					<td>
- 						<input type="hidden" id="customerReturnNumber" name="customerReturnNumber"/>
- 						<input type="hidden" id="goodsJson" name="goodsJson"/>
- 						&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:saveCustomerReturnGoods()" class="easyui-linkbutton"  iconCls="icon-ok">保存</a>
- 					</td>
+
  				</tr>
  			</table>
  			</form>
  		</fieldset>
 	</div>
-	<div region="center" style="padding: 10px;border: 1px">
+	<div region="center" style="padding: 0px;border-width: 1px">
 		<table id="dg"  class="easyui-datagrid" style="height: 1200px"
 		   fitColumns="true"  rownumbers="true" singleSelect="true"
 		    fit="true" toolbar="#tb">
@@ -389,9 +408,9 @@
 		 </table>
 		 <div id="tb">
 		 	<div style="padding: 2px">
-		 		<a href="javascript:openCustomerReturnListGoodsAddDialog()" class="easyui-linkbutton" iconCls="icon-add" plain="true">添加</a>
-		 		<a href="javascript:openCustomerReturnListGoodsModifyDialog()" class="easyui-linkbutton" iconCls="icon-edit" plain="true">修改</a>
-		 		<a href="javascript:deleteCustomerReturnListGoods()" class="easyui-linkbutton" iconCls="icon-remove" plain="true">删除</a>
+		 		<a href="javascript:openCustomerReturnListGoodsAddDialog()" class="easyui-linkbutton button-green" iconCls="fa fa-plus" plain="true">添加</a>
+		 		<a href="javascript:openCustomerReturnListGoodsModifyDialog()" class="easyui-linkbutton button-orange" iconCls="fa fa-edit" plain="true">修改</a>
+		 		<a href="javascript:deleteCustomerReturnListGoods()" class="easyui-linkbutton button-red" iconCls="fa fa-remove" plain="true">删除</a>
 		 	</div> 
 		 </div>
 	</div>
@@ -402,15 +421,15 @@
 	   	
 	   		<div region="north" style="height: 50px;" >
 	   			<div style="padding-top: 8px;padding-left: 40px;">
-		   			&nbsp;商品编码或者名称：&nbsp;<input type="text" id="s_codeOrName" size="30" onkeydown="if(event.keyCode==13) searchGoods()"/>
-		   			<a href="javascript:searchGoods()" class="easyui-linkbutton" iconCls="icon-search" plain="true">搜索</a>
+		   			&nbsp;商品编码或者名称：&nbsp;<input type="text" id="s_codeOrName" size="30" onkeydown="if(event.keyCode==13) searchGoods()" class="easyui-textbox"/>
+		   			<a href="javascript:searchGoods()" class="easyui-linkbutton button-blue" iconCls="fa fa-search" plain="true">搜索</a>
 	   			</div>
 	   		</div>
 	   		<div region="west" style="width: 200px" title="商品类别" split="true" data-options="collapsible:false">
 				<ul id="tree" class="easyui-tree" style="padding: 10px"></ul>
 				<div style="position:absolute;bottom: 10px;left: 15px">
-					<a href="javascript:openGoodsTypeAddDialog()" class="easyui-linkbutton" data-options="iconCls:'icon-add'">新增</a>
-			        <a id="del" href="javascript:deleteGoodsType()" class="easyui-linkbutton" data-options="iconCls:'icon-remove',disabled:true">删除</a>
+					<a href="javascript:openGoodsTypeAddDialog()" class="easyui-linkbutton button-green" data-options="iconCls:'fa fa-plus'">新增</a>
+			        <a id="del" href="javascript:deleteGoodsType()" class="easyui-linkbutton button-red" data-options="iconCls:'fa fa-remove',disabled:true">删除</a>
 				</div>
 			</div>
 			<div region="center">
@@ -432,7 +451,7 @@
 				 </table>
 				 <div id="tb3">
 				 	<div>
-				 		<a href="javascript:openGoodsChooseDialog()" class="easyui-linkbutton" iconCls="icon-ok" plain="true">选择</a>
+				 		<a href="javascript:openGoodsChooseDialog()" class="easyui-linkbutton button-green" iconCls="fa fa-check" plain="true">选择</a>
 				 	</div> 
 				 </div>
 			</div>
@@ -441,25 +460,25 @@
 	   
 	</div>
 	
-    <div id="dlg2" class="easyui-dialog" style="width:300px;height:120px;padding: 10px 20px"
+    <div id="dlg2" class="easyui-dialog" style="width:300px;height:140px;padding: 10px 20px"
 	   closed="true" buttons="#dlg-buttons2"  data-options="onClose:function(){$('#goodsTypeName').val('');}">
 	   
 	   <form id="fm" method="post">
 		<div>
-	   		商品类别：&nbsp;<input type="text" id="goodsTypeName" name="name" class="easyui-validatebox" required="true"/>
+	   		商品类别：&nbsp;<input type="text" id="goodsTypeName" name="name" class="easyui-textbox" required="true"/>
 		</div>
 	   	
 	   </form>
 	 </div>
 	 
 	  <div id="dlg-buttons2">
-	 	<a href="javascript:saveGoodsType()" class="easyui-linkbutton" iconCls="icon-ok">保存</a>
-	 	<a href="javascript:closeGoodsTypeDialog()" class="easyui-linkbutton" iconCls="icon-cancel">关闭</a>
+	 	<a href="javascript:saveGoodsType()" class="easyui-linkbutton button-blue" iconCls="fa fa-check">保存</a>
+	 	<a href="javascript:closeGoodsTypeDialog()" class="easyui-linkbutton button-red" iconCls="fa fa-remove">关闭</a>
 	 </div>
 	 
 	 
 	 
-	 <div id="dlg4" class="easyui-dialog" style="width:450px;height:265px;padding: 5px 5px"
+	 <div id="dlg4" class="easyui-dialog" style="width:400px;height:320px;padding: 5px 5px"
    closed="true" buttons="#dlg-buttons4" data-options="onClose:function(){resetValue()}">
    
    		<fieldset style="border-color: #E7F0FF">
@@ -469,27 +488,27 @@
 			    	<tr>
 			   			<td>商品编号：</td>
 			   			<td>
-			   				<input type="text" id="code" name="code" size="10" readonly="readonly"/>
+			   				<input type="text" id="code" name="code" size="10" readonly="readonly" class="easyui-textbox"/>
 			   			</td>
-			   			<td width="60">商品名称：</td>
-			   			<td><input type="text" id="name" name="name" size="10"  readonly="readonly"/></td>
+			   			<td >商品名称：</td>
+			   			<td><input type="text" id="name" name="name" size="10"  readonly="readonly"class="easyui-textbox"/></td>
 			   		</tr>
 			   		<tr>
 			   			<td>商品型号：</td>
-			   			<td><input type="text" id="model" name="model" size="10"  readonly="readonly"/></td>
+			   			<td><input type="text" id="model" name="model" size="10"  readonly="readonly"class="easyui-textbox"/></td>
 			   			<td>商品单位：</td>
-			   			<td><input type="text" id="unit" name="unit" size="10"  readonly="readonly"/></td>
+			   			<td><input type="text" id="unit" name="unit" size="10"  readonly="readonly"class="easyui-textbox"/></td>
 			   		</tr>
 			   		<tr>
 			   			<td>销售单价：</td>
-			   			<td><input type="text" id="sellingPrice" name="sellingPrice" size="10" readonly="readonly"/></td>
+			   			<td><input type="text" id="sellingPrice" name="sellingPrice" size="10" readonly="readonly"class="easyui-textbox"/></td>
 			   			<td>当前库存：</td>
-			   			<td><input type="text" id="inventoryQuantity" name="inventoryQuantity" size="10" readonly="readonly"/></td>
+			   			<td><input type="text" id="inventoryQuantity" name="inventoryQuantity" size="10" readonly="readonly"class="easyui-textbox"/></td>
 			   		</tr>
 			    </table>
 		    </form>
 		  </fieldset>
-		  <div style="padding-left: 12px;padding-top: 10px">
+		  <div style="padding-left: 8px;padding-top: 10px">
 		  	<form id="fm5" method="post">
 			  <table cellspacing="8px">
 			    	<tr>
@@ -508,9 +527,9 @@
  </div>
  
  <div id="dlg-buttons4">
-    <a id="saveAndAddNextBuuton" href="javascript:saveGoods(2)" class="easyui-linkbutton" iconCls="icon-ok">保存并新增下一商品</a>
- 	<a href="javascript:saveGoods(1)" class="easyui-linkbutton" iconCls="icon-ok">保存</a>
- 	<a href="javascript:closeGoodsChooseDialog()" class="easyui-linkbutton" iconCls="icon-cancel">关闭</a>
+    <a id="saveAndAddNextBuuton" href="javascript:saveGoods(2)" class="easyui-linkbutton button-green" iconCls="fa fa-check">保存并新增下一商品</a>
+ 	<a href="javascript:saveGoods(1)" class="easyui-linkbutton button-blue" iconCls="fa fa-check">保存</a>
+ 	<a href="javascript:closeGoodsChooseDialog()" class="easyui-linkbutton button-red" iconCls="fa fa-remove">关闭</a>
  </div>
 	
 </body>

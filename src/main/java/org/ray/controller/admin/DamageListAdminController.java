@@ -62,8 +62,6 @@ public class DamageListAdminController {
 	/**
 	 * 根据条件分页查询报损单信息
 	 * @param damageList
-	 * @param page
-	 * @param rows
 	 * @return
 	 * @throws Exception
 	 */
@@ -108,6 +106,8 @@ public class DamageListAdminController {
 		StringBuffer biilCodeStr=new StringBuffer();
 		biilCodeStr.append("BS");
 		biilCodeStr.append(DateUtil.getCurrentDateStr()); // 拼接当前日期
+		System.out.println("------------------测试时间节点----------------------");
+		System.out.println(biilCodeStr.toString());
 		String damageNumber=damageListService.getTodayMaxDamageNumber(); // 获取当天最大的报损单号
 		if(damageNumber!=null){
 			biilCodeStr.append(StringUtil.formatCode(damageNumber));
@@ -133,8 +133,12 @@ public class DamageListAdminController {
 		Gson gson = new Gson();
 		List<DamageListGoods> plgList=gson.fromJson(goodsJson, new TypeToken<List<DamageListGoods>>(){}.getType());
 		damageListService.save(damageList, plgList);
+		System.out.println("------------------------商品报损-----------------------");
+		System.out.println(damageList.toString());
 		logService.save(new Log(Log.ADD_ACTION,"添加报损单"));
-		resultMap.put("success", true);	
+		resultMap.put("success", true);
+//		System.out.println("------------------------商品报损-----------------------");
+//		System.out.println(resultMap.toString());
 		return resultMap;
 	}
 

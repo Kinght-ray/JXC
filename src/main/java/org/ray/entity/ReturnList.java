@@ -53,10 +53,10 @@ public class ReturnList {
 	private String remarks; // 备注
 	
 	@Transient
-	private Date BeginReturnDate; // 起始时间 搜索用到
+	private Date BReturnDate; // 起始时间 搜索用到
 	
 	@Transient
-	private Date EndReturnDate; // 结束时间 搜索用到
+	private Date EReturnDate; // 结束时间 搜索用到
 	
 	@Transient
 	private List<ReturnListGoods> returnListGoodsList=null; // 退货单商品集合

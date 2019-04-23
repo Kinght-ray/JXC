@@ -62,8 +62,6 @@ public class OverflowListAdminController {
 	/**
 	 * 根据条件分页查询报溢单信息
 	 * @param overflowList
-	 * @param page
-	 * @param rows
 	 * @return
 	 * @throws Exception
 	 */
