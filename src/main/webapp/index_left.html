@@ -1,10 +1,10 @@
 <!doctype html>
 <html>
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="edge" />
-<link rel="shortcut icon" href="static/EasyUI-1.5.1-InsdepTheme-1.0.4/example/favicon.ico" />
-<title>ERP</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="edge"/>
+    <link rel="shortcut icon" href="static/EasyUI-1.5.1-InsdepTheme-1.0.4/example/favicon.ico"/>
+    <title>ERP</title>
 
     <link rel="stylesheet" href="static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/easyui.css">
     <link rel="stylesheet" href="static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/easyui_plus.css">
@@ -15,6 +15,23 @@
     <script src="static/EasyUI-1.5.1-InsdepTheme-1.0.4/jquery.min.js"></script>
     <script src="static/EasyUI-1.5.1-InsdepTheme-1.0.4/jquery.easyui.min.js"></script>
     <script src="static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/jquery.insdep-extend.min.js"></script>
+    <script>
+        //字符串占位符拼接---对String进行扩展
+        $(document).ready(function () {
+        String.prototype.signMix = function() {
+            if(arguments.length === 0) return this;
+            var param = arguments[0], str= this;
+            if(typeof(param) === 'object') {
+                for(var key in param)
+                    str = str.replace(new RegExp("\\{" + key + "\\}", "g"), param[key]);
+                return str;
+            } else {
+                for(var i = 0; i < arguments.length; i++)
+                    str = str.replace(new RegExp("\\{" + i + "\\}", "g"), arguments[i]);
+                return str;
+            }
+        }});
+    </script>
 </head>
 
 <body>
@@ -23,12 +40,14 @@
         <div class="theme-navigate">
             <div class="left">
                 <a href="#" class="easyui-linkbutton left-control-switch"><i class="fa fa-bars fa-lg"></i></a>
-                <a href="#" class="easyui-menubutton theme-navigate-user-button" data-options="menu:'.theme-navigate-user-panel'">匿名</a>
+                <a href="#" class="easyui-menubutton theme-navigate-user-button"
+                   data-options="menu:'.theme-navigate-user-panel'">匿名</a>
                 <div class="theme-navigate-user-panel">
                     <dl>
                         <dd>
-                            <img src="static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/images/portrait86x86.png " width="86" height="86">
-                            <b  class="badge-prompt">用户信息<i class="badge color-important">10</i></b>
+                            <img src="static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/images/portrait86x86.png "
+                                 width="86" height="86">
+                            <b class="badge-prompt">用户信息<i class="badge color-important">10</i></b>
                             <span>examples@insdep.com</span>
                             <p>安全等级：<i class="text-success">高</i></p>
                         </dd>
@@ -42,7 +61,7 @@
             <div class="right">
                 <!--<a href="#" class="easyui-menubutton theme-navigate-more-button" data-options="menu:'#more',hasDownArrow:false"></a>-->
                 <!--<div id="more" class="theme-navigate-more-panel">-->
-                    <!--<div>退出登录</div>-->
+                <!--<div>退出登录</div>-->
                 <!--</div>-->
                 <div id="clock" class="fa fa-clock-o" aria-hidden="true" style="padding-top:10px;color: #E7EAEE"></div>
             </div>
@@ -55,29 +74,57 @@
 
 
         <!--正常菜单-->
-        <div class="theme-left-normal">
+        <div class="container" r>
             <!--theme-left-switch 如果不需要缩进按钮，删除该对象即可-->
             <div class="left-control-switch theme-left-switch"><i class="fa fa-chevron-left fa-lg"></i></div>
 
             <!--<div region="west" title="导航菜单" split="true" iconCls="icon-navigation">-->
-                <!--<ul  id="tree" class="easyui-tree" style="padding: 10px;color: #E7EAEE"></ul>-->
-                <!--<ul class="easyui-datalist" id="dl" title="DataList" style="width: 200px;height: 250px"></ul>-->
+            <!--<ul  id="tree" class="easyui-tree" style="padding: 10px;color: #E7EAEE"></ul>-->
+            <!--<ul class="easyui-datalist" id="dl" title="DataList" style="width: 200px;height: 250px"></ul>-->
             <!--</div>-->
-            <div class="easyui-accordion" data-options="border:false,fit:true">
-                <div id="dl" >
+            <!--start class="easyui-layout"-->
+            <!--<div class="easyui-layout" data-options="border:false,fit:true">-->
+
+                <!--start region:'center'-->
+                <div class="sidebar" data-options="region:'center',border:false">
+
+                    <!--start easyui-accordion-->
+                    <div id="dl" class="easyui-accordion" data-options="region:'center',border:false">
+
+                        <!--<div  title="Title1" style="padding:10px;">-->
+                           <!--<li ><a url="purchase/purchase.html"> 进货入库</a></li>-->
+                        <!--</div>-->
+                        <!--<div title="Title2"  style="padding:10px;">-->
+                            <!--content2-->
+                        <!--</div>-->
+                        <!--<div title="Title3" style="padding:10px">-->
+                            <!--content3-->
+                        <!--</div>-->
+
+
+                    </div>
+                    <!--end easyui-accordion-->
+
                 </div>
-            </div>
+                <!--end region:'center'-->
+            <!--</div>-->
+            <!--end class="easyui-layout"-->
 
 
         </div>
         <!--最小化菜单-->
         <div class="theme-left-minimal">
             <ul class="easyui-datalist" data-options="border:false,fit:true">
-                <li><i class="fa fa-home fa-2x"></i><p>主题</p></li>
-                <li><i class="fa fa-book fa-2x"></i><p>组件</p></li>
-                <li><i class="fa fa-pencil fa-2x"></i><p>编辑</p></li>
-                <li><i class="fa fa-cog fa-2x"></i><p>设置</p></li>
-                <li><a class="left-control-switch"><i class="fa fa-chevron-right fa-2x"></i><p>打开</p></a></li>
+                <li><i class="fa fa-home fa-2x"></i>
+                    <p>主题</p></li>
+                <li><i class="fa fa-book fa-2x"></i>
+                    <p>组件</p></li>
+                <li><i class="fa fa-pencil fa-2x"></i>
+                    <p>编辑</p></li>
+                <li><i class="fa fa-cog fa-2x"></i>
+                    <p>设置</p></li>
+                <li><a class="left-control-switch"><i class="fa fa-chevron-right fa-2x"></i>
+                    <p>打开</p></a></li>
             </ul>
         </div>
 
@@ -85,14 +132,14 @@
     <!--结束左侧菜单-->
 
     <div region="center">
-    <div class="easyui-tabs " fit="true" border="false" id="tabs"></div>
+        <div class="easyui-tabs " fit="true" border="false" id="tabs"></div>
     </div>
 </div>
 
 
 <script>
 
-    function showTime(){
+    function showTime() {
         var date = new Date();
         this.year = date.getFullYear();
         this.month = date.getMonth() + 1;
@@ -105,122 +152,206 @@
         $("#clock").text("现在是:" + this.year + "年" + this.month + "月" + this.date + "日 " + this.hour + ":" + this.minute + ":" + this.second + " " + this.day);
     }
 
-    window.setInterval("showTime()",1000);
+    // var tempMenu = "<div class=\"panel\" style=\"width: 200px;\">\n" +
+    //     "    <div class=\"panel-header accordion-header accordion-header-selected\" style=\"width: 170px; height: 16px;\">\n" +
+    //     "        <div class=\"panel-title\">\n" +
+    //     "\t\t{pname}\n" +
+    //     "        </div>\n" +
+    //     "        <div class=\"panel-tool\">\n" +
+    //     "            <a href=\"javascript:;\" class=\"panel-tool-collapse\" style=\"display: none;\">\n" +
+    //     "            </a>\n" +
+    //     "            <a href=\"javascript:;\" class=\"accordion-collapse\">\n" +
+    //     "            </a>\n" +
+    //     "        </div>\n" +
+    //     "    </div>\n" +
+    //     "    <div title=\"\" class=\"panel-noscroll panel-body accordion-body\" style=\"display: block; width: 200px; height: 372px;\">\n" +
+    //     "        <div class=\"panel datagrid datalist easyui-fluid\" style=\"width: 200px;\">\n" +
+    //     "            <div class=\"datagrid-wrap panel-body panel-body-noheader panel-body-noborder\"\n" +
+    //     "            title=\"\" style=\"width: 200px; height: 372px;\">\n" +
+    //     "                <div class=\"datagrid-view\" style=\"width: 200px; height: 372px;\">\n" +
+    //     "                    <div class=\"datagrid-view1\" style=\"width: 0px;\">\n" +
+    //     "                        <div class=\"datagrid-header\" style=\"width: 0px; height: 0px;\">\n" +
+    //     "                            <div class=\"datagrid-header-inner\" style=\"display: none;\">\n" +
+    //     "                                <table class=\"datagrid-htable\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\"\n" +
+    //     "                                style=\"height: 0px;\">\n" +
+    //     "                                    <tbody>\n" +
+    //     "                                    </tbody>\n" +
+    //     "                                </table>\n" +
+    //     "                            </div>\n" +
+    //     "                        </div>\n" +
+    //     "                        <div class=\"datagrid-body\" style=\"width: 0px; margin-top: 0px; height: 372px;\">\n" +
+    //     "                            <div class=\"datagrid-body-inner\">\n" +
+    //     "                            </div>\n" +
+    //     "                        </div>\n" +
+    //     "                        <div class=\"datagrid-footer\" style=\"width: 0px;\">\n" +
+    //     "                            <div class=\"datagrid-footer-inner\" style=\"display: none;\">\n" +
+    //     "                            </div>\n" +
+    //     "                        </div>\n" +
+    //     "                    </div>\n" +
+    //     "                    <div class=\"datagrid-view2\" style=\"width: 200px;\">\n" +
+    //     "                        <div class=\"datagrid-header\" style=\"width: 200px; height: 0px;\">\n" +
+    //     "                            <div class=\"datagrid-header-inner\" style=\"display: none;\">\n" +
+    //     "                                <table class=\"datagrid-htable\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\"\n" +
+    //     "                                style=\"height: 0px;\">\n" +
+    //     "                                    <tbody>\n" +
+    //     "                                        <tr class=\"datagrid-header-row\">\n" +
+    //     "                                            <td field=\"text\">\n" +
+    //     "                                                <div class=\"datagrid-cell datagrid-cell-c1-text\">\n" +
+    //     "                                                    <span>\n" +
+    //     "                                                    </span>\n" +
+    //     "                                                    <span class=\"datagrid-sort-icon\">\n" +
+    //     "                                                    </span>\n" +
+    //     "                                                </div>\n" +
+    //     "                                            </td>\n" +
+    //     "                                        </tr>\n" +
+    //     "                                    </tbody>\n" +
+    //     "                                </table>\n" +
+    //     "                            </div>\n" +
+    //     "                        </div>\n" +
+    //     "                        <div class=\"datagrid-body\" style=\"width: 200px; margin-top: 0px; height: 372px; overflow-x: hidden;\">\n" +
+    //     "                            <table class=\"datagrid-btable\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\"\n" +
+    //     "                            style=\"\">\n" +
+    //     "                                <tbody>\n" +
+    //     "\t\t\t\t\t\t\t\t{submenus}\n" +
+    //     "                                </tbody>\n" +
+    //     "                            </table>\n" +
+    //     "                        </div>\n" +
+    //     "                        <div class=\"datagrid-footer\" style=\"width: 200px;\">\n" +
+    //     "                            <div class=\"datagrid-footer-inner\" style=\"display: none;\">\n" +
+    //     "                            </div>\n" +
+    //     "                        </div>\n" +
+    //     "                    </div>\n" +
+    //     "                    <ul class=\"easyui-datalist datagrid-f\" data-options=\"border:false,fit:true\"\n" +
+    //     "                    style=\"display: none;\">\n" +
+    //     "\t\t\t\t\t{limenus}\n" +
+    //     "                    </ul>\n" +
+    //     "                    <style type=\"text/css\" easyui=\"true\">\n" +
+    //     "                        .datagrid-header-rownumber{width:29px} .datagrid-cell-rownumber{width:29px}\n" +
+    //     "                        .datagrid-cell-c1-text{width:163px}\n" +
+    //     "                    </style>\n" +
+    //     "                </div>\n" +
+    //     "            </div>\n" +
+    //     "        </div>\n" +
+    //     "    </div>\n" +
+    //     "</div>";
 
-    $(document).ready(function() {
+    window.setInterval("showTime()", 1000);
 
-        var content="<iframe frameborder=0 scrolling='auto' style='width:100%;height:99%' src='/common/stockSearch.html'></iframe>";
-        $("#tabs").tabs("add",{
-            title:"首页",
-            iconCls:"fa fa-home",
-            closable:false,
-            content:content
+    $(document).ready(function () {
+
+        var content = "<iframe frameborder=0 scrolling='auto' style='width:100%;height:99%' src='/common/stockSearch.html'></iframe>";
+        $("#tabs").tabs("add", {
+            title: "首页",
+            iconCls: "fa fa-home",
+            closable: false,
+            content: content
         });
 
         $("#userInfo").load("/user/loadUserInfo"); // 加载用户信息
 
-        // $("#dl").tree({
-        //     lines:true,
-        //     url:'/user/loadMenuInfo?parentId=-1',
-        //     onLoadSuccess:function(){
-        //         $("#tree").tree('expandAll');
-        //     },
-        //     onClick:function(node){
-        //         if(node.id==6050){
-        //             logout();
-        //         }else if(node.id==6040){
-        //             openPasswordModifyDialog();
-        //         }else　if(node.attributes.url){
-        //             openTab(node);
-        //         }
-        //     }
-        // });
-
-        // $('#dl').datalist({
-        //     url:'/user/loadMenuInfo?parentId=-1',
-        //     lines:true,
-        //     itemclick:function (node) {
-        //         $('dl').data('expandAll');
-        //     },
-        //     onClick:function (node) {
-        //         if(node.id==6050){
-        //             logout();
-        //         }else if(node.id==6040){
-        //             openPasswordModifyDialog();
-        //         }else if (node.attributes.url){
-        //             openTab(node);
-        //         }
-        //     }
-        // });
 
 
         //权限菜单
         $.ajax({
-            url:'/user/loadMenuInfo?parentId=-1',
-            type:'post',
-            dataType:'json',
-            async: true,
-            success:function (data) {
-                console.log(data.attributes);
-                var attributes = data.attributes;
-                var menu = "";
-                for(var i = 0;i<attributes.length;i++){
-                    menu += "<div class='easyui-datalist'>"
-                    if(attributes[i].id == 0){ //取出父元素的菜单，拼进页面
-                        menu +=        "<a href='#'>"+attributes[i].text+"</a>"
-                        for(var j = 0;j<attributes.length;j++){ //继续遍历这几条数据
-                            if(attributes[j].id > attributes[i].id && attributes[j].id < (attributes[i].id)+10){ //取出这个父元素所对应的子元素
-                                menu +=    "<dl >"
-                                menu +=        "<dd>"
-                                menu +=            "<a class='menuitem' mid='"+attributes[j].id+"' murl='"+attributes[j].url+"' href='#'>"+attributes[j].name+"</a>"
-                                menu +=        "</dd>"
-                                menu +=    "</dl>"
+            url: '/user/loadMenuInfo?parentId=-1',
+            type: 'post',
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+                var menu = ""; //定义变量存储
+                // var menuT = ""; //定义变量存储
+                for (var k = 0; k < data.length; k++) {
+                    console.log(data[k]);
+                    var menuDate = data[k].children;
+                    // var submenus = ""; //子菜单变量存储
+                    // var limenus = ""; //li菜单变量存储
+                    for (var i = 0; i < menuDate.length; i++) {
+                        menu += "<div  class='panel-header accordion-header "+menuDate[i].iconCls+"'>"
+                        menu += "<a   href='javascript:;' >&nbsp;&nbsp;"+menuDate[i].text+"</a>";
+                        // menu += "<li class='easyui-datalist' title=" + menuDate[i].text + ">";
+                        // menu += "<div class='easyui-datalist'data-options='border:false,fit:true' title=" + menuDate[i].text + ">";
+                        //取出父元素的菜单，拼进页面
+                        var subMenuDate = menuDate[i].children;
+                        console.log(subMenuDate);
+                        // if (subMenuDate.length > 0) {
+                            //取出子菜单，拼进页面
+                            // if (subMenuDate.length > 0) {
+                            //     menu += "<ul>";
+                            // }
+                            for (var j = 0; j < subMenuDate.length; j++) {
+                                //取出对应菜单下的子菜单（原理：根据父类作id前缀）
+
+                                if (subMenuDate[j].id > menuDate[i].id && subMenuDate[j] < menuDate[i] + 1000 && subMenuDate[j].state == "open") {
+                                    // if(subMenuDate[j].id > menuDate[i].id && subMenuDate[j].id < (subMenuDate[i].id) + 1000){
+                                    // submenus += "<tr id=\"datagrid-row-r1-" + i +"-"+ (j + 1) + "+\" datagrid-row-index=\""+(j + 1)+"\" class=\"datagrid-row\">"
+                                    // submenus += "<td field=\"text\">";
+                                    // submenus += "<div style=\"height:auto;\" class=\"datagrid-cell datagrid-cell-c1-text\">";
+                                    // submenus += "<a href='" + subMenuDate[j].attributes.url + "' target='option'>" + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + subMenuDate[j].text + "</a>"
+                                    // submenus += "</div></td></tr>";
+                                    menu += "<ul class='panel-header accordion-header ' title='"+subMenuDate[j].text+"'>"
+                                    // menu += "<div class='"+menuDate[j].iconCls+"'></div>"
+                                    menu += "<a href='" + subMenuDate[j].attributes.url + "' class = '"+subMenuDate[j].iconCls+"'target='option'>" + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + subMenuDate[j].text + "</a>"
+                                    // menu += "<a>"+subMenuDate[j].text+"</a>"
+                                    // menu += "<li >"
+                                    // menu += "<a href='"+subMenuDate[j].attributes.url+"' class='"+subMenuDate[j].iconCls+"' target='option'></a>"
+                                    // menu += "</li>"
+                                    menu += "</ul>"
+
+                                    // limenus += "<li>"+subMenuDate[j].text+"</li>";
+                                }
                             }
-                        }
+                            // if (subMenuDate.length > 0) {
+                            //     menu += "</ul>";
+                            // }
+                            menu += "</div>";
+                        // }
+                        // menuT += tempMenu.signMix({"pname":menuDate[i].text, "submenus":submenus, "limenus":limenus});
+                        // console.log(menuT);
                     }
-                    menu +=    "</div>";
                 }
-                $("#dl").html(html);
-                element.init();
+                $("#dl").html(menu);
+                // $("#dl").clean().appendHtml(menu);
+
+                // element.init()//初始化element事件，使菜单展开
             }
         });
 
 
 
-        function openTab(node){
-            if($("#tabs").tabs("exists",node.text)){
-                $("#tabs").tabs("select",node.text);
-            }else{
-                var content="<iframe frameborder=0 scrolling='auto' style='width:100%;height:99%' src='"+node.attributes.url+"'></iframe>";
-                $("#tabs").tabs("add",{
-                    title:node.text,
-                    iconCls:node.iconCls,
-                    closable:true,
-                    content:content
+        function openTab(node) {
+            if ($("#tabs").tabs("exists", node.text)) {
+                $("#tabs").tabs("select", node.text);
+            } else {
+                var content = "<iframe frameborder=0 scrolling='auto' style='width:100%;height:99%' src='" + node.attributes.url + "'></iframe>";
+                $("#tabs").tabs("add", {
+                    title: node.text,
+                    iconCls: node.iconCls,
+                    closable: true,
+                    content: content
                 });
             }
         }
 
 
-        function logout(){
-            $.messager.confirm("系统提示","您确定要退出系统吗？",function(r){
-                if(r){
-                    window.location.href='/admin/user/logout';
+        function logout() {
+            $.messager.confirm("系统提示", "您确定要退出系统吗？", function (r) {
+                if (r) {
+                    window.location.href = '/admin/user/logout';
                 }
             });
         }
 
-        function openPasswordModifyDialog(){
-            $("#dlg").dialog("open").dialog("setTitle","修改密码");
-            url="/admin/user/modifyPassword";
+        function openPasswordModifyDialog() {
+            $("#dlg").dialog("open").dialog("setTitle", "修改密码");
+            url = "/admin/user/modifyPassword";
         }
 
 
         // 监听右键事件，创建右键菜单
         $('#tabs').tabs({
-            onContextMenu:function(e, title,index){
+            onContextMenu: function (e, title, index) {
                 e.preventDefault();
-                if(index>0){
+                if (index > 0) {
                     $('#menu').menu('show', {
                         left: e.pageX,
                         top: e.pageY
@@ -230,7 +361,7 @@
         });
         // 右键菜单click
         $("#menu").menu({
-            onClick : function (item) {
+            onClick: function (item) {
                 closeTab(this, item.name);
             }
         });
@@ -284,56 +415,47 @@
         }
 
 
-
-
         /*布局部分*/
         $('#master-layout').layout({
-            fit:true/*布局框架全屏*/
+            fit: true/*布局框架全屏*/
         });
-
-
 
 
         /*右侧菜单控制部分*/
 
-        var left_control_status=true;
-        var left_control_panel=$("#master-layout").layout("panel",'west');
+        var left_control_status = true;
+        var left_control_panel = $("#master-layout").layout("panel", 'west');
 
-        $(".left-control-switch").on("click",function(){
-            if(left_control_status){
-                left_control_panel.panel('resize',{width:70});
-                left_control_status=false;
+        $(".left-control-switch").on("click", function () {
+            if (left_control_status) {
+                left_control_panel.panel('resize', {width: 70});
+                left_control_status = false;
                 $(".theme-left-normal").hide();
                 $(".theme-left-minimal").show();
-            }else{
-                left_control_panel.panel('resize',{width:200});
-                left_control_status=true;
+            } else {
+                left_control_panel.panel('resize', {width: 200});
+                left_control_status = true;
                 $(".theme-left-normal").show();
                 $(".theme-left-minimal").hide();
             }
-            $("#master-layout").layout('resize', {width:'100%'})
+            $("#master-layout").layout('resize', {width: '100%'})
         });
 
         /*右侧菜单控制结束*/
 
 
-
-
-
-        $(".theme-navigate-user-modify").on("click",function(){
+        $(".theme-navigate-user-modify").on("click", function () {
             $('.theme-navigate-user-panel').menu('hide');
-            $.insdep.window({id:"personal-set-window",href:"user.html",title:"修改资料"});
+            $.insdep.window({id: "personal-set-window", href: "user.html", title: "修改资料"});
 
         });
         //$.insdep.control("list.html");
 
 
-
-        var cc1=$('#cc1').combo('panel');
-        cc1.panel({cls:"theme-navigate-combobox-panel"});
-        var cc2=$('#cc2').combo('panel');
-        cc2.panel({cls:"theme-navigate-combobox-panel"});
-
+        var cc1 = $('#cc1').combo('panel');
+        cc1.panel({cls: "theme-navigate-combobox-panel"});
+        var cc2 = $('#cc2').combo('panel');
+        cc2.panel({cls: "theme-navigate-combobox-panel"});
 
 
         /*$("#open-layout").on("click",function(){
@@ -349,12 +471,13 @@
 
 
     });
-    function doSearch(value,name){
-        alert('You input: ' + value+'('+name+')');
+
+    function doSearch(value, name) {
+        alert('You input: ' + value + '(' + name + ')');
     }
 
 </script>
-<div id="menu" class="easyui-menu" >
+<div id="menu" class="easyui-menu">
     <div id="mm-tabrefresh" data-options="name:1,iconCls:'icon-refresh'"> 刷新当前标签页</div>
     <div class="menu-sep"></div>
     <div id="mm-tabclose" data-options="name:2,iconCls:'icon-closetab'">关闭当前标签页</div>
