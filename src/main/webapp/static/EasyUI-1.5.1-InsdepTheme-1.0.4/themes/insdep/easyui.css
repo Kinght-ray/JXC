@@ -708,7 +708,7 @@
 }
 
 .easyui-passwordbox + .textbox .textbox-addon .textbox-icon {
-  background-position:10px center;
+  background-position:2px center;
 }
 
 .passwordbox-open {
@@ -1314,7 +1314,7 @@
   filter: none;
 }
 .tabs li a.tabs-inner:hover,.tabs li.tabs-selected a.tabs-inner {
-  background-color: #fff;
+  background-color: #cccccc;
 }
 .tabs-header-bottom .tabs li.tabs-selected a.tabs-inner,.tabs li.tabs-selected a.tabs-inner,.tabs li a.tabs-inner{
   background-repeat: repeat-x;

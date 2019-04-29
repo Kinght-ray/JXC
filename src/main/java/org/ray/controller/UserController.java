@@ -183,8 +183,6 @@ public class UserController {
 			jsonObject.add("attributes", attributeObject);
 			jsonArray.add(jsonObject);
     	}
-    	System.out.println("-------------------测试点---------------------");
-    	System.out.println(jsonArray.toString());
     	return jsonArray;
     }
 }

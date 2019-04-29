@@ -5,11 +5,14 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.Random;
 
 import javax.imageio.ImageIO;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -121,6 +124,7 @@ public class DrawImageController {
 //		char [] base = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K',
 //				'L', 'M', 'N', 'P', 'q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y',
 //				'Z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
+
 		int x = 5;
 		// 控制字数
 		for (int i = 0; i < 4; i++) {
@@ -139,5 +143,7 @@ public class DrawImageController {
 		System.out.println(sb.toString());
 		return sb.toString();
 	}
+
+
     
 }

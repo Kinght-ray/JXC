@@ -3,20 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>退货出库</title>
-    <!--<link rel="stylesheet" type="text/css" href="/static/jquery-easyui-1.7.0/themes/gray/easyui.css"></link>-->
-    <!--<link rel="stylesheet" type="text/css" href="/static/jquery-easyui-1.7.0/themes/icon.css"></link>-->
-    <!--<script type="text/javascript" src="/static/jquery-easyui-1.7.0/jquery.min.js"></script>-->
-    <!--<script type="text/javascript" src="/static/jquery-easyui-1.7.0/jquery.easyui.min.js"></script>-->
-    <!--<script type="text/javascript" src="/static/jquery-easyui-1.7.0/locale/easyui-lang-zh_CN.js"></script>-->
-
     <link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/easyui.css">
     <link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/icon.css">
     <link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/easyui_plus.css">
-    <!--<link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/iconfont/iconfont.css">-->
     <link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/iconfont/demo.css">
     <link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/easyui_animation.css">
     <link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/plugin/font-awesome-4.7.0/css/font-awesome.css">
-    <!--<link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/insdep_theme_default.css">-->
     <script src="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/jquery.min.js"></script>
     <script src="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/jquery.easyui.min.js"></script>
     <script src="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/locale/easyui-lang-zh_CN.js"></script>
@@ -25,8 +17,8 @@
     <script type="text/javascript" src="/static/js/date.js"></script>
 
     <style>
-        table{ border-collapse:collapse;  }
-        table td{   border:solid 0px Black; padding:5px;}
+        table{ border-collapse:collapse; }
+        table td{   border:solid 0px Black; padding:5px}
         fieldset{ padding-bottom: 5px;padding-left: 10px}
     </style>
 
@@ -344,7 +336,7 @@
     </script>
 </head>
 <body class="easyui-layout">
-<div region="north" style="height: 130px;padding:8px;border-width:2px " >
+<div region="north" style="height: 130px;padding:8px;border-width:2px ;margin: 2px" >
     <fieldset>
         <legend>单号：<span id="dh"></span></legend>
         <form id="fm6" method="post">
@@ -394,7 +386,7 @@
         </form>
     </fieldset>
 </div>
-<div region="center" style="padding: 0px;border-width:1px;margin: 5px;margin-left: auto">
+<div region="center" style="padding: 0px;border-width:1px;margin: 5px;margin: 2px">
     <table id="dg" class="easyui-datagrid" style="height: 1200px"
            fitColumns="true" rownumbers="true" singleSelect="true"
            fit="true" toolbar="#tb">
