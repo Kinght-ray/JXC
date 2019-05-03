@@ -4,16 +4,16 @@
 <meta charset="UTF-8">
 <title>角色管理</title>
 	<link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/easyui.css">
-	<link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/icon.css">
-	<link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/easyui_plus.css">
+	<!--<link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/easyui_plus.css">-->
 	<link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/iconfont/demo.css">
-	<link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/easyui_animation.css">
+	<!--<link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/easyui_animation.css">-->
 	<link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/plugin/font-awesome-4.7.0/css/font-awesome.css">
+	<link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/icon.css">
 	<script src="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/jquery.min.js"></script>
 	<script src="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/jquery.easyui.min.js"></script>
 	<script src="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/locale/easyui-lang-zh_CN.js"></script>
-	<script src="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/iconfont/iconfont.js"></script>
-	<script src="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/jquery.insdep-extend.min.js"></script>
+	<!--<script src="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/iconfont/iconfont.js"></script>-->
+	<!--<script src="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/jquery.insdep-extend.min.js"></script>-->
 	<style>
 		table td{  padding:3px;}
 	</style>
@@ -34,15 +34,18 @@
 			cascadeCheck:false,
 			onLoadSuccess:function(){
 				$("#menuTree").tree('expandAll');
+				$('#menuTree').find("span.tree-icon").removeClass('tree-icon tree-folder tree-folder-open');
+				$('#menuTree').find("span.tree-hit").removeClass('tree-expanded');
+				$('#menuTree').find("span.tree-file").removeClass('tree-file');
 			},
 			onCheck:function(node,checked){
 				if(checked){
 					checkNode($('#menuTree').tree('getParent',node.target));
-					// console.log(node.target)
 				}
 			}
 		});
 		$("#roleId").val(roleId);
+
 	}
 	
 	function checkNode(node){
@@ -166,10 +169,16 @@
 			   		 $("#fm").form("load",row);
 			   		 url="/admin/role/save?id="+row.id;
 		        }  
-		    });  
+		    });
+
+
 		 
 		 
 	 });
+
+
+
+
 
 </script>
 </head>

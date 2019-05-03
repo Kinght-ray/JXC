@@ -15,7 +15,7 @@
 	<script src="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/locale/easyui-lang-zh_CN.js"></script>
 	<script src="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/iconfont/iconfont.js"></script>
 	<script src="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/jquery.insdep-extend.min.js"></script>
-	<script type="text/javascript" src="/static/js/date.js"></script>
+	<script src="/static/js/date.js"></script>
 	<style>
 		fieldset{padding: 10px;padding-left: 10px}
 	</style>
@@ -117,7 +117,7 @@
 	   	<tr>    
 	   	    <th field="id" width="30" align="center" hidden="true">进货单ID</th>
 	   		<th field="purchaseNumber" width="30" align="center">进货单号</th>
-	   		<th field="purchaseDate" width="20" align="center">进货日期</th>
+	   		<th field="purchaseDate" width="20" align="center" formatter="formatDate">进货日期</th>
 	   		<th field="supplier" width="50" align="center" formatter="formatSupplier">供应商</th>
 	   		<th field="amountPayable" width="15" align="right" formatter="formatAmountPayable">进货金额</th>
 	   		<th field="user" width="20" align="center" formatter="formatUser">操作员</th>

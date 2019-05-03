@@ -301,7 +301,7 @@
                 <!--start region:'center'-->
                 <div class="sidebar" data-options="region:'center',border:false">
                     <!--权限菜单栏-->
-                    <div id="dl" class="easyui-accordion" data-options="region:'center',border:false">
+                    <div id="dl" class="easyui-accordion" data-options="region:'center',border:false,multiple:true">
                     </div>
                     <!--结束菜单栏-->
                 </div>
@@ -319,7 +319,7 @@
 </div>
 
 <!--修改密码-->
-<div id="dlg" class="easyui-dialog" style="width:400px;height:200px;padding: 10px 20px"
+<div id="dlg" class="easyui-dialog" data-options="cls:'theme-panel-black'" style="width:400px;height:200px;padding: 10px 20px"
            closed="true" buttons="#dlg-buttons"  data-options="onClose:function(){resetValue()}">
 
     <form id="fm" method="post">
