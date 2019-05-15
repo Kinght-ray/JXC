@@ -29,19 +29,18 @@ public interface PurchaseListService {
 	/**
 	 * 添加进货单 以及所有进货单商品 以及 修改商品的成本均价
 	 * @param purchaseList 进货单
-	 * @param PurchaseListGoodsList 进货单商品
+	 * @param purchaseListGoodsList 进货单商品
 	 */
 	public void save(PurchaseList purchaseList,List<PurchaseListGoods> purchaseListGoodsList);
 	
 	/**
 	 * 根据条件查询进货单信息
 	 * @param purchaseList
-	 * @param page
-	 * @param pageSize
 	 * @param direction
 	 * @param properties
 	 * @return
 	 */
+
 	public List<PurchaseList> list(PurchaseList purchaseList,Direction direction,String... properties);
 	
 	/**

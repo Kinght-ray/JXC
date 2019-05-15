@@ -24,27 +24,4 @@ public class GoodsUnit {
 	@Column(length=10)
 	private String name; // 商品单位名称
 
-	
-//	public Integer getId() {
-//		return id;
-//	}
-//
-//	public void setId(Integer id) {
-//		this.id = id;
-//	}
-//
-//	public String getName() {
-//		return name;
-//	}
-//
-//	public void setName(String name) {
-//		this.name = name;
-//	}
-//
-//	@Override
-//	public String toString() {
-//		return "[id=" + id + ", name=" + name + "]";
-//	}
-//
-	
 }

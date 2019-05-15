@@ -3,9 +3,6 @@ package org.ray.entity;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Data;
 
 /**
@@ -13,7 +10,7 @@ import lombok.Data;
  * @author ray
  *
  */
-//@Data
+@Data
 @Entity
 @Table(name="t_saleList")
 public class SaleList {
@@ -53,120 +50,5 @@ public class SaleList {
 
 	@Column(length=1000)
 	private String remarks; // 备注
-
-
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-
-	public String getSaleNumber() {
-		return saleNumber;
-	}
-
-	public void setSaleNumber(String saleNumber) {
-		this.saleNumber = saleNumber;
-	}
-
-
-	public Customer getCustomer() {
-		return customer;
-	}
-
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
-	}
-
-	@JsonSerialize(using=CustomDateSerializer.class)
-	public Date getSaleDate() {
-		return saleDate;
-	}
-
-	public void setSaleDate(Date saleDate) {
-		this.saleDate = saleDate;
-	}
-
-	public float getAmountPayable() {
-		return amountPayable;
-	}
-
-	public void setAmountPayable(float amountPayable) {
-		this.amountPayable = amountPayable;
-	}
-
-	public float getAmountPaid() {
-		return amountPaid;
-	}
-
-	public void setAmountPaid(float amountPaid) {
-		this.amountPaid = amountPaid;
-	}
-
-	public Integer getState() {
-		return state;
-	}
-
-	public void setState(Integer state) {
-		this.state = state;
-	}
-
-
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
-	public String getRemarks() {
-		return remarks;
-	}
-
-	public void setRemarks(String remarks) {
-		this.remarks = remarks;
-	}
-
-	public Date getbSaleDate() {
-		return bSaleDate;
-	}
-
-	public void setbSaleDate(Date bSaleDate) {
-		this.bSaleDate = bSaleDate;
-	}
-
-	public Date geteSaleDate() {
-		return eSaleDate;
-	}
-
-	public void seteSaleDate(Date eSaleDate) {
-		this.eSaleDate = eSaleDate;
-	}
-
-
-
-	public List<SaleListGoods> getSaleListGoodsList() {
-		return saleListGoodsList;
-	}
-
-	public void setSaleListGoodsList(List<SaleListGoods> saleListGoodsList) {
-		this.saleListGoodsList = saleListGoodsList;
-	}
-
-	@Override
-	public String toString() {
-		return "SaleList [id=" + id + ", saleNumber=" + saleNumber + ", customer=" + customer + ", saleDate=" + saleDate
-				+ ", bSaleDate=" + bSaleDate + ", eSaleDate=" + eSaleDate + ", amountPayable=" + amountPayable
-				+ ", amountPaid=" + amountPaid + ", state=" + state + ", user=" + user + ", remarks=" + remarks + "]";
-	}
-
-
-
 
 }

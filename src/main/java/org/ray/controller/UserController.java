@@ -78,7 +78,8 @@ public class UserController {
 		Subject subject=SecurityUtils.getSubject();
 		UsernamePasswordToken token=new UsernamePasswordToken(user.getUserName(), user.getPassword());
 		try{
-			subject.login(token); // 登录认证
+			// 登录认证
+			subject.login(token);
 			String userName=(String) SecurityUtils.getSubject().getPrincipal();
 			User currentUser=userService.findByUserName(userName);
 			session.setAttribute("currentUser", currentUser);
@@ -86,7 +87,8 @@ public class UserController {
 			map.put("roleList", roleList);
 			map.put("roleSize", roleList.size());
 			map.put("success", true);
-			logService.save(new Log(Log.LOGIN_ACTION,"用户登录")); // 写入日志
+			// 写入日志
+			logService.save(new Log(Log.LOGIN_ACTION,"用户登录"));
 			return map;
 		}catch(Exception e){
 			e.printStackTrace();

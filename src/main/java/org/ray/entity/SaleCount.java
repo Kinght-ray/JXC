@@ -18,38 +18,5 @@ public class SaleCount {
 	
 	private String date; // 日期
 
-//	public float getAmountCost() {
-//		return amountCost;
-//	}
-//
-//	public void setAmountCost(float amountCost) {
-//		this.amountCost = amountCost;
-//	}
-//
-//	public float getAmountSale() {
-//		return amountSale;
-//	}
-//
-//	public void setAmountSale(float amountSale) {
-//		this.amountSale = amountSale;
-//	}
-//
-//
-//	public float getAmountProfit() {
-//		return amountProfit;
-//	}
-//
-//	public void setAmountProfit(float amountProfit) {
-//		this.amountProfit = amountProfit;
-//	}
-//
-//	public String getDate() {
-//		return date;
-//	}
-//
-//	public void setDate(String date) {
-//		this.date = date;
-//	}
-	
 	
 }

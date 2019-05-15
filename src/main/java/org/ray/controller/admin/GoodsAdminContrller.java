@@ -116,10 +116,11 @@ public class GoodsAdminContrller {
 		logService.save(new Log(Log.SEARCH_ACTION,"查询商品信息（无库存）")); // 写入日志
 		return resultMap;
 	}
-	
+
 	/**
 	 * 分页查询有库存的商品信息
-	 * @param codeOrName
+	 * @param page
+	 * @param rows
 	 * @return
 	 * @throws Exception
 	 */
@@ -162,6 +163,7 @@ public class GoodsAdminContrller {
 	 * @return
 	 * @throws Exception
 	 */
+
 	@RequestMapping("/genGoodsCode")
 	@RequiresPermissions(value = { "商品管理" })
 	public String genGoodsCode()throws Exception{
@@ -224,7 +226,6 @@ public class GoodsAdminContrller {
 	/**
 	 * 删除商品信息
 	 * @param id
-	 * @param response
 	 * @return
 	 * @throws Exception
 	 */

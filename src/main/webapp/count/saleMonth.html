@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <title>按月统计分析</title>
     <link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/easyui.css">
-    <link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/icon.css">
     <link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/easyui_plus.css">
     <link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/iconfont/demo.css">
     <link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/easyui_animation.css">
     <link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/plugin/font-awesome-4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/icon.css">
     <script src="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/jquery.min.js"></script>
     <script src="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/jquery.easyui.min.js"></script>
     <script src="../static/EasyUI-1.5.1-InsdepTheme-1.0.4/locale/easyui-lang-zh_CN.js"></script>
@@ -19,8 +19,8 @@
     <script type="text/javascript">
 
         $(document).ready(function(){
-            $("#s_begin").datebox("setValue",genLastYearStr().substring(0,7)); // 设置去年的年月
-            $("#s_end").datebox("setValue",genTodayStr().substring(0,7)); // 设置当前年月
+            $("#s_begin").datebox("setValue",genLastWeekDayStr()); // 设置去年的年月
+            $("#s_end").datebox("setValue",genTodayStr()); // 设置当前年月
         });
 
         function search(){

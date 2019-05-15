@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="edge"/>
     <link rel="shortcut icon" href="static/EasyUI-1.5.1-InsdepTheme-1.0.4/example/cs2.ico"/>
     <title>ERP</title>
-
     <link rel="stylesheet" href="static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/easyui.css">
     <link rel="stylesheet" href="static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/easyui_plus.css">
     <link rel="stylesheet" href="static/EasyUI-1.5.1-InsdepTheme-1.0.4/themes/insdep/easyui_animation.css">
@@ -58,6 +57,9 @@
                                 content += "<ul class=\"easyui-datalist\" data-options=\"border:false\">";
                                 //取出子菜单，拼进页面
                                 for (var j = 0; j < subMenuDate.length; j++) {
+                                    if(subMenuDate[j].text.match(RegExp(/[(安全)|(密码)]/))){
+                                        continue;
+                                    }
                                     //取出对应菜单下的子菜单（原理：根据父类作id前缀）
                                     if (subMenuDate[j].id > menuDate[i].id && subMenuDate[j] < menuDate[i] + 1000 && subMenuDate[j].state == "open") {
                                         content += "<li href='javascript:openTab();' ><a href='javascript:openTab("+JSON.stringify(subMenuDate[j])+");' ><div><span class=\""+subMenuDate[j].iconCls+"\"></span>&nbsp;&nbsp;" + subMenuDate[j].text + "</div></li>";
@@ -297,7 +299,7 @@
     <div data-options="region:'west',border:false,bodyCls:'theme-left-layout'" style="width:200px;">
 
         <!--正常菜单-->
-        <div class="container" r>
+        <div class="container">
                 <!--start region:'center'-->
                 <div class="sidebar" data-options="region:'center',border:false">
                     <!--权限菜单栏-->
@@ -313,9 +315,9 @@
     </div>
     <!--结束左侧菜单-->
 
-    <div region="center">
-        <div class="easyui-tabs " fit="true" border="false" id="tabs"></div>
-    </div>
+<div region="center">
+    <div class="easyui-tabs " fit="true" border="false" id="tabs"></div>
+</div>
 </div>
 
 <!--修改密码-->
@@ -342,13 +344,13 @@
 </div>
 
 <div id="menu" class="easyui-menu">
-    <div id="mm-tabrefresh" data-options="name:1,iconCls:'icon-refresh'"> 刷新当前标签页</div>
+    <div id="mm-tabrefresh" data-options="name:1,iconCls:'fa fa-refresh fa-fw'"> 刷新当前标签页</div>
     <div class="menu-sep"></div>
-    <div id="mm-tabclose" data-options="name:2,iconCls:'icon-closetab'">关闭当前标签页</div>
-    <div id="mm-tabcloseall" data-options="name:3,iconCls:'icon-closealltab'">关闭全部标签页</div>
-    <div id="mm-tabcloseother" data-options="name:4,iconCls:'icon-closeothertab'">关闭其他标签页</div>
-    <div id="mm-tabcloseright" data-options="name:5,iconCls:'icon-closerighttab'">关闭右侧标签页</div>
-    <div id="mm-tabcloseleft" data-options="name:6,iconCls:'icon-closelefttab'">关闭左侧标签页</div>
+    <div id="mm-tabclose" data-options="name:2,iconCls:'fa fa-columns fa-fw'">关闭当前标签页</div>
+    <div id="mm-tabcloseall" data-options="name:3,iconCls:'fa fa-times fa-fw'">关闭全部标签页</div>
+    <div id="mm-tabcloseother" data-options="name:4,iconCls:'fa fa-exchange fa-fw'">关闭其他标签页</div>
+    <div id="mm-tabcloseright" data-options="name:5,iconCls:'fa fa-chevron-right fa-fw'">关闭右侧标签页</div>
+    <div id="mm-tabcloseleft" data-options="name:6,iconCls:'fa fa-chevron-left fa-fw'">关闭左侧标签页</div>
 </div>
 
 </body>

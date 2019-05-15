@@ -62,8 +62,6 @@ public class PurchaseListAdminController {
 	/**
 	 * 根据条件分页查询进货单信息
 	 * @param purchaseList
-	 * @param page
-	 * @param rows
 	 * @return
 	 * @throws Exception
 	 */

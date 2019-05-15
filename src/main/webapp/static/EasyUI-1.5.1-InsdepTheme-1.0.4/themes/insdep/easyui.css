@@ -1606,7 +1606,7 @@
   background: #ccc;
 }
 .datagrid-mask-msg {
-  border-color: #717171;
+  border-color: #99cc33;
 }
 .datagrid-toolbar,
 .datagrid-pager {
@@ -1635,10 +1635,10 @@
 .datagrid-header td.datagrid-header-over {
   cursor: default;
 }
-.datagrid-row-over{background:#e4efff;}
-.datagrid-header td.datagrid-header-over{background:#ebf7ff;}
+.datagrid-row-over{background: #66cccc;}
+.datagrid-header td.datagrid-header-over{background: #66cccc;}
 .datagrid-row-selected {
-  background: #e5e5e5;
+  background-color: #66cccc;
 
 }
 .datagrid-row-editing .textbox,

@@ -78,21 +78,21 @@ public class SupplierAdminController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping("/save")
+@RequestMapping("/save")
 	@RequiresPermissions(value = { "供应商管理" })
 	public Map<String,Object> save(Supplier supplier)throws Exception{
 		if(supplier.getId()!=null){ // 写入日志
-			logService.save(new Log(Log.UPDATE_ACTION,"更新供应商信息"+supplier)); 
+			logService.save(new Log(Log.UPDATE_ACTION,"更新供应商信息"+supplier));
 		}else{
-			logService.save(new Log(Log.ADD_ACTION,"添加供应商信息"+supplier)); 
+			logService.save(new Log(Log.ADD_ACTION,"添加供应商信息"+supplier));
 		}
 		Map<String, Object> resultMap = new HashMap<>();
-		supplierService.save(supplier);			
+		supplierService.save(supplier);
 		resultMap.put("success", true);
 		return resultMap;
 	}
-	
-	
+
+
 	/**
 	 * 删除供应商信息
 	 * @return
