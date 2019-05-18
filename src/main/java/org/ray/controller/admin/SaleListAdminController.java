@@ -69,7 +69,7 @@ public class SaleListAdminController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/list")
-	@RequiresPermissions(value = { "销售单据查询" })
+	@RequiresPermissions(value = { "销售单查询" })
 	public Map<String,Object> list(SaleList saleList)throws Exception{
 		Map<String, Object> resultMap = new HashMap<>();
 		List<SaleList> saleListList=saleListService.list(saleList, Direction.DESC, "saleDate");
@@ -84,7 +84,7 @@ public class SaleListAdminController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/listGoods")
-	@RequiresPermissions(value = { "销售单据查询" })
+	@RequiresPermissions(value = { "销售单查询" })
 	public Map<String,Object> listGoods(Integer saleListId)throws Exception{
 		if(saleListId==null){
 			return null;
@@ -103,7 +103,7 @@ public class SaleListAdminController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/listCount")
-	@RequiresPermissions(value = { "客户统计" })
+	@RequiresPermissions(value = { "客户单据统计" })
 	public Map<String,Object> listCount(SaleList saleList,SaleListGoods saleListGoods)throws Exception{
 		Map<String, Object> resultMap = new HashMap<>();
 		List<SaleList> saleListList=saleListService.list(saleList, Direction.DESC, "saleDate");
@@ -127,7 +127,7 @@ public class SaleListAdminController {
 	 */
 	@ResponseBody
 	@RequestMapping("/getSaleNumber")
-	@RequiresPermissions(value = {"销售出库"})
+	@RequiresPermissions(value = {"商品销售出库"})
 	public String genBillCode(String type)throws Exception{
 		StringBuffer biilCodeStr=new StringBuffer();
 		biilCodeStr.append("XS");
@@ -149,7 +149,7 @@ public class SaleListAdminController {
 	 */
 	@ResponseBody
 	@RequestMapping("/update")
-	@RequiresPermissions(value = {"客户统计"})
+	@RequiresPermissions(value = {"客户单据统计"})
 	public Map<String,Object> update(Integer id)throws Exception{
 		Map<String, Object> resultMap = new HashMap<>();
 		SaleList saleList=saleListService.findById(id);
@@ -168,7 +168,7 @@ public class SaleListAdminController {
 	 */
 	@ResponseBody
 	@RequestMapping("/save")
-	@RequiresPermissions(value = {"销售出库"})
+	@RequiresPermissions(value = {"商品销售出库"})
 	public Map<String,Object> save(SaleList saleList,String goodsJson)throws Exception{
 		Map<String, Object> resultMap = new HashMap<>();
 		saleList.setUser(userService.findByUserName((String) SecurityUtils.getSubject().getPrincipal())); // 设置操作用户
@@ -187,7 +187,7 @@ public class SaleListAdminController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/delete")
-	@RequiresPermissions(value = { "销售单据查询" })
+	@RequiresPermissions(value = { "销售单查询" })
 	public Map<String,Object> delete(Integer id)throws Exception{
 		Map<String, Object> resultMap = new HashMap<>();
 		saleListService.delete(id);

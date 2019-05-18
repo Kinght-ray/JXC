@@ -80,7 +80,7 @@ public class UserAdminController {
 	public String logout()throws Exception{
 		logService.save(new Log(Log.LOGOUT_ACTION,"用户注销"));
 		SecurityUtils.getSubject().logout();
-		return "redirect:/login.html";
+		return "redirect:/Login.html";
 	}
 	
 	/**

@@ -62,13 +62,11 @@ public class CustomerReturnListAdminController {
 	/**
 	 * 根据条件分页查询客户退货单信息
 	 * @param customerReturnList
-	 * @param page
-	 * @param rows
 	 * @return
 	 * @throws Exception
 	 */
 	@RequestMapping("/list")
-	@RequiresPermissions(value = { "客户退货查询" })
+	@RequiresPermissions(value = { "客户单查询" })
 	public Map<String,Object> list(CustomerReturnList customerReturnList)throws Exception{
 		Map<String, Object> resultMap = new HashMap<>();
 		List<CustomerReturnList> customerReturnListList=customerReturnListService.list(customerReturnList, Direction.DESC, "customerReturnDate");
@@ -83,7 +81,7 @@ public class CustomerReturnListAdminController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/listGoods")
-	@RequiresPermissions(value = { "客户退货查询" })
+	@RequiresPermissions(value = { "客户单查询" })
 	public Map<String,Object> listGoods(Integer customerReturnListId)throws Exception{
 		if(customerReturnListId==null){
 			return null;
@@ -96,13 +94,13 @@ public class CustomerReturnListAdminController {
 	
 	/**
 	 * 客户统计 获取客户退货单的所有商品信息
-	 * @param purchaseList
-	 * @param purchaseListGoods
+	 * @param customerReturnList
+	 * @param customerReturnListGoods
 	 * @return
 	 * @throws Exception
 	 */
 	@RequestMapping("/listCount")
-	@RequiresPermissions(value = { "客户统计" })
+	@RequiresPermissions(value = { "客户单据统计" })
 	public Map<String,Object> listCount(CustomerReturnList customerReturnList,CustomerReturnListGoods customerReturnListGoods)throws Exception{
 		Map<String, Object> resultMap = new HashMap<>();
 		List<CustomerReturnList> customerReturnListList=customerReturnListService.list(customerReturnList, Direction.DESC, "customerReturnDate");
@@ -171,7 +169,7 @@ public class CustomerReturnListAdminController {
 	 */
 	@ResponseBody
 	@RequestMapping("/update")
-	@RequiresPermissions(value = {"客户统计"})
+	@RequiresPermissions(value = {"客户单据统计"})
 	public Map<String,Object> update(Integer id)throws Exception{
 		Map<String, Object> resultMap = new HashMap<>();
 		CustomerReturnList customerReturnList=customerReturnListService.findById(id);
@@ -188,7 +186,7 @@ public class CustomerReturnListAdminController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/delete")
-	@RequiresPermissions(value = { "客户退货查询" })
+	@RequiresPermissions(value = { "客户单查询" })
 	public Map<String,Object> delete(Integer id)throws Exception{
 		Map<String, Object> resultMap = new HashMap<>();
 		customerReturnListService.delete(id);

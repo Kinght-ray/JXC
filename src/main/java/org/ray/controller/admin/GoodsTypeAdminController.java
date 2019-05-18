@@ -40,7 +40,7 @@ public class GoodsTypeAdminController {
 	 * @throws Exception
 	 */
     @PostMapping("/loadTreeInfo")
-	@RequiresPermissions(value = { "商品管理","进货入库","当前库存查询"},logical=Logical.OR)
+	@RequiresPermissions(value = { "商品信息管理","商品入库","库存信息查询"},logical=Logical.OR)
 	public String loadTreeInfo()throws Exception{
     	logService.save(new Log(Log.SEARCH_ACTION,"查询商品类别信息")); // 写入日志
 		String s = getAllByParentId(-1).toString();
@@ -55,7 +55,7 @@ public class GoodsTypeAdminController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/save")
-	@RequiresPermissions(value = { "商品管理","进货入库"},logical=Logical.OR)
+	@RequiresPermissions(value = { "商品信息管理","商品入库"},logical=Logical.OR)
 	public Map<String,Object> save(String name,Integer parentId)throws Exception{
 		
 		Map<String, Object> resultMap = new HashMap<>();
@@ -85,7 +85,7 @@ public class GoodsTypeAdminController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/delete")
-	@RequiresPermissions(value = { "商品管理","进货入库"},logical=Logical.OR)
+	@RequiresPermissions(value = { "商品信息管理","商品入库"},logical=Logical.OR)
 	public Map<String,Object> delete(Integer id)throws Exception{
 		Map<String, Object> resultMap = new HashMap<>();
 		GoodsType goodsType=goodsTypeService.findById(id); 

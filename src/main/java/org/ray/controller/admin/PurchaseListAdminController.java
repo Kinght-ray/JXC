@@ -66,7 +66,7 @@ public class PurchaseListAdminController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/list")
-	@RequiresPermissions(value = { "进货单据查询" })
+	@RequiresPermissions(value = { "进货单查询" })
 	public Map<String,Object> list(PurchaseList purchaseList)throws Exception{
 		Map<String, Object> resultMap = new HashMap<>();
 		List<PurchaseList> purchaseListList=purchaseListService.list(purchaseList, Direction.DESC, "purchaseDate");
@@ -81,7 +81,7 @@ public class PurchaseListAdminController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/listGoods")
-	@RequiresPermissions(value = { "进货单据查询" })
+	@RequiresPermissions(value = { "进货单查询" })
 	public Map<String,Object> listGoods(Integer purchaseListId)throws Exception{
 		if(purchaseListId==null){
 			return null;
@@ -100,7 +100,7 @@ public class PurchaseListAdminController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/listCount")
-	@RequiresPermissions(value = { "客户统计" })
+	@RequiresPermissions(value = { "客户单据统计" })
 	public Map<String,Object> listCount(PurchaseList purchaseList,PurchaseListGoods purchaseListGoods)throws Exception{
 		Map<String, Object> resultMap = new HashMap<>();
 		List<PurchaseList> purchaseListList=purchaseListService.list(purchaseList, Direction.DESC, "purchaseDate");
@@ -124,7 +124,7 @@ public class PurchaseListAdminController {
 	 */
 	@ResponseBody
 	@RequestMapping("/getPurchaseNumber")
-	@RequiresPermissions(value = {"进货入库"})
+	@RequiresPermissions(value = {"商品入库"})
 	public String genBillCode(String type)throws Exception{
 		StringBuffer biilCodeStr=new StringBuffer();
 		biilCodeStr.append("JH");
@@ -147,7 +147,7 @@ public class PurchaseListAdminController {
 	 */
 	@ResponseBody
 	@RequestMapping("/save")
-	@RequiresPermissions(value = {"进货入库"})
+	@RequiresPermissions(value = {"商品入库"})
 	public Map<String,Object> save(PurchaseList purchaseList,String goodsJson)throws Exception{
 		Map<String, Object> resultMap = new HashMap<>();
 		purchaseList.setUser(userService.findByUserName((String) SecurityUtils.getSubject().getPrincipal())); // 设置操作用户
@@ -167,7 +167,7 @@ public class PurchaseListAdminController {
 	 */
 	@ResponseBody
 	@RequestMapping("/update")
-	@RequiresPermissions(value = {"供应商统计"})
+	@RequiresPermissions(value = {"供应商单据统计"})
 	public Map<String,Object> update(Integer id)throws Exception{
 		Map<String, Object> resultMap = new HashMap<>();
 		PurchaseList purchaseList=purchaseListService.findById(id);
@@ -184,7 +184,7 @@ public class PurchaseListAdminController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/delete")
-	@RequiresPermissions(value = { "进货单据查询" })
+	@RequiresPermissions(value = { "进货单查询" })
 	public Map<String,Object> delete(Integer id)throws Exception{
 		Map<String, Object> resultMap = new HashMap<>();
 		purchaseListService.delete(id);

@@ -1,5 +1,6 @@
 package org.ray.service.impl;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -86,9 +87,10 @@ public class SaleListServiceImpl implements SaleListService{
 					}
 					if(saleList.getBSaleDate()!=null){
 						predicate.getExpressions().add(cb.greaterThanOrEqualTo(root.get("saleDate"), saleList.getBSaleDate()));
+
 					}
-					if(saleList.getBSaleDate()!=null){
-						predicate.getExpressions().add(cb.lessThanOrEqualTo(root.get("saleDate"), saleList.getBSaleDate()));
+					if(saleList.getESaleDate()!=null){
+						predicate.getExpressions().add(cb.lessThanOrEqualTo(root.get("saleDate"), saleList.getESaleDate()));
 					}
 				}
 				return predicate;

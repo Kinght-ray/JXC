@@ -43,7 +43,7 @@ public class SupplierAdminController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/list")
-	@RequiresPermissions(value = { "供应商管理" })
+	@RequiresPermissions(value = { "供应商信息管理" })
 	public Map<String,Object> list(Supplier supplier, @RequestParam(value="page",required=false)Integer page, @RequestParam(value="rows",required=false)Integer rows)throws Exception{
 		List<Supplier> supplierList=supplierService.list(supplier, page, rows, Direction.ASC, "id");
 		Long total=supplierService.getCount(supplier);
@@ -62,7 +62,7 @@ public class SupplierAdminController {
 	 */
 	@ResponseBody
 	@RequestMapping("/comboList")
-	@RequiresPermissions(value = {"进货入库","退货出库","进货单据查询","退货单据查询"},logical=Logical.OR)
+	@RequiresPermissions(value = {"商品入库","商品出库","进货单查询","退货单查询"},logical=Logical.OR)
 	public List<Supplier> comboList(String q)throws Exception{
 		if(q==null){
 			q="";
@@ -79,7 +79,7 @@ public class SupplierAdminController {
 	 * @throws Exception
 	 */
 @RequestMapping("/save")
-	@RequiresPermissions(value = { "供应商管理" })
+	@RequiresPermissions(value = { "供应商信息管理" })
 	public Map<String,Object> save(Supplier supplier)throws Exception{
 		if(supplier.getId()!=null){ // 写入日志
 			logService.save(new Log(Log.UPDATE_ACTION,"更新供应商信息"+supplier));
@@ -99,7 +99,7 @@ public class SupplierAdminController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/delete")
-	@RequiresPermissions(value = { "供应商管理" })
+	@RequiresPermissions(value = { "供应商信息管理" })
 	public Map<String,Object> delete(String ids)throws Exception{
 		Map<String, Object> resultMap = new HashMap<>();
 		String []idsStr=ids.split(",");

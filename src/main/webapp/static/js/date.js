@@ -1,3 +1,4 @@
+
 function genTodayStr(){
 	var date = new Date();
 	var month=(date.getMonth()+1)<10?"0"+(date.getMonth()+1):(date.getMonth()+1);
@@ -24,12 +25,14 @@ function genLastWeekDayStr(){
 
 function formatZero(n){
 	if(n<10){
-		return "0"+n;
+		return "0"+ n;
 	}else{
 		return n;
 	}
 }
-//处理页面时间截问题
+
+
+//页面时间截转换
 function add0(m){return m<10?'0'+m:m }
 function formatDate(timestamp) {
 	//timestamp是整数，否则要parseInt转换

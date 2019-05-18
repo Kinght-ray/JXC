@@ -51,7 +51,7 @@ public class GoodsAdminContrller {
 	 * @throws Exception
 	 */
 	@RequestMapping("/list")
-	@RequiresPermissions(value = { "商品管理","进货入库"},logical=Logical.OR)
+	@RequiresPermissions(value = { "商品信息管理","商品入库"},logical=Logical.OR)
 	public Map<String,Object> list(Goods goods, @RequestParam(value="page",required=false)Integer page, @RequestParam(value="rows",required=false)Integer rows)throws Exception{
 		Map<String, Object> resultMap = new HashMap<>();
 		List<Goods> goodsList=goodsService.list(goods, page, rows, Direction.ASC, "id");
@@ -71,7 +71,7 @@ public class GoodsAdminContrller {
 	 * @throws Exception
 	 */
 	@RequestMapping("/listInventory")
-	@RequiresPermissions(value = { "当前库存查询" })
+	@RequiresPermissions(value = { "库存信息查询" })
 	public Map<String,Object> listInventory(Goods goods,@RequestParam(value="page",required=false)Integer page,@RequestParam(value="rows",required=false)Integer rows)throws Exception{
 		Map<String, Object> resultMap = new HashMap<>();
 		List<Goods> goodsList=goodsService.list(goods, page, rows, Direction.ASC, "id");
@@ -91,7 +91,7 @@ public class GoodsAdminContrller {
 	 * @throws Exception
 	 */
 	@RequestMapping("/listAlarm")
-	@RequiresPermissions(value = { "库存报警" })
+	@RequiresPermissions(value = { "库存下限警告" })
 	public Map<String,Object> listAlart()throws Exception{
 		Map<String, Object> resultMap = new HashMap<>();
 		List<Goods> alarmGoodsList=goodsService.listAlarm();
@@ -106,7 +106,7 @@ public class GoodsAdminContrller {
 	 * @throws Exception
 	 */
 	@RequestMapping("/listNoInventoryQuantity")
-	@RequiresPermissions(value = { "期初库存" })
+	@RequiresPermissions(value = { "期初信息管理" })
 	public Map<String,Object> listNoInventoryQuantity(@RequestParam(value="codeOrName",required=false)String codeOrName,@RequestParam(value="page",required=false)Integer page,@RequestParam(value="rows",required=false)Integer rows)throws Exception{
 		Map<String, Object> resultMap = new HashMap<>();
 		List<Goods> goodsList=goodsService.listNoInventoryQuantityByCodeOrName(codeOrName, page, rows, Direction.ASC, "id");
@@ -125,7 +125,7 @@ public class GoodsAdminContrller {
 	 * @throws Exception
 	 */
 	@RequestMapping("/listHasInventoryQuantity")
-	@RequiresPermissions(value = { "期初库存" })
+	@RequiresPermissions(value = { "库存信息管理" })
 	public Map<String,Object> listHasInventoryQuantity(@RequestParam(value="page",required=false)Integer page,@RequestParam(value="rows",required=false)Integer rows)throws Exception{
 		Map<String, Object> resultMap = new HashMap<>();
 		List<Goods> goodsList=goodsService.listHasInventoryQuantity(page, rows, Direction.ASC, "id");
@@ -143,7 +143,7 @@ public class GoodsAdminContrller {
 	 * @throws Exception
 	 */
 	@RequestMapping("/deleteStock")
-	@RequiresPermissions(value = { "期初库存" })
+	@RequiresPermissions(value = { "库存信息管理" })
 	public Map<String,Object> deleteStock(Integer id)throws Exception{
 		Map<String, Object> resultMap = new HashMap<>();
 		Goods goods=goodsService.findById(id);
@@ -165,7 +165,7 @@ public class GoodsAdminContrller {
 	 */
 
 	@RequestMapping("/genGoodsCode")
-	@RequiresPermissions(value = { "商品管理" })
+	@RequiresPermissions(value = { "商品信息管理" })
 	public String genGoodsCode()throws Exception{
 		String maxGoodsCode=goodsService.getMaxGoodsCode();
 		if(StringUtil.isNotEmpty(maxGoodsCode)){
@@ -188,7 +188,7 @@ public class GoodsAdminContrller {
 	 * @throws Exception
 	 */
 	@RequestMapping("/save")
-	@RequiresPermissions(value = { "商品管理","进货入库"},logical=Logical.OR)
+	@RequiresPermissions(value = { "商品信息管理","商品入库"},logical=Logical.OR)
 	public Map<String,Object> save(Goods goods)throws Exception{
 		if(goods.getId()!=null){ // 写入日志
 			logService.save(new Log(Log.UPDATE_ACTION,"更新商品信息"+goods)); 
@@ -211,7 +211,7 @@ public class GoodsAdminContrller {
 	 * @throws Exception
 	 */
 	@RequestMapping("/saveStore")
-	@RequiresPermissions(value = { "期初库存" })
+	@RequiresPermissions(value = { "库存信息管理" })
 	public Map<String,Object> saveStore(Integer id,Integer num,Float price)throws Exception{
 		Map<String, Object> resultMap = new HashMap<>();
 		Goods goods=goodsService.findById(id);
@@ -230,7 +230,7 @@ public class GoodsAdminContrller {
 	 * @throws Exception
 	 */
 	@RequestMapping("/delete")
-	@RequiresPermissions(value = { "商品管理" })
+	@RequiresPermissions(value = { "商品信息管理" })
 	public Map<String,Object> delete(Integer id)throws Exception{
 		Map<String, Object> resultMap = new HashMap<>();
 		Goods goods=goodsService.findById(id);

@@ -62,13 +62,11 @@ public class ReturnListAdminController {
 	/**
 	 * 根据条件分页查询退货单信息
 	 * @param returnList
-	 * @param page
-	 * @param rows
 	 * @return
 	 * @throws Exception
 	 */
 	@RequestMapping("/list")
-	@RequiresPermissions(value = { "退货单据查询" })
+	@RequiresPermissions(value = { "退货单查询" })
 	public Map<String,Object> list(ReturnList returnList)throws Exception{
 		Map<String, Object> resultMap = new HashMap<>();
 		List<ReturnList> returnListList=returnListService.list(returnList, Direction.DESC, "returnDate");
@@ -83,7 +81,7 @@ public class ReturnListAdminController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/listGoods")
-	@RequiresPermissions(value = { "退货单据查询" })
+	@RequiresPermissions(value = { "退货单查询" })
 	public Map<String,Object> listGoods(Integer returnListId)throws Exception{
 		if(returnListId==null){
 			return null;
@@ -96,13 +94,13 @@ public class ReturnListAdminController {
 	
 	/**
 	 * 客户统计 获取退货单的所有商品信息
-	 * @param purchaseList
-	 * @param purchaseListGoods
+	 * @param returnList
+	 * @param returnListGoods
 	 * @return
 	 * @throws Exception
 	 */
 	@RequestMapping("/listCount")
-	@RequiresPermissions(value = { "客户统计" })
+	@RequiresPermissions(value = { "客户单据统计" })
 	public Map<String,Object> listCount(ReturnList returnList,ReturnListGoods returnListGoods)throws Exception{
 		Map<String, Object> resultMap = new HashMap<>();
 		List<ReturnList> returnListList=returnListService.list(returnList, Direction.DESC, "returnDate");
@@ -126,7 +124,7 @@ public class ReturnListAdminController {
 	 */
 	@ResponseBody
 	@RequestMapping("/getReturnNumber")
-	@RequiresPermissions(value = {"退货出库"})
+	@RequiresPermissions(value = {"商品出库"})
 	public String genBillCode(String type)throws Exception{
 		StringBuffer biilCodeStr=new StringBuffer();
 		biilCodeStr.append("TH");
@@ -149,7 +147,7 @@ public class ReturnListAdminController {
 	 */
 	@ResponseBody
 	@RequestMapping("/save")
-	@RequiresPermissions(value = {"退货出库"})
+	@RequiresPermissions(value = {"商品出库"})
 	public Map<String,Object> save(ReturnList returnList,String goodsJson)throws Exception{
 		Map<String, Object> resultMap = new HashMap<>();
 		returnList.setUser(userService.findByUserName((String) SecurityUtils.getSubject().getPrincipal())); // 设置操作用户
@@ -169,7 +167,7 @@ public class ReturnListAdminController {
 	 */
 	@ResponseBody
 	@RequestMapping("/update")
-	@RequiresPermissions(value = {"供应商统计"})
+	@RequiresPermissions(value = {"供应商单据统计"})
 	public Map<String,Object> update(Integer id)throws Exception{
 		Map<String, Object> resultMap = new HashMap<>();
 		ReturnList returnList=returnListService.findById(id);
@@ -186,7 +184,7 @@ public class ReturnListAdminController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/delete")
-	@RequiresPermissions(value = { "退货单据查询" })
+	@RequiresPermissions(value = { "退货单查询" })
 	public Map<String,Object> delete(Integer id)throws Exception{
 		Map<String, Object> resultMap = new HashMap<>();
 		returnListService.delete(id);

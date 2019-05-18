@@ -101,7 +101,7 @@ public class DamageListAdminController {
 	 */
 	@ResponseBody
 	@RequestMapping("/getDamageNumber")
-	@RequiresPermissions(value = {"商品报损"})
+	@RequiresPermissions(value = {"商品报损记录"})
 	public String genBillCode(String type)throws Exception{
 		StringBuffer biilCodeStr=new StringBuffer();
 		biilCodeStr.append("BS");
@@ -126,14 +126,14 @@ public class DamageListAdminController {
 	 */
 	@ResponseBody
 	@RequestMapping("/save")
-	@RequiresPermissions(value = {"商品报损"})
+	@RequiresPermissions(value = {"商品报损记录"})
 	public Map<String,Object> save(DamageList damageList,String goodsJson)throws Exception{
 		Map<String, Object> resultMap = new HashMap<>();
 		damageList.setUser(userService.findByUserName((String) SecurityUtils.getSubject().getPrincipal())); // 设置操作用户
 		Gson gson = new Gson();
 		List<DamageListGoods> plgList=gson.fromJson(goodsJson, new TypeToken<List<DamageListGoods>>(){}.getType());
 		damageListService.save(damageList, plgList);
-		System.out.println("------------------------商品报损-----------------------");
+//		System.out.println("------------------------商品报损-----------------------");
 		System.out.println(damageList.toString());
 		logService.save(new Log(Log.ADD_ACTION,"添加报损单"));
 		resultMap.put("success", true);

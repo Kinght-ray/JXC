@@ -45,7 +45,7 @@ public class CustomerAdminController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/list")
-	@RequiresPermissions(value = { "客户管理" })
+	@RequiresPermissions(value = { "客户信息管理" })
 	public Map<String,Object> list(Customer customer, @RequestParam(value="page",required=false)Integer page, @RequestParam(value="rows",required=false)Integer rows)throws Exception{
 		List<Customer> customerList=customerService.list(customer, page, rows, Direction.ASC, "id");
 		Long total=customerService.getCount(customer);
@@ -64,7 +64,7 @@ public class CustomerAdminController {
 	 */
 	@ResponseBody
 	@RequestMapping("/comboList")
-	@RequiresPermissions(value = {"销售出库","客户退货","销售单据查询","客户退货查询"},logical=Logical.OR)
+	@RequiresPermissions(value = {"商品销售出库","客户退货","销售单据查询","客户退货查询"},logical=Logical.OR)
 	public List<Customer> comboList(String q)throws Exception{
 		if(q==null){
 			q="";
@@ -80,7 +80,7 @@ public class CustomerAdminController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/save")
-	@RequiresPermissions(value = { "客户管理" })
+	@RequiresPermissions(value = { "客户信息管理" })
 	public Map<String,Object> save(Customer customer)throws Exception{
 		if(customer.getId()!=null){ // 写入日志
 			logService.save(new Log(Log.UPDATE_ACTION,"更新客户信息"+customer)); 
@@ -101,7 +101,7 @@ public class CustomerAdminController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/delete")
-	@RequiresPermissions(value = { "客户管理" })
+	@RequiresPermissions(value = { "客户信息管理" })
 	public Map<String,Object> delete(String ids)throws Exception{
 		Map<String, Object> resultMap = new HashMap<>();
 		String []idsStr=ids.split(",");

@@ -32,7 +32,7 @@ public class GoodsUnitAdminController {
 	private LogService logService;
 	
 	@RequestMapping("/comboList")
-	@RequiresPermissions(value = { "商品管理" })
+	@RequiresPermissions(value = { "商品信息管理" })
 	public List<GoodsUnit> comboList()throws Exception{
 		return goodsUnitService.listAll();
 	}
@@ -43,7 +43,7 @@ public class GoodsUnitAdminController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/listAll")
-	@RequiresPermissions(value = { "商品管理","进货入库"},logical=Logical.OR)
+	@RequiresPermissions(value = { "商品信息管理","商品入库"},logical=Logical.OR)
 	public Map<String,Object> listAll()throws Exception{
 		List<GoodsUnit> goodsUnitList=goodsUnitService.listAll();
 		Map<String, Object> resultMap = new HashMap<>();
@@ -59,7 +59,7 @@ public class GoodsUnitAdminController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/save")
-	@RequiresPermissions(value = { "商品管理","进货入库"},logical=Logical.OR)
+	@RequiresPermissions(value = { "商品信息管理","商品入库"},logical=Logical.OR)
 	public Map<String,Object> save(GoodsUnit goodsUnit)throws Exception{
 		Map<String, Object> resultMap = new HashMap<>();
 		logService.save(new Log(Log.ADD_ACTION,"添加商品单位信息"+goodsUnit)); 
@@ -71,12 +71,11 @@ public class GoodsUnitAdminController {
 	/**
 	 * 删除商品单位信息
 	 * @param id
-	 * @param response
 	 * @return
 	 * @throws Exception
 	 */
 	@RequestMapping("/delete")
-	@RequiresPermissions(value = { "商品管理","进货入库"},logical=Logical.OR)
+	@RequiresPermissions(value = { "商品信息管理","商品入库"},logical=Logical.OR)
 	public Map<String,Object> delete(Integer id)throws Exception{
 		Map<String, Object> resultMap = new HashMap<>();
 		logService.save(new Log(Log.DELETE_ACTION,"删除商品单位信息"+goodsUnitService.findById(id)));  // 写入日志

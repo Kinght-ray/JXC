@@ -7,3 +7,4 @@ ENV LANG C.UTF-8
 
 #centos7镜像支持中文的目的
 ENV LC_ALL "zh_CN.UTF-8"
+

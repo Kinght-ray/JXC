@@ -14,7 +14,7 @@ import java.util.List;
 public class DateUtil {
 
 	/**
-	 * 把日期对象根据生成指定格式的字符串
+	 * 把日期对象根据生成指定drawImage格式的字符串
 	 * @param date
 	 * @param format
 	 * @return

@@ -51,4 +51,21 @@ public class SaleList {
 	@Column(length=1000)
 	private String remarks; // 备注
 
+	@Override
+	public String toString() {
+		final StringBuffer sb = new StringBuffer("SaleList{");
+		sb.append("id=").append(id);
+		sb.append(", saleNumber='").append(saleNumber).append('\'');
+		sb.append(", customer=").append(customer);
+		sb.append(", saleDate=").append(saleDate);
+		sb.append(", bSaleDate=").append(bSaleDate);
+		sb.append(", eSaleDate=").append(eSaleDate);
+		sb.append(", amountPayable=").append(amountPayable);
+		sb.append(", amountPaid=").append(amountPaid);
+		sb.append(", state=").append(state);
+		sb.append(", user=").append(user);
+		sb.append(", remarks='").append(remarks).append('\'');
+		sb.append('}');
+		return sb.toString();
+	}
 }
